@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+<title>
+Madara Vet &#124; Вашият бутиков ветеринарен кабинет в центъра на София</title>
+  <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+  <link rel="stylesheet" href="custom.css" />
+  <style>
+    body { font-family: 'Advent Pro', sans-serif; }
+  
+
+
+#section2 {
+   height: max(20vmin, 6vmax);
+    min-height: unset;
+}
+section#scrollRibbon >div{
+  display:flex;
+  align-items:center;
+}
+
+.image-cards{ display: grid;
+
+  > * {
+    grid-area: 1 / 1 / 2 / 2;}
+  }
+  </style>
+</head>
+<body class="bg-[#F6FEFF] text-blue-900 overflow-x-hidden relative">
+<div id="loader" class="bg-[#177DDF] text-white border-radius-[999px]">
+  Loading...
+</div>
+
+  <!-- Section 1: Top bar -->
+  <header class="fixed max-w-screen-xl mx-auto mt-4 px-4 md:px-8 z-[8888] left-0 right-0">
+  <div class="bg-white rounded-[18px] shadow-md py-3 px-6 flex justify-between items-center">
+    <img src="images/logo.svg" alt="MadaraVet logo" class="h-10 md:h-12" />
+    <div class="additional-info flex items-center gap-4 text-lg md:text-lg font-semibold ">
+      <span class="text-[#177DDF] cursor-pointer" data-i18n="header_worktime"></span>
+      <span class="text-[#177DDF]">+888 198 585</span>
+      <span class="text-[#177DDF]">024428585</span>
+      <a id="language-toggle" href="#" class="text-[#FF8F8F]" data-i18n="header_language"></a>
+
+      <!-- Animated Circular Menu -->
+      <div id="menuCircle"
+           class="relative w-[60px] h-[60px] rounded-full text-white bg-[#167DFF] flex flex-col items-center justify-center space-y-4 text-xl font-bold text-white flex justify-start text-2xl z-[9000]">
+        <div class="circle absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex rounded-full bg-[#167DFF] w-[60px] h-[60px] z-2"></div>
+        <div class="bars absolute flex flex-col justify-between w-8 h-3 z-60 top-2 left-1/2 -translate-x-1/2 mt-2">    
+          <div class="line h-[2px] bg-white rounded"></div>
+          <div class="line h-[2px] bg-white rounded"></div>
+        </div>
+
+        <img src="images/logo_white.svg" alt="Logo" class="relative w-40 mb-4 opacity-0" />
+        <ul class="opacity-0 relative transition-opacity duration-500 ease-in-out flex flex-col items-center space-y-4">	
+          <a href="#about" data-i18n="nav_about"></a>
+         
+          <a href="#services" data-i18n="nav_services"></a>
+    
+          <a href="#blog" data-i18n="nav_blog"></a>
+          <a href="#contact" data-i18n="nav_contact"></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+   
+  <!-- Section 2: Hero layout -->
+ <section id="section1" class="relative w-full min-h-screen flex align-items-center justify-start flex-col">
+  <div class="max-w-screen-xl mx-auto pt-32 px-6 md:pt-32 relative pb-32 items-center justify-center text-center">
+    <div class="relative z-[89] flex align-items-center justify-center flex-col">
+      <div class="flex gap-4 mb-10 justify-center flex-col md:flex-row items-start md:order-2">
+        <div class="flex w-auto infobox1 split-text items-center gap-2 bg-[#177DDF] text-white px-4 py-2 rounded-full text-lg">
+          <img src="images/pin.svg" class="w-4 h-4" alt="pin" />
+          <span data-i18n="section1_address"></span>
+        </div>
+        <div class="flex w-auto infobox2 split-text items-center gap-2 bg-[#177DDF] text-white px-4 py-2 rounded-full text-lg">
+          <img src="images/phone.svg" class="w-4 h-4" alt="phone" />
+          <span>+888 198 585</span>
+        </div>
+      </div>
+
+      <h1 class="text-[#E3362D] text-4xl split-text md:text-8xl font-bold leading-tight text-center mb-8">
+        <span data-i18n="section1_title_line1"></span><br>
+        <span data-i18n="section1_title_line2"></span><br>
+        <span data-i18n="section1_title_line3"></span>
+      </h1>
+    </div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="circle-init2 absolute left-[-100px] md:left-[200px] bottom-[100px] w-[360px] h-[360px] rounded-full bg-[#FFF5DA] z-[74]"></div>
+  <img src="images/puppies.png" alt="Left Puppies" class="puppies1 absolute left-[-100px] md:left-[200px] bottom-[5vh] w-auto h-[40vh] max-w-[90vw] md:h-[60vh] md:w-auto z-[81]" />
+  <div class="circle-init1 absolute right-[-160px] top-[180px] w-[560px] h-[560px] rounded-full bg-[#D8F1FF] z-[76]"></div>
+  <img src="images/puppies2.png" alt="Dr. Juliana Sokolova" class="absolute puppies2 right-[0] w-auto h-[55vh] max-w-none md:h-[90vh] md:w-auto bottom-[-50px] md:bottom-[-10vh] z-[82]" />
+</section>
+<section id="section2" class="relative w-full min-h-screen flex items-center justify-center px-4 py-20 z-[106]">
+  <div id="scrollRibbon" class="bg-[#FFF0F0] py-4 relative z-40">
+    <div class="relative w-full">
+      <div id="scrollTrack" class="whitespace-nowrap text-[#11294B] text-6xl font-light flex gap-6 px-4">
+        <span data-i18n="section2_ribbon"></span>
+        <span data-i18n="section2_ribbon"></span>
+        <span data-i18n="section2_ribbon"></span>
+        <span data-i18n="section2_ribbon"></span>
+        <span data-i18n="section2_ribbon"></span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="relative w-screen flex items-start justify-center z-30" id="section3">
+  <div id="floatingBallsContainer" class="absolute top-0 left-0 w-full h-full pointer-events-none z-[9999]">
+
+    <!-- Bubble 1 -->
+    <div class="circle-card z-68 absolute top-1/2 transform -translate-y-1/2 left-1/2 w-[30vh] h-[30vh] flex flex-col items-center justify-center text-center px-4">
+      <div class="circle absolute bg-[#FFF5DA] w-full h-full flex rounded-full z-[-1]"></div>
+      <img src="images/ico1.svg" alt="Icon" class="w-6 mb-2" />
+      <p class="text-[#E3362D] text-xl font-bold leading-tight" data-i18n="section3_card1">ДИАГНОСТИЧНИ<br>ТЕСТОВЕ</p>
+    </div>
+
+    <!-- Bubble 2 -->
+    <div class="circle-card z-69 absolute top-1/2 left-1/2 transform -translate-y-1/2 w-[30vh] h-[30vh] rounded-full flex flex-col items-center justify-center text-center px-4">
+      <div class="circle absolute bg-[#FFEAEA] w-full h-full flex rounded-full z-[-1]"></div>
+      <img src="images/ico2.svg" alt="Icon" class="w-6 mb-2" />
+      <p class="text-[#E3362D] text-xl font-bold leading-tight" data-i18n="section3_card2">ИНДИВИДУАЛНО<br>НАСОЧЕНА<br>ПРОФИЛАКТИКА</p>
+    </div>
+
+    <!-- Bubble 3 -->
+    <div class="circle-card z-70 absolute top-1/2 left-1/2 transform -translate-y-1/2 w-[30vh] h-[30vh] rounded-full flex flex-col items-center justify-center text-center px-4">
+      <div class="circle absolute bg-[#E0FFD4] w-full h-full flex rounded-full z-[-1]"></div>
+      <img src="images/ico3.svg" alt="Icon" class="w-6 mb-2" />
+      <p class="text-[#E3362D] text-xl font-bold leading-tight" data-i18n="section3_card3">ХИРУРГИЧНО<br>ЛЕЧЕНИЕ</p>
+    </div>
+
+  </div>
+
+
+   <div class="absolute top-[-50px] left-0 w-100 h-100 md:w-[40vw] md:h-[50vh] " >
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 908 743" style="enable-background:new 0 0 908 743;" xml:space="preserve">
+
+
+<defs>
+ <mask id="theMask1" maskUnits="userSpaceOnUse">
+<path class="masker" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M731.1,86.1c-11.8-62.1-115.6-43.5-159.9-46c-22.2-1.2-60.7-0.5-78.1-17C476.4,7.3,411.6,0.5,325.6,8.4
+	c-25.3,2.3-56.8,5-76.3,23.8c-8.4,8.1-12.3,18.2-18.2,28C208.2,97.7,166,97.4,127.3,99.7c-26.2,1.6-55.4-1.4-79.5,11.5
+	c-29,15.6-36.7,50.9-36.2,81.8c1.2,74.7,7.3,149.2,12.1,223.7c1.8,28.5-1.5,62.1,10.9,88.7c11.8,25.1,41.4,37.1,67.2,39.9
+	c46,5,94.6,6.6,140.5-0.3c38.7-5.8,82.3-25,119.3-2.6c42.2,25.5,83.7,50.6,134.8,47.3c50.9-3.3,85.7-43.4,114.5-82.6
+	c19.4-26.3,45-35.2,75.1-21.5c21.5,9.8,45.8,38.3,19,57.5c-32.2,23.1-51.2-20-16.6-18.8c66.3,2.2,150.7,26.2,187.6,87
+	c21.4,35.1,23.5,76.7,16.9,116.5"/>
+<path class="masker" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M891.9,733.8c-0.4,2-0.8,3.9-1.2,5.9"/>
+    </mask>
+  </defs>
+ <g id="maskReveal1" mask="url(#theMask1)">
+  <path class="draw1 " stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M732,104.1c0.1-2.1,0.2-4.1,0.2-6"/>
+<path class="draw1" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M731.1,86.1c-11.8-62.1-115.6-43.5-159.9-46c-22.2-1.2-60.7-0.5-78.1-17C476.4,7.3,411.6,0.5,325.6,8.4
+	c-25.3,2.3-56.8,5-76.3,23.8c-8.4,8.1-12.3,18.2-18.2,28C208.2,97.7,166,97.4,127.3,99.7c-26.2,1.6-55.4-1.4-79.5,11.5
+	c-29,15.6-36.7,50.9-36.2,81.8c1.2,74.7,7.3,149.2,12.1,223.7c1.8,28.5-1.5,62.1,10.9,88.7c11.8,25.1,41.4,37.1,67.2,39.9
+	c46,5,94.6,6.6,140.5-0.3c38.7-5.8,82.3-25,119.3-2.6c42.2,25.5,83.7,50.6,134.8,47.3c50.9-3.3,85.7-43.4,114.5-82.6
+	c19.4-26.3,45-35.2,75.1-21.5c21.5,9.8,45.8,38.3,19,57.5c-32.2,23.1-51.2-20-16.6-18.8c66.3,2.2,150.7,26.2,187.6,87
+	c21.4,35.1,23.5,76.7,16.9,116.5"/>
+<path class="draw1" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M891.9,733.8c-0.4,2-0.8,3.9-1.2,5.9"/></g>
+</svg>
+
+
+    </div>
+
+  <!-- Image cards -->
+  <div class="image-cards relative z-20">
+    <!-- Service 1 -->
+    <div class="image-card flex w-[80vw] h-[80vh] md:w-auto md:h-auto max-w-[640px] max-h-[640px]">
+      <div class="image1 service">
+        <img src="images/service1.png" alt="Диагностика" class="rounded-xl w-full object-cover" data-i18n-alt="section3_img1" />
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="image-card flex w-[80vw] h-[80vh] md:w-auto md:h-auto max-w-[640px] max-h-[640px]">
+      <div class="image2 service">
+        <img src="images/service2.png" alt="Профилактика" class="rounded-xl w-full object-cover" data-i18n-alt="section3_img2" />
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="image-card flex w-[80vw] h-[80vh] md:w-auto md:h-auto max-w-[640px] max-h-[640px]">
+      <div class="image2 service">
+        <img src="images/service3.png" alt="Хирургия" class="rounded-xl w-full object-cover" data-i18n-alt="section3_img3" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+
+
+
+
+  <!-- Section 8: Image Reveal with Mask -->
+
+  
+
+  <section class="relative w-full overflow-hidden z-69 align-items-end " id="section4">
+
+ 
+ 
+    <div id="maskedImage" class="w-full overflow-hidden rounded-[40px]">
+  <img  src="images/landscape.jpg" alt="Dr.Juliana Sokolova" class="w-full h-auto" /></div>
+ 
+</section>
+
+
+
+
+<section class="relative w-full min-h-screen flex items-center justify-center px-4 py-20 z-[70] overflow-visible" id="section5">
+ 
+  <!-- Background SVG and circles stay unchanged -->
+     <div class="absolute top-[20vh] left-1/2 w-100 h-100 md:w-[40vw] md:h-[50vh] top-1/2 z-0" >
+ 
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 908 743" style="enable-background:new 0 0 908 743;" xml:space="preserve">
+<defs>
+    <mask id="theMask2" maskUnits="userSpaceOnUse">
+<path class="masker" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M175.9,103.2c-0.1-2.1-0.2-4.1-0.2-6"/>
+<path class="masker" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M176.8,85.2c11.8-62.1,115.6-43.5,159.9-46c22.2-1.2,60.7-0.5,78.1-17C431.6,6.4,496.4-0.4,582.4,7.6
+	c25.3,2.3,56.8,5,76.3,23.8c8.4,8.1,12.3,18.2,18.2,28c22.9,37.5,65.1,37.2,103.7,39.5c26.2,1.6,55.4-1.4,79.5,11.5
+	c29,15.6,36.7,50.9,36.2,81.8c-1.2,74.7-7.3,149.2-12.1,223.7c-1.8,28.5,1.5,62.1-10.9,88.7c-11.8,25.1-41.4,37.1-67.2,39.9
+	c-46,5-94.6,6.6-140.5-0.3c-38.7-5.8-82.3-25-119.3-2.6c-42.2,25.5-83.7,50.6-134.8,47.3c-50.9-3.3-85.7-43.4-114.5-82.6
+	c-19.4-26.3-45-35.2-75.1-21.5c-21.5,9.8-45.8,38.3-19,57.5c32.2,23.1,51.2-20,16.6-18.8c-66.3,2.2-150.7,26.2-187.6,87
+	C10.5,645.6,8.3,687.2,15,727"/>
+<path class="masker1" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M16,732.9c0.4,2,0.8,3.9,1.2,5.9"/>
+    </mask>
+  </defs>
+   <g id="maskReveal2" mask="url(#theMask2)">
+<path class="draw2" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M175.9,103.2c-0.1-2.1-0.2-4.1-0.2-6"/>
+<path class="draw2" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M176.8,85.2c11.8-62.1,115.6-43.5,159.9-46c22.2-1.2,60.7-0.5,78.1-17C431.6,6.4,496.4-0.4,582.4,7.6
+	c25.3,2.3,56.8,5,76.3,23.8c8.4,8.1,12.3,18.2,18.2,28c22.9,37.5,65.1,37.2,103.7,39.5c26.2,1.6,55.4-1.4,79.5,11.5
+	c29,15.6,36.7,50.9,36.2,81.8c-1.2,74.7-7.3,149.2-12.1,223.7c-1.8,28.5,1.5,62.1-10.9,88.7c-11.8,25.1-41.4,37.1-67.2,39.9
+	c-46,5-94.6,6.6-140.5-0.3c-38.7-5.8-82.3-25-119.3-2.6c-42.2,25.5-83.7,50.6-134.8,47.3c-50.9-3.3-85.7-43.4-114.5-82.6
+	c-19.4-26.3-45-35.2-75.1-21.5c-21.5,9.8-45.8,38.3-19,57.5c32.2,23.1,51.2-20,16.6-18.8c-66.3,2.2-150.7,26.2-187.6,87
+	C10.5,645.6,8.3,687.2,15,727"/>
+<path class="draw2" stroke="#FF8F8F" stroke-width="8" fill="none" stroke-dasharray="10" d="M16,732.9c0.4,2,0.8,3.9,1.2,5.9"/></g>
+</svg>
+
+
+
+    </div>
+  <div class="absolute big-circle1 w-[60vw] h-[60vw] bg-[#D0F3FF] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-66"></div>
+  <div class="absolute big-circle-inner w-[55vw] h-[55vw] bg-[#FFEBEB] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-67"></div>
+
+  <!-- Working Hours Text -->
+  <div class="relative z-10 max-w-3xl w-full text-left md:text-center">
+    <h2 class="splittitle1 text-center text-3xl md:text-6xl font-bold text-[#177DDF]" data-i18n="section5_title1">МАДАРАВЕТ</h2>
+    <h3 class="splittitle2 text-center text-2xl md:text-6xl font-semibold text-[#11294B] mb-8" data-i18n="section5_title2">РАБОТНО ВРЕМЕ</h3>
+
+    <div class="hours grid gap-y-2 text-lg md:text-xl text-[#11294B] max-w-xl mx-auto">
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="mon">ПОН</p>
+        <p>9:00 - 12:00</p>
+        <p>15:00 - 19:00</p>
+      </div>
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="tue">ВТОРНИК</p>
+        <p>9:00 - 12:00</p>
+        <p>15:00 - 19:00</p>
+      </div>
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="wed">СРЯДА</p>
+        <p></p>
+        <p>15:00 - 19:00</p>
+      </div>
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="thu">ЧЕТВ</p>
+        <p>9:00 - 12:00</p>
+        <p>15:00 - 19:00</p>
+      </div>
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="fri">ПЕТЪК</p>
+        <p>9:00 - 12:00</p>
+        <p>15:00 - 19:00</p>
+      </div>
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="sat">СЪБОТА</p>
+        <p>10:00 - 13:00</p>
+        <p></p>
+      </div>
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="sun">НЕДЕЛЯ</p>
+        <p></p>
+        <p data-i18n="dayoff">ПОЧИВЕН ДЕН</p>
+      </div>
+      <div class="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
+        <p data-i18n="holiday">ОФИЦИАЛЕН ПРАЗНИК</p>
+        <p></p>
+        <p data-i18n="dayoff">ПОЧИВЕН ДЕН</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Section 10: Google Reviews -->
+<section class="relative w-full overflow-hidden flex-col z-64 " id="section6">
+
+  
+ 
+    <div id="maskedImage2" class="w-full overflow-hidden rounded-[40px]">
+  <img id="dogImage" src="images/dogs.jpg" alt="Dogs" class="w-full h-auto" /></div>
+  <div class="absolute google top-[240px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center text-center text-lg font-bold z-10">
+    <img src="images/google.svg" alt="Google" class="w-20 mb-1" />
+    <div class="text-yellow-500 text-xl">★★★★★</div>
+    <div class="text-[#11294B] mt-1">199+ REVIEWS</div>
+  </div>
+
+
+<div class="relative reviews">
+
+  <div class="google-review  w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center text-center text-lg font-bold ">
+
+    <div class="text-yellow-500 text-xl">★★★★★</div>
+    <div class="text-[#11294B] mt-1">Dr. Sokolova really helped us</div>
+  </div>
+  <div class="google-review  w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center text-center text-lg font-bold ">
+
+    <div class="text-yellow-500 text-xl">★★★★★</div>
+    <div class="text-[#11294B] mt-1">Exceptional in everything.</div>
+  </div>
+ <div class="google-review  w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center text-center text-lg font-bold ">
+   
+    <div class="text-yellow-500 text-xl">★★★★★</div>
+    <div class="text-[#11294B] mt-1">Actually really nice vet.</div>
+  </div>
+   <div class="google-review  w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center text-center text-lg font-bold ">
+ 
+    <div class="text-yellow-500 text-xl">★★★★★</div>
+    <div class="text-[#11294B] mt-1">It is a fantastic place to bring your friend</div>
+  </div> <div class="google-review  w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center text-center text-lg font-bold ">
+    
+    <div class="text-yellow-500 text-xl">★★★★★</div>
+    <div class="text-[#11294B] mt-1">A great team of dedicated veterinarians.</div>
+  </div>
+</div>
+
+
+<div class="relative facebook py-24 flex flex-col items-center justify-center text-center">
+
+ 
+
+<h2 class="split-text splittitle3 mb-3"><span class="text-[#177DDF] text-3xl">MADARAVET/</span><span class="text-3xl text-[#E3362D]">FACEBOOK</span></h2>
+
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+  <div class="swiper-slide">
+    <img src="images/gallery/1.jpg" alt="1" />
+  </div>
+  <div class="swiper-slide">
+    <img src="images/gallery/2.jpg" alt="2" />
+  </div>
+  <div class="swiper-slide">
+    <img src="images/gallery/3.jpg" alt="3" />
+  </div>
+  <div class="swiper-slide">
+    <img src="images/gallery/4.jpg" alt="3" />
+  </div>  <div class="swiper-slide">
+    <img src="images/gallery/5.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/6.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/7.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/8.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/9.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/10.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/11.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/12.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/13.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/14.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/15.jpg" alt="3" />
+  </div>
+    <div class="swiper-slide">
+    <img src="images/gallery/16.jpg" alt="3" />
+  </div>
+</div>
+  <div class="swiper-pagination"></div>
+</div>
+
+
+</div>
+
+</section>
+
+<div class="absolute big-circle w-[90vh] h-[90vh] bg-[#D8F1FF] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">    <img src="images/catdog.svg" alt="Cat and Dog" class="absolute dogcat w-[60vh] max-w-[80vh]" /></div>
+
+<!--fixed-->
+<div class="fixed top-[55%] left-6 flex flex-col gap-4 z-[99991]">
+      <a href="#" class="w-12 h-12 rounded-full bg-[#167DFF] flex items-center justify-center text-white shadow-lg hover:bg-[#145fc4] transition"><img src="images/fb.svg" alt="Facebook" class="w-6 h-6" /></a>
+      <a href="#" class="w-12 h-12 rounded-full bg-[#167DFF] flex items-center justify-center text-white shadow-lg hover:bg-[#145fc4] transition"><img src="images/instagram.svg" alt="Instagram" class="w-6 h-6" /></a>
+      <a href="#" class="w-12 h-12 rounded-full bg-[#167DFF] flex items-center justify-center text-white shadow-lg hover:bg-[#145fc4] transition"><img src="images/whatapp.svg" alt="WhatsApp" class="w-6 h-6" /></a>
+    </div>
+<!-- Section 11: Footer -->
+<footer class="bg-[#11294B] text-white text-center py-10">
+  <img src="images/logo_white.svg" alt="Logo White" class="mx-auto w-32 mb-6" />
+  <div class="flex justify-center gap-6 mb-4">
+    <a href="#"><img src="images/fb.svg" alt="Facebook" class="w-6 h-6" /></a>
+    <a href="#"><img src="images/instagram.svg" alt="Instagram" class="w-6 h-6" /></a>
+    <a href="#"><img src="images/whatapp.svg" alt="WhatsApp" class="w-6 h-6" /></a>
+  </div>
+  <p class="text-lg" data-i18n="photos">Фотографии: Fotorismi</p>
+<p class="text-lg" data-i18n="copyright">&copy; 2025 MadaraVet. Всички права запазени.</p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/DrawSVGPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Draggable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CSSRulePlugin.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Physics2DPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/PhysicsPropsPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+
+
+
+
+ <script src="custom.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1501 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* About Us page styles */
+.za-nas-page .hero-section {
+  align-self: stretch;
+  min-height: 60vh;
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.za-nas-page .hero-title {
+  font-family: 'Advent Pro', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: 1;
+  width: 100%;
+}
+
+.za-nas-page .title-part {
+  white-space: nowrap;
+}
+
+.za-nas-page .text-red-primary {
+  color: #DE3D37;
+}
+
+.za-nas-page .text-blue-primary {
+  color: #1872D9;
+}
+
+.za-nas-page .logo-inline {
+  width: clamp(100px, 20vw, 263px);
+  height: auto;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+  .za-nas-page .hero-title {
+    font-size: 5rem;
+  }
+
+  .za-nas-page .logo-inline {
+    width: clamp(150px, 15vw, 263px);
+  }
+}
+
+@media (max-width: 640px) {
+  .za-nas-page .title-part {
+    white-space: normal;
+  }
+}
+
+/* Timeline Section */
+.timeline-section {
+  position: relative;
+}
+
+.timeline-container {
+  max-width: 1560px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.timeline-grid {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-title {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.timeline-card {
+  display: flex;
+  width: 277px;
+  min-height: 277px;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.timeline-card .card-year {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.timeline-card .card-text {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.card-1992 {
+  background: #FFEBEB;
+}
+
+.card-1992 .card-year {
+  color: #E32C14;
+}
+
+.card-1992 .card-text {
+  color: #303030;
+}
+
+.card-1993 {
+  background: #FFF9E6;
+}
+
+.card-1993 .card-year,
+.card-1993 .card-text {
+  color: #303030;
+}
+
+.card-2001 {
+  background: #DFFFD4;
+}
+
+.card-2001 .card-year,
+.card-2001 .card-text {
+  color: #303030;
+}
+
+.card-2005 {
+  background: #1872D9;
+}
+
+.card-2005 .card-year {
+  color: #F8FBFF;
+}
+
+.card-2005 .card-text {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.card-photo {
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
+}
+
+.card-photo .card-image {
+  width: 286px;
+  height: 286px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .timeline-card {
+    width: 200px;
+    min-height: 200px;
+    padding: 24px;
+  }
+
+  .timeline-card .card-year {
+    font-size: 2rem;
+  }
+
+  .timeline-card .card-text {
+    font-size: 1.125rem;
+  }
+
+  .card-photo .card-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .timeline-title {
+    font-size: 2rem;
+  }
+}
+
+/* Owner Section */
+.owner-section {
+  position: relative;
+  overflow: visible;
+}
+
+.owner-container {
+  max-width: 1560px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.owner-grid {
+  position: relative;
+  min-height: 866px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.owner-image-wrapper {
+  position: absolute;
+  left: clamp(100px, 18%, 293px);
+  top: 0;
+  z-index: 2;
+}
+
+.owner-image {
+  width: clamp(300px, 30vw, 415px);
+  height: auto;
+  object-fit: contain;
+}
+
+.owner-circle {
+  position: absolute;
+  right: clamp(80px, 15%, 200px);
+  bottom: 0;
+  display: flex;
+  width: clamp(320px, 35vw, 472px);
+  height: clamp(320px, 35vw, 472px);
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  border-radius: 50%;
+  background: #D4FDFF;
+  z-index: 1;
+}
+
+.owner-logo {
+  width: clamp(120px, 25%, 200px);
+  height: auto;
+}
+
+.owner-text {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #303030;
+  text-align: center;
+  max-width: 335px;
+}
+
+@media (max-width: 768px) {
+  .owner-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .owner-grid {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: auto;
+    position: relative;
+  }
+
+  .owner-image-wrapper {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .owner-image {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .owner-circle {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    aspect-ratio: 1;
+    padding: 24px;
+    gap: 24px;
+    margin: 0 auto;
+  }
+
+  .owner-text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Membership Section */
+.membership-section {
+  position: relative;
+  overflow: visible;
+}
+
+.membership-container {
+  max-width: 1560px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.membership-grid {
+  position: relative;
+  min-height: 978px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.membership-card {
+  grid-column: 3 / 6;
+  grid-row: 5 / 9;
+  display: flex;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  background: #FAFAFA;
+  z-index: 3;
+}
+
+.membership-text {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32.493px;
+  color: #303030;
+  text-align: center;
+}
+
+.membership-image-wrapper {
+  grid-column: 6 / 11;
+  grid-row: 1 / 11;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2;
+}
+
+.membership-image {
+  width: 100%;
+  max-width: 482px;
+  height: auto;
+  object-fit: contain;
+}
+
+.membership-logo-wrapper {
+  grid-column: 5 / 8;
+  grid-row: 8 / 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.membership-logo {
+  width: 100%;
+  max-width: 277px;
+  height: auto;
+  object-fit: contain;
+}
+
+.internship-card {
+  grid-column: 8 / 11;
+  grid-row: 7 / 10;
+  display: flex;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  background: #FAFAFA;
+  z-index: 3;
+}
+
+.internship-text {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32.493px;
+  color: #303030;
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .membership-grid {
+    min-height: 700px;
+  }
+
+  .membership-text,
+  .internship-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .membership-card,
+  .internship-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .membership-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .membership-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  .membership-card,
+  .membership-image-wrapper,
+  .membership-logo-wrapper,
+  .internship-card {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .membership-image-wrapper {
+    order: 1;
+  }
+
+  .membership-image {
+    max-width: 100%;
+  }
+
+  .membership-logo-wrapper {
+    order: 2;
+  }
+
+  .membership-logo {
+    max-width: 200px;
+  }
+
+  .membership-card {
+    order: 3;
+  }
+
+  .internship-card {
+    order: 4;
+  }
+
+  .membership-text,
+  .internship-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .internship-text {
+    text-align: center;
+  }
+}
+
+/* Services Page */
+.services-page {
+  max-width: 1560px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.services-hero {
+  padding: 64px 0;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 395px;
+}
+
+.hero-banner {
+  width: 100%;
+  height: 375px;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+.hero-logo {
+  position: absolute;
+  left: 481px;
+  top: 245px;
+  width: 238px;
+  height: 218px;
+  z-index: 2;
+}
+
+.hero-circle {
+  position: absolute;
+  z-index: 1;
+}
+
+.hero-circle-1 {
+  left: 721px;
+  top: 169px;
+}
+
+.hero-circle-2 {
+  left: 725px;
+  top: 213px;
+}
+
+.hero-circle-3 {
+  left: 633px;
+  top: 198px;
+}
+
+.hero-circle-4 {
+  left: 694px;
+  top: 104px;
+}
+
+.services-title {
+  padding: 44px 0;
+  text-align: center;
+}
+
+.title-text {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 80px;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-blue {
+  color: #1872D9;
+}
+
+.title-red {
+  color: #DE3D37;
+}
+
+.services-description {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 44px;
+}
+
+.description-text {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32.493px;
+  color: #303030;
+  text-align: left;
+  width: 100%;
+}
+
+.services-cards {
+  padding: 64px 0;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: -64px;
+  position: relative;
+}
+
+.service-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -64px;
+  z-index: 2;
+}
+
+.service-main-image {
+  width: 435px;
+  height: 435px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.service-circles {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  z-index: 20; /* ensure circles sit above the main image */
+  position: relative; /* container for circles when needed */
+}
+
+.service-circle {
+  display: flex;
+  width: 277px;
+  height: 277px;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50%;
+  opacity: 1; /* visible by default; JS may animate */
+  position: fixed; /* fixed so circles don't affect document height */
+  z-index: 9999;
+  transform: none;
+  pointer-events: none; /* avoid blocking interactions */
+}
+
+.service-circle-green {
+  background: #E0FFD4;
+}
+
+.service-circle-cyan {
+  background: #D8FAF6;
+}
+
+.service-circle-pink {
+  background: #FFEBEB;
+}
+
+.circle-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.circle-icon-right {
+  justify-content: flex-end;
+}
+
+.circle-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.circle-title {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #E32C14;
+  text-align: center;
+}
+
+.circle-title-right {
+  text-align: right;
+  width: 100%;
+}
+
+@media (max-width: 1300px) {
+  .hero-logo {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 245px;
+  }
+
+  .hero-circle-1 {
+    left: 60%;
+    top: 169px;
+  }
+
+  .hero-circle-2 {
+    left: calc(60% + 4px);
+    top: 213px;
+  }
+
+  .hero-circle-3 {
+    left: calc(60% - 88px);
+    top: 198px;
+  }
+
+  .hero-circle-4 {
+    left: calc(60% - 27px);
+    top: 104px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title-text {
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  .description-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .service-main-image {
+    width: 350px;
+    height: 350px;
+  }
+
+  .service-circle {
+    width: 220px;
+    height: 220px;
+    padding: 24px;
+  }
+
+  .circle-title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .hero-logo {
+    width: 180px;
+    height: auto;
+    top: 200px;
+  }
+
+  .hero-circle-1,
+  .hero-circle-2,
+  .hero-circle-3,
+  .hero-circle-4 {
+    width: 45px;
+    height: 45px;
+  }
+
+  .hero-circle-1 circle,
+  .hero-circle-2 circle,
+  .hero-circle-3 circle,
+  .hero-circle-4 circle {
+    transform: scale(0.75);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-page {
+    padding: 0 24px;
+  }
+
+  .services-hero {
+    padding: 32px 0;
+  }
+
+  .hero-image-wrapper {
+    height: auto;
+  }
+
+  .hero-banner {
+    height: auto;
+    aspect-ratio: 16/5;
+  }
+
+  .hero-logo {
+    width: 150px;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    top: auto;
+  }
+
+  .hero-circle {
+    display: none;
+  }
+
+  .hero-image-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .title-text {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .description-container {
+    padding: 24px;
+  }
+
+  .description-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .services-cards {
+    padding: 32px 0;
+    min-height: 100vh;
+  }
+
+  .cards-wrapper {
+    gap: 2rem;
+  }
+
+  .service-image-container {
+    margin-bottom: 0;
+  }
+
+  .service-main-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .service-circles {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
+    position: relative;
+  }
+
+  .service-circle {
+    position: relative !important;
+    opacity: 1 !important;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .circle-title-right {
+    text-align: center;
+  }
+}
+
+/* Contact Page */
+.kontakti-page {
+  max-width: 1560px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.kontakti-hero {
+  padding: 64px 0;
+}
+
+.hero-banner-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.hero-banner-image {
+  width: 100%;
+  height: 385px;
+  object-fit: cover;
+  border-radius: 32px;
+  align-self: stretch;
+}
+
+.kontakti-title {
+  padding: 44px 0;
+  text-align: center;
+}
+
+.kontakti-title .title-text {
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 80px;
+  text-transform: uppercase;
+  color: #DE3D37;
+}
+
+.kontakti-content {
+  padding: 64px 0;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.address-card {
+  display: flex;
+  width: 361px;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px;
+  background: #FFEBEB;
+}
+
+.address-title {
+  align-self: stretch;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: #E32C14;
+}
+
+.address-text {
+  align-self: stretch;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32.493px;
+  color: #303030;
+}
+
+.map-card {
+  display: flex;
+  width: 277px;
+  height: 277px;
+  padding: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px;
+  background: #1872D9;
+}
+
+.map-title {
+  align-self: stretch;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32.493px;
+  color: #FFFFFF;
+}
+
+.map-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 690px;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+@media (max-width: 1024px) {
+  .hero-banner-image {
+    height: 300px;
+  }
+
+  .kontakti-title .title-text {
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .info-cards {
+    width: 100%;
+  }
+
+  .address-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .map-card {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .map-wrapper {
+    width: 100%;
+    height: 500px;
+  }
+
+  .address-title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  .address-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .map-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kontakti-page {
+    padding: 0 24px;
+  }
+
+  .kontakti-hero {
+    padding: 32px 0;
+  }
+
+  .hero-banner-image {
+    height: auto;
+    aspect-ratio: 16/5;
+    min-height: 200px;
+  }
+
+  .kontakti-title {
+    padding: 32px 0;
+  }
+
+  .kontakti-title .title-text {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .kontakti-content {
+    padding: 32px 0;
+  }
+
+  .info-cards {
+    align-items: center;
+  }
+
+  .address-card {
+    max-width: 100%;
+  }
+
+  .map-card {
+    max-width: 100%;
+  }
+
+  .map-wrapper {
+    height: 400px;
+  }
+
+  .address-title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .address-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+/* Working Hours Section */
+.kontakti-hours {
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hours-circle {
+  display: flex;
+  width: 100%;
+  max-width: 1124px;
+  padding: 162px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50%;
+  background: #D4FDFF;
+}
+
+.hours-main-title {
+  align-self: stretch;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 97px;
+  font-weight: 700;
+  line-height: 97px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #1872D9;
+}
+
+.hours-subtitle {
+  align-self: stretch;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 73px;
+  font-weight: 700;
+  line-height: 97px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #09284B;
+  margin-bottom: 20px;
+}
+
+.hours-schedule {
+  display: flex;
+  padding: 0 71px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.schedule-row {
+  display: flex;
+  height: 73px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-bottom: 1px solid #FFF;
+}
+
+.day-label {
+  width: 162px;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  text-transform: uppercase;
+  color: #303030;
+}
+
+.time-slot {
+  width: 160px;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #303030;
+}
+
+.time-slot.closed {
+  width: 173px;
+}
+
+.time-slot.empty {
+  visibility: hidden;
+}
+
+@media (max-width: 1200px) {
+  .hours-circle {
+    max-width: 900px;
+    padding: 120px;
+  }
+
+  .hours-main-title {
+    font-size: 72px;
+    line-height: 72px;
+  }
+
+  .hours-subtitle {
+    font-size: 56px;
+    line-height: 72px;
+  }
+
+  .hours-schedule {
+    padding: 0 50px;
+  }
+
+  .day-label {
+    font-size: 28px;
+    line-height: 28px;
+    width: 140px;
+  }
+
+  .time-slot {
+    font-size: 28px;
+    line-height: 28px;
+    width: 140px;
+  }
+
+  .schedule-row {
+    height: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .kontakti-hours {
+    padding: 60px 0;
+  }
+
+  .hours-circle {
+    max-width: 700px;
+    padding: 80px;
+  }
+
+  .hours-main-title {
+    font-size: 56px;
+    line-height: 56px;
+  }
+
+  .hours-subtitle {
+    font-size: 42px;
+    line-height: 56px;
+  }
+
+  .hours-schedule {
+    padding: 0 30px;
+  }
+
+  .day-label {
+    font-size: 22px;
+    line-height: 22px;
+    width: 120px;
+  }
+
+  .time-slot {
+    font-size: 22px;
+    line-height: 22px;
+    width: 120px;
+  }
+
+  .schedule-row {
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kontakti-hours {
+    padding: 40px 0;
+  }
+
+  .hours-circle {
+    max-width: 100%;
+    padding: 60px 40px;
+    border-radius: 32px;
+  }
+
+  .hours-main-title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .hours-subtitle {
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 16px;
+  }
+
+  .hours-schedule {
+    padding: 0 16px;
+  }
+
+  .schedule-row {
+    height: auto;
+    min-height: 50px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .day-label {
+    font-size: 18px;
+    line-height: 24px;
+    width: 100%;
+  }
+
+  .time-slot {
+    font-size: 18px;
+    line-height: 24px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .time-slot.closed {
+    width: 100%;
+  }
+}
+
+/* Styles for menu clone (used by public/custom.js) */
+.circle-clone {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* allow menu content to extend and be scrollable when viewport is small */
+  overflow: visible !important;
+}
+
+.circle-clone .menu-list {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 24px !important;
+  opacity: 0;
+  pointer-events: auto !important;
+  /* ensure menu items are always visible: constrain height to viewport and allow scrolling */
+  max-height: calc(100vh - 80px) !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+  padding: 16px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.circle-clone .menu-list li a { transition: transform 0.3s ease, opacity 0.3s ease; }
+
+.circle-clone .menu-list li {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+.circle-clone .menu-list a, .circle-clone .menu-list span {
+  color: #fff !important;
+  font-family: 'Advent Pro', sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px;
+  display: inline-block !important;
+  padding: 12px 24px !important;
+}
+
+.circle-clone .menu-logo {
+  position: absolute !important;
+  top: 16px !important;
+  width: 140px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  opacity: 0;
+}
+
+.circle-clone .bars { display: none !important; }
+
+@media (max-width: 768px) {
+  .circle-clone .menu-list a, .circle-clone .menu-list span { font-size: 20px !important; }
+}
+
+/* Blog styles (moved from styled-jsx to global CSS to avoid client-only requirement) */
+.blog-page { /* container spacing handled in component */ }
+.blog-swiper-wrapper { overflow: hidden; padding-bottom: 8px; }
+.blog-swiper { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 12px 6px; -webkit-overflow-scrolling: touch; }
+.blog-swiper::-webkit-scrollbar { display: none; }
+.blog-card { scroll-snap-align: center; flex: 0 0 32%; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); overflow: hidden; }
+.card-media { width: 100%; height: 180px; background: #eee; display:flex; align-items:center; justify-content:center; }
+.card-media img { width:100%; height:100%; object-fit:cover; display:block; }
+.card-body { padding: 12px; }
+.card-title { font-weight:700; font-size:18px; margin-bottom:6px; }
+.card-date { color:#666; font-size:14px; }
+
+/* desktop: 3 cards */
+@media (min-width: 992px) {
+  .blog-card { flex: 0 0 calc((100% - 32px) / 3); }
+}
+/* tablet: 2 cards */
+@media (min-width: 768px) and (max-width: 991px) {
+  .blog-card { flex: 0 0 calc((100% - 16px) / 2); }
+}
+/* mobile: show 1 card full width and partially next (0.8) */
+@media (max-width: 767px) {
+  .blog-card { flex: 0 0 80%; }
+  .card-media { height: 210px; }
+}
+@media (max-width: 420px) {
+  .blog-card { flex: 0 0 100%; }
+}
+
+/* Article styles */
+.article-page img { max-width: 100%; height: auto; }
+.article-page .post-entry { line-height: 1.7; color: #111; }
+.article-page h1 { font-size: 28px; margin-bottom: 6px; }
+.article-page .date { color: #666; margin-bottom: 12px; }
+
+/* Global menu-list transition to avoid SSR/CSR mismatch */
+.menu-list { transition: opacity 0.3s ease !important; }
+
+/* Swiper navigation and pagination styles for blog */
+.blog-swiper-wrapper { position: relative; }
+.blog-swiper { padding-bottom: 28px; }
+
+/* Pagination bullets */
+.blog-swiper .swiper-pagination { position: absolute; left: 50%; transform: translateX(-50%); bottom: 6px; z-index: 30; display: flex; gap: 6px; }
+.blog-swiper .swiper-pagination .swiper-pagination-bullet { width: 10px; height: 10px; background: rgba(17,41,75,0.12); border-radius: 9999px; opacity: 1; }
+.blog-swiper .swiper-pagination .swiper-pagination-bullet-active { background: #177DDF; }
+
+/* Prev/Next arrows */
+.blog-swiper .swiper-button-prev, .blog-swiper .swiper-button-next { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 9999px; background: rgba(255,255,255,0.95); display:flex; align-items:center; justify-content:center; box-shadow: 0 8px 24px rgba(15,23,42,0.08); z-index: 40; cursor: pointer; }
+.blog-swiper .swiper-button-prev { left: 8px; }
+.blog-swiper .swiper-button-next { right: 8px; }
+.blog-swiper .swiper-button-prev::after, .blog-swiper .swiper-button-next::after { font-size: 18px; color: #177DDF; }
+
+/* Hide arrows on small screens, rely on pagination */
+@media (max-width: 767px) {
+  .blog-swiper .swiper-button-prev, .blog-swiper .swiper-button-next { display: none; }
+}
+
+/* Blog card visual style inspired by phantom.com learn/blog cards */
+.blog-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.blog-card:hover { transform: translateY(-6px); box-shadow: 0 18px 48px rgba(15,23,42,0.12); }
+
+.blog-card .card-media { height: 180px; background: #f3f4f6; overflow: hidden; }
+.blog-card .card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.blog-card .card-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.blog-card .card-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.blog-card .card-tag { background: rgba(23,125,255,0.08); color: #177DDF; padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
+.blog-card .card-date { color: #6b7280; font-size: 13px; }
+
+.blog-card .card-title { font-size: 18px; font-weight: 700; color: #0f2b4b; margin: 0; line-height: 1.2; }
+.blog-card .card-excerpt { color: #475569; font-size: 14px; margin: 0; min-height: 36px; }
+.blog-card .card-cta { margin-top: auto; color: #177DDF; font-weight: 700; }
+
+/* ensure swiper-slide sizing makes cards look like phantom */
+.swiper-slide { width: 320px !important; }
+@media (max-width: 420px) { .swiper-slide { width: 92% !important; } }
+@media (min-width: 421px) and (max-width: 767px) { .swiper-slide { width: 80% !important; } }
+@media (min-width: 768px) and (max-width: 991px) { .swiper-slide { width: calc((100% - 16px) / 2) !important; } }
+@media (min-width: 992px) { .swiper-slide { width: calc((100% - 32px) / 3) !important; } }
