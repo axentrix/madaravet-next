@@ -1,5 +1,5 @@
 import ServicesClient from '@/components/ServicesClient';
 
-export default function UslugiPage() {
+export default function ServicesPage() {
   return <ServicesClient />;
 }

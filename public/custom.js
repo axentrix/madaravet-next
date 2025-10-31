@@ -113,22 +113,65 @@ async function initAnimations() {
   // Debug: log SplitText availability and targets
   console.debug('SplitText', typeof SplitText, 'h1 present', !!document.querySelector('h1'));
 
-  // Create SplitText targets safely
+  // Create SplitText targets safely (explicit attempt using SplitText per user's request, with robust fallback)
   let splitH1 = { chars: [] };
   let splitinfo1 = { chars: [] };
   let splitinfo2 = { chars: [] };
+
+  // First try the safer helper which waits for fonts and uses SplitText if available
   try {
     splitH1 = await createSplitSafely('h1');
-    if (splitH1 && splitH1.chars && splitH1.chars.length) gsap.from(splitH1.chars, { opacity: 0, stagger: 0.05 });
-  } catch (e) { console.warn('splitH1 failed', e); }
+    if (splitH1 && splitH1.chars && splitH1.chars.length) gsap.from(splitH1.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+  } catch (e) { console.warn('splitH1 via createSplitSafely failed', e); }
+
   try {
     splitinfo1 = await createSplitSafely('.infobox1');
-    if (splitinfo1 && splitinfo1.chars && splitinfo1.chars.length) gsap.from(splitinfo1.chars, { opacity: 0, stagger: 0.05 });
-  } catch (e) { console.warn('splitinfo1 failed', e); }
+    if (splitinfo1 && splitinfo1.chars && splitinfo1.chars.length) gsap.from(splitinfo1.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+  } catch (e) { console.warn('splitinfo1 via createSplitSafely failed', e); }
+
   try {
     splitinfo2 = await createSplitSafely('.infobox2');
-    if (splitinfo2 && splitinfo2.chars && splitinfo2.chars.length) gsap.from(splitinfo2.chars, { opacity: 0, stagger: 0.05 });
-  } catch (e) { console.warn('splitinfo2 failed', e); }
+    if (splitinfo2 && splitinfo2.chars && splitinfo2.chars.length) gsap.from(splitinfo2.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+  } catch (e) { console.warn('splitinfo2 via createSplitSafely failed', e); }
+
+  // Additionally, try the exact snippet the user provided (direct SplitText constructor) if the global constructor exists.
+  // This covers cases where createSplitSafely may have returned a fallback but the user expects the SplitText API to be used.
+  try {
+    if (typeof SplitText !== 'undefined') {
+      try {
+        const directSplitH1 = document.querySelector('h1') ? new SplitText('h1', { type: 'chars' }) : null;
+        const directSplitInfo1 = document.querySelector('.infobox1') ? new SplitText('.infobox1', { type: 'chars' }) : null;
+        const directSplitInfo2 = document.querySelector('.infobox2') ? new SplitText('.infobox2', { type: 'chars' }) : null;
+
+        if (directSplitH1 && directSplitH1.chars && directSplitH1.chars.length) {
+          gsap.from(directSplitH1.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+          splitH1 = directSplitH1;
+        }
+        if (directSplitInfo1 && directSplitInfo1.chars && directSplitInfo1.chars.length) {
+          gsap.from(directSplitInfo1.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+          splitinfo1 = directSplitInfo1;
+        }
+        if (directSplitInfo2 && directSplitInfo2.chars && directSplitInfo2.chars.length) {
+          gsap.from(directSplitInfo2.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+          splitinfo2 = directSplitInfo2;
+        }
+      } catch (innerErr) {
+        console.warn('Direct SplitText usage failed, falling back to already-created splits', innerErr);
+      }
+    } else {
+      // If SplitText truly isn't available, ensure we still split via JS fallback and animate (reinforce fallback)
+      try {
+        const fallbackH1 = document.querySelector('h1') ? fallbackSplit('h1') : null;
+        const fallbackI1 = document.querySelector('.infobox1') ? fallbackSplit('.infobox1') : null;
+        const fallbackI2 = document.querySelector('.infobox2') ? fallbackSplit('.infobox2') : null;
+        if (fallbackH1 && fallbackH1.chars && fallbackH1.chars.length) gsap.from(fallbackH1.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+        if (fallbackI1 && fallbackI1.chars && fallbackI1.chars.length) gsap.from(fallbackI1.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+        if (fallbackI2 && fallbackI2.chars && fallbackI2.chars.length) gsap.from(fallbackI2.chars, { opacity: 0, stagger: 0.05, duration: 1 });
+      } catch (fbErr) { console.warn('fallback split for h1/infoboxes failed', fbErr); }
+    }
+  } catch (e) {
+    console.warn('SplitText/direct attempt block failed', e);
+  }
 
   // Additionally handle all elements with class .split-text (supports multiple instances)
   try {

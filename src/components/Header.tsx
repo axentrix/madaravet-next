@@ -23,10 +23,10 @@ export default function Header() {
           </Link>
 
           <div className="header-info flex items-center gap-4 text-lg md:text-lg font-semibold">
-            <span className="header-worktime text-[#177DDF] cursor-pointer">{t('header_worktime')}</span>
-            <span className="header-phone text-[#177DDF]">{t('header_phone1') || '+888 198 585'}</span>
-            <span className="header-alt-phone text-[#177DDF]">{t('header_phone2') || '024428585'}</span>
-            <a id="language-toggle" href="#" onClick={toggleLocale} className="header-language text-[#FF8F8F]">{t('header_language') || (locale === 'bg' ? 'ENG' : 'BG')}</a>
+            <span suppressHydrationWarning className="header-worktime text-[#177DDF] cursor-pointer" data-i18n="header_worktime">header_worktime</span>
+            <span suppressHydrationWarning className="header-phone text-[#177DDF]" data-i18n="header_phone1">header_phone1</span>
+            <span suppressHydrationWarning className="header-alt-phone text-[#177DDF]" data-i18n="header_phone2">header_phone2</span>
+            <a id="language-toggle" suppressHydrationWarning href="#" onClick={toggleLocale} className="header-language text-[#FF8F8F]" data-i18n="header_language">header_language</a>
 
             <div
               id="menuCircle"
@@ -45,10 +45,10 @@ export default function Header() {
               <img src="/images/logo_white.svg" alt="Logo" className="menu-logo relative w-40 mb-4 transition-opacity duration-300 opacity-0" />
 
               <ul className="menu-list absolute top-full mt-4 transition-opacity ease-in-out flex flex-col items-center space-y-4 opacity-0 pointer-events-none">
-                <li className="w-full text-center"><Link href="/za-nas" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4">{t('nav_about') || 'За нас'}</Link></li>
-                <li className="w-full text-center"><Link href="/uslugi" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4">{t('nav_services') || 'Услуги'}</Link></li>
-                <li className="w-full text-center"><Link href="/blog" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4">{t('nav_blog') || 'Блог'}</Link></li>
-                <li className="w-full text-center"><Link href="/kontakti" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4">{t('nav_contact') || 'Контакти'}</Link></li>
+                <li className="w-full text-center"><Link href="/about" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4"><span suppressHydrationWarning data-i18n="nav_about">nav_about</span></Link></li>
+                <li className="w-full text-center"><Link href="/services" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4"><span suppressHydrationWarning data-i18n="nav_services">nav_services</span></Link></li>
+                <li className="w-full text-center"><Link href="/blog" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4"><span suppressHydrationWarning data-i18n="nav_blog">nav_blog</span></Link></li>
+                <li className="w-full text-center"><Link href="/contact" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-4"><span suppressHydrationWarning data-i18n="nav_contact">nav_contact</span></Link></li>
               </ul>
             </div>
           </div>

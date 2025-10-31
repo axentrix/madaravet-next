@@ -83,8 +83,6 @@ export default function HomeClient() {
 
   return (
     <div className="bg-[#F6FEFF] text-blue-900 overflow-x-hidden relative">
-      <div id="loader" className="bg-[#177DDF] text-white border-radius-[999px]">Loading...</div>
-
       <section id="section1" className="relative w-full min-h-screen flex align-items-center justify-start flex-col">
         <div className="max-w-screen-xl mx-auto pt-32 px-6 md:pt-32 relative pb-32 items-center justify-center text-center">
           <div className="relative z-[89] flex align-items-center justify-center flex-col">

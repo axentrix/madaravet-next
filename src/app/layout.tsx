@@ -34,6 +34,11 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
       </head>
       <body>
+        <div id="loader" aria-hidden="false" style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2147483647, transition: 'opacity 0.45s, transform 0.45s', opacity: 1, transform: 'scale(1)', pointerEvents: 'auto', background: 'rgba(0,0,0,0.0)' }}>
+          <div id="loader-circle" style={{ width: 120, height: 120, borderRadius: 9999, background: '#177DDF', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, boxShadow: '0 10px 30px rgba(23,125,223,0.25)', transform: 'translateZ(0)' }}>
+            Loading...
+          </div>
+        </div>
         <TranslationProvider>
           <Header />
           <main>{children}</main>
