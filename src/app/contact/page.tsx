@@ -45,11 +45,11 @@ export default function ContactPage() {
       <section className="contact-hours">
         <div className="hours-circle">
           <h2 className="hours-main-title" data-i18n="section5_title1">МАДАРАВЕТ</h2>
-          <h3 className="hours-subtitle" data-i18n="section5_title2">Работно време</h3>
+          <h3 className="hours-subtitle" data-i18n="section5_title2">РАБОТНО ВРЕМЕ</h3>
 
           <div className="hours-schedule">
             <div className="schedule-row">
-              <div className="day-label" data-i18n="mon">пон</div>
+              <div className="day-label" data-i18n="mon">ПОН</div>
               <div className="time-slot">9:00 - 12:00</div>
               <div className="time-slot">15:00 - 19:00</div>
             </div>

@@ -137,21 +137,7 @@ max-height:80vh;
 #menuCircle img {
   opacity: 0;
 }
-#loader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200vw;
-  height: 200vw;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:44px;
-color:#ffffff;
-  border-radius: 50%; /* make it a circle */
-  z-index: 999998;
-}
+/* legacy #loader rules removed to avoid conflicts with .loader-overlay */
 
   .swiper-slide{
 
@@ -337,10 +323,66 @@ color:#ffffff;
   position:absolute;
   background:rgba(0,0,0,0.4);
   width:100%;
-  height:100%;  
+  height:100%;
   top:0;
   left:0;
   z-index: 8999;
+}
+
+/* Loader overlay styles */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 8000; /* below header by default */
+  background: rgba(0,0,0,0.45);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none; /* never block clicks when not visible */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-overlay.visible {
+  z-index: 2147483646; /* when visible, bring to top */
+  pointer-events: auto;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.loader-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 1rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.loader-header {
+  pointer-events: none; /* header inside loader is decorative */
+}
+
+.loader-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  background: #177DDF;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 10px 30px rgba(23,125,223,0.25);
+  margin: 0 auto;
+}
+
+.loader-footer {
+  pointer-events: none;
 }
 /* Make swiper container full width or whatever width you want */
 .swiper {
@@ -367,4 +409,78 @@ color:#ffffff;
   display: block;
   user-select: none;
   pointer-events: none;
+}
+
+/* Menu sizing: ensure menu items fit inside the circular menu and list does not scroll */
+#menuCircle .menu-list,
+.circle-clone .menu-list {
+  overflow: visible !important; /* never auto */
+  max-height: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0; /* reset any vertical padding that could cause overflow */
+}
+
+#menuCircle .menu-list li,
+.circle-clone .menu-list li {
+  height: 18vh; /* use viewport units so items scale with the open circle */
+  min-height: 48px;
+  width: 100%;
+  list-style: none;
+}
+
+#menuCircle .menu-list li a,
+.circle-clone .menu-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0; /* remove extra vertical padding */
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  #menuCircle .menu-list li,
+  .circle-clone .menu-list li {
+    height: 20vh; /* slightly larger on small screens */
+  }
+}
+
+/* Ensure total items height is always less than the clone height.
+   We assume 4 menu items; adjust --menu-items-count if you add/remove items. */
+:root {
+  --menu-items-count: 4;
+  --menu-list-max-percent: 85%; /* fraction of the circle reserved for menu items */
+}
+
+.circle-clone .menu-list,
+#menuCircle .menu-list {
+  /* Limit the visible menu area to a percentage of the clone's height */
+  max-height: var(--menu-list-max-percent);
+  box-sizing: border-box;
+}
+
+.circle-clone .menu-list li,
+#menuCircle .menu-list li {
+  /* Allow li to size up to a fraction of the available menu-list space */
+  height: auto;
+  max-height: calc(var(--menu-list-max-percent) / var(--menu-items-count));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Small screens: keep per-item max consistent with viewport sizing */
+@media (max-width: 767px) {
+  .circle-clone .menu-list,
+  #menuCircle .menu-list {
+    max-height: 78%;
+  }
+  .circle-clone .menu-list li,
+  #menuCircle .menu-list li {
+    max-height: calc(78% / var(--menu-items-count));
+  }
 }

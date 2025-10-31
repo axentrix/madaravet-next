@@ -947,107 +947,112 @@ if (split1 && split1.chars && split1.chars.length) {
   const menuCircle = document.getElementById('menuCircle');
   let menuOpen = false;
   const lines = document.querySelectorAll('.bars .line');
-  menuBtn.addEventListener('click', () => {
-  if (!menuOpen) {
-    // Rotate lines to form an X
-    //gsap.to(lines[0], { rotation: 45, y: 6, duration: 0.3 });
-    //gsap.to(lines[1], { rotation: 135, y: -16, duration: 0.3 });
+  // If React has mounted a controlled header, skip the legacy handler entirely
+  if (document.querySelector('[data-react-controlled="true"]')) {
+    // React controls the menu; skip legacy handler
+  } else {
+    menuBtn.addEventListener('click', () => {
+      if (!menuOpen) {
+        // Rotate lines to form an X
+        //gsap.to(lines[0], { rotation: 45, y: 6, duration: 0.3 });
+        //gsap.to(lines[1], { rotation: 135, y: -16, duration: 0.3 });
 
-    // Add open class to trigger the overlay
-    menuCircle.classList.add('open');
+        // Add open class to trigger the overlay
+        menuCircle.classList.add('open');
 
-    // Create the background overlay
-    const bg = document.createElement("div");
-    bg.className = "bg-overlay";
-    bg.style.cssText = `
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9998;
-      background: rgba(0,0,0,0.3);
-    `;
-    document.body.appendChild(bg);
+        // Create the background overlay
+        const bg = document.createElement("div");
+        bg.className = "bg-overlay";
+        bg.style.cssText = `
+          position: fixed;
+          top: 0; left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 9998;
+          background: rgba(0,0,0,0.3);
+        `;
+        document.body.appendChild(bg);
 
-    // Create and style the clone
-    const menuClone = menuCircle.cloneNode(true);
-    menuClone.id = "menuCircleClone";
-    menuClone.classList.add("circle-clone");
-    document.body.appendChild(menuClone);
+        // Create and style the clone
+        const menuClone = menuCircle.cloneNode(true);
+        menuClone.id = "menuCircleClone";
+        menuClone.classList.add("circle-clone");
+        document.body.appendChild(menuClone);
 
-    gsap.set(menuClone, {
-      position: "fixed",
-      top: menuCircle.getBoundingClientRect().top + "px",
-      left: menuCircle.getBoundingClientRect().left + "px",
-      width: menuCircle.offsetWidth + "px",
-      height: menuCircle.offsetHeight + "px",
-      zIndex: 9999,
-      backgroundColor: "#167DFF",
-      borderRadius: "50%"
-    });
+        gsap.set(menuClone, {
+          position: "fixed",
+          top: menuCircle.getBoundingClientRect().top + "px",
+          left: menuCircle.getBoundingClientRect().left + "px",
+          width: menuCircle.offsetWidth + "px",
+          height: menuCircle.offsetHeight + "px",
+          zIndex: 9999,
+          backgroundColor: "#167DFF",
+          borderRadius: "50%"
+        });
 
-    gsap.set(menuCircle, { opacity: 0 });
+        gsap.set(menuCircle, { opacity: 0 });
 
-    const cloneSize = window.innerWidth < 768 ? "120vw" : "70vh";
+        const cloneSize = window.innerWidth < 768 ? "120vw" : "70vh";
 
-    gsap.to(menuClone, {
-      top: "50%",
-      left: "50%",
-      xPercent: -50,
-      yPercent: -50,
-      width: cloneSize,
-      height: cloneSize,
-      borderRadius: "50%",
-      ease: "elastic.out(1, 0.5)",
-      duration: 1
-    });
+        gsap.to(menuClone, {
+          top: "50%",
+          left: "50%",
+          xPercent: -50,
+          yPercent: -50,
+          width: cloneSize,
+          height: cloneSize,
+          borderRadius: "50%",
+          ease: "elastic.out(1, 0.5)",
+          duration: 1
+        });
 
-    const menuItems = menuClone.querySelector('ul');
-    const menuLogo = menuClone.querySelector('img');
-    if (menuItems && menuLogo) {
-      gsap.to([menuItems, menuLogo], {
-        opacity: 1,
-        duration: 0.2,
-        delay: 0.5
-      });
-    }
-
-    // ✅ Click anywhere on bg or menuClone .bars to close
-    function closeMenu() {
-      const lines = menuClone.querySelectorAll('.bars .line');
-      gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3 });
-      gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3 });
-
-      menuCircle.classList.remove('open');
-
-      gsap.to(menuClone, {
-        top: menuCircle.getBoundingClientRect().top + "px",
-        left: menuCircle.getBoundingClientRect().left + "px",
-        width: "60px",
-        height: "60px",
-        borderRadius: "100%",
-        ease: "power2.inOut",
-        duration: 0.5,
-        onComplete: function () {
-          gsap.set(menuCircle, { opacity: 1 });
-          menuClone.remove();
-          bg.remove();
+        const menuItems = menuClone.querySelector('ul');
+        const menuLogo = menuClone.querySelector('img');
+        if (menuItems && menuLogo) {
+          gsap.to([menuItems, menuLogo], {
+            opacity: 1,
+            duration: 0.2,
+            delay: 0.5
+          });
         }
-      });
 
-      menuOpen = false;
-    }
+        // ✅ Click anywhere on bg or menuClone .bars to close
+        function closeMenu() {
+          const lines = menuClone.querySelectorAll('.bars .line');
+          gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3 });
+          gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3 });
 
-    bg.addEventListener('click', closeMenu);
+          menuCircle.classList.remove('open');
 
-    const cloneBars = menuClone.querySelector('.bars');
-    if (cloneBars) {
-      cloneBars.addEventListener('click', closeMenu);
-    }
+          gsap.to(menuClone, {
+            top: menuCircle.getBoundingClientRect().top + "px",
+            left: menuCircle.getBoundingClientRect().left + "px",
+            width: "60px",
+            height: "60px",
+            borderRadius: "100%",
+            ease: "power2.inOut",
+            duration: 0.5,
+            onComplete: function () {
+              gsap.set(menuCircle, { opacity: 1 });
+              menuClone.remove();
+              bg.remove();
+            }
+          });
 
-    menuOpen = true;
+          menuOpen = false;
+        }
+
+        bg.addEventListener('click', closeMenu);
+
+        const cloneBars = menuClone.querySelector('.bars');
+        if (cloneBars) {
+          cloneBars.addEventListener('click', closeMenu);
+        }
+
+        menuOpen = true;
+      }
+    });
   }
-});
   // Ensure big-circle and dogcat animate reliably even if ScrollTrigger misfires: use IntersectionObserver fallback
   (function setupBigCircleObserver(){
     try {

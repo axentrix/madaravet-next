@@ -25,6 +25,46 @@
     });
   }
 
+  // Compute menu sizing so total items height is less than the clone's height
+  function setMenuSizing(menuClone) {
+    try {
+      if (!menuClone) return;
+      const menuList = menuClone.querySelector('ul');
+      if (!menuList) return;
+      const items = Array.from(menuList.querySelectorAll('li'));
+      const itemCount = Math.max(1, items.length);
+      // available height inside clone (reserve 12% for logo/spacing)
+      const cloneRect = menuClone.getBoundingClientRect();
+      const available = Math.max(0, cloneRect.height * 0.86);
+      const perItem = Math.floor(available / itemCount);
+      // Apply sizing and ensure no overflow on the ul
+      menuList.style.overflow = 'visible';
+      menuList.style.maxHeight = (available) + 'px';
+      items.forEach((li) => {
+        li.style.maxHeight = perItem + 'px';
+        li.style.height = perItem + 'px';
+      });
+
+      // also watch resize to adapt
+      if (typeof window !== 'undefined') {
+        let rTimer = null;
+        const onResize = () => {
+          if (rTimer) clearTimeout(rTimer);
+          rTimer = setTimeout(() => setMenuSizing(menuClone), 80);
+        };
+        window.addEventListener('resize', onResize, { passive: true });
+        // attach a cleanup on the clone for when it's removed
+        const observer = new MutationObserver(() => {
+          if (!document.body.contains(menuClone)) {
+            window.removeEventListener('resize', onResize);
+            try { observer.disconnect(); } catch (e) {}
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+    } catch (e) {}
+  }
+
   try {
     let menuOpen = false;
 
@@ -56,6 +96,7 @@
           menuClone.id = "menuCircleClone";
           menuClone.classList.add("circle-clone");
           document.body.appendChild(menuClone);
+          try { setMenuSizing(menuClone); } catch(e) {}
 
           if (gsapLib) {
             const gsap = gsapLib;

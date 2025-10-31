@@ -37,7 +37,10 @@ export default function TranslationProvider({ children }: { children: React.Reac
 
   useEffect(() => {
     try {
-      if (typeof window !== 'undefined') window.localStorage.setItem('site_locale', locale);
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem('site_locale', locale);
+        document.documentElement.lang = locale;
+      }
     } catch (e) {}
   }, [locale]);
 
@@ -48,14 +51,14 @@ export default function TranslationProvider({ children }: { children: React.Reac
       const dict = translations[locale] || {};
       document.querySelectorAll('[data-i18n]').forEach((el) => {
         const key = el.getAttribute('data-i18n') || '';
-        const val = dict[key];
+        const val = (dict[key] ?? translations['en']?.[key]);
         if (typeof val !== 'undefined') {
           (el as HTMLElement).innerHTML = val;
         }
       });
       document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
         const key = el.getAttribute('data-i18n-alt') || '';
-        const val = dict[key];
+        const val = (dict[key] ?? translations['en']?.[key]);
         if (typeof val !== 'undefined' && el instanceof HTMLImageElement) {
           el.alt = val;
         }
@@ -68,7 +71,10 @@ export default function TranslationProvider({ children }: { children: React.Reac
 
   const tFunc = (key: string) => {
     if (!translations) return key;
-    return translations[locale]?.[key] ?? key;
+    const primary = translations[locale]?.[key];
+    if (typeof primary !== 'undefined') return primary;
+    const fallback = translations['en']?.[key];
+    return typeof fallback !== 'undefined' ? fallback : key;
   };
 
   const setLocaleWrapper = (l: string) => {

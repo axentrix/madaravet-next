@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TranslationProvider from "../components/TranslationProvider";
+import Loader from "../components/Loader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,15 +33,25 @@ export default function RootLayout({
         {/* Google font for Advent Pro and custom stylesheet */}
         <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/custom.css" />
+        <link rel="stylesheet" href="/loader-fix.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
       </head>
       <body>
-        <div id="loader" aria-hidden="false" style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2147483647, transition: 'opacity 0.45s, transform 0.45s', opacity: 1, transform: 'scale(1)', pointerEvents: 'auto', background: 'rgba(0,0,0,0.0)' }}>
-          <div id="loader-circle" style={{ width: 120, height: 120, borderRadius: 9999, background: '#177DDF', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 18, boxShadow: '0 10px 30px rgba(23,125,223,0.25)', transform: 'translateZ(0)' }}>
-            Loading...
+        {/* Static loader present on every page; toggled by client Loader component */}
+        <div id="loader" className="loader-overlay" aria-hidden="true" style={{ opacity: 0, pointerEvents: 'none', visibility: 'hidden' }}>
+          <div className="loader-inner">
+            <div className="loader-header"><Header /></div>
+            <div id="loader-circle" className="loader-circle" aria-hidden="true">Loading...</div>
+            <div className="loader-footer"><Footer /></div>
           </div>
         </div>
+
         <TranslationProvider>
+          {/* Client-side controller that toggles the static loader */}
+          <React.Suspense fallback={null}>
+            <Loader />
+          </React.Suspense>
+
           <Header />
           <main>{children}</main>
           <Footer />
