@@ -1,0 +1,26 @@
+:root {
+  --menu-items-count: 4;
+  --menu-list-max-percent: 85%;
+}
+
+/* Ensure the static loader has predictable defaults and can be toggled with .visible */
+#loader {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 8000;
+}
+
+#loader.visible {
+  pointer-events: auto;
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 2147483646;
+}
+
+.loader-overlay {
+  /* keep compat with existing class-based styles */
+}
+
+.loader-inner { max-width: 960px; margin: 0 auto; }
