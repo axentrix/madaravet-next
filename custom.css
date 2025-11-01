@@ -94,6 +94,21 @@ max-height:80vh;
 .circle-card{
   transform-origin:50% 50%;
 }
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200vw;
+  height: 200vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:44px;
+color:#ffffff;
+  border-radius: 50%; /* make it a circle */
+  z-index: 999998;
+}
 @media (max-width: 767px) {
   #section4,
   #section6 {
@@ -329,61 +344,7 @@ max-height:80vh;
   z-index: 8999;
 }
 
-/* Loader overlay styles */
-.loader-overlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 8000; /* below header by default */
-  background: rgba(0,0,0,0.45);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  pointer-events: none; /* never block clicks when not visible */
-  opacity: 0;
-  visibility: hidden;
-}
 
-.loader-overlay.visible {
-  z-index: 2147483646; /* when visible, bring to top */
-  pointer-events: auto;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.loader-inner {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 1rem;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 2rem;
-}
-
-.loader-header {
-  pointer-events: none; /* header inside loader is decorative */
-}
-
-.loader-circle {
-  width: 120px;
-  height: 120px;
-  border-radius: 9999px;
-  background: #177DDF;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 18px;
-  box-shadow: 0 10px 30px rgba(23,125,223,0.25);
-  margin: 0 auto;
-}
-
-.loader-footer {
-  pointer-events: none;
-}
 /* Make swiper container full width or whatever width you want */
 .swiper {
   width: 100%;
