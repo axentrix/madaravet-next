@@ -8,9 +8,11 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100svh;
+ flex-direction:column;
 }
-
+main{
+  margin-top:60px;
+}
 #scrollRibbon{
   height:20vh;
   display:flex;
@@ -394,10 +396,10 @@ color:#ffffff;
 
 #menuCircle .menu-list li a,
 .circle-clone .menu-list li a {
-  display: flex;
+  display: flex important;
   align-items: center;
   justify-content: center;
-  height: 100%;
+
   padding: 0; /* remove extra vertical padding */
   width: 100%;
 }
