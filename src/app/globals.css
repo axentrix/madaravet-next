@@ -539,6 +539,7 @@ body {
   height: 375px;
   object-fit: cover;
   border-radius: 32px;
+  overflow:hidden;
 }
 
 .hero-logo {
@@ -546,7 +547,7 @@ body {
   left: 481px;
   top: 245px;
   width: 238px;
-  height: 218px;
+  
   z-index: 2;
 }
 

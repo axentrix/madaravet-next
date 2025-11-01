@@ -157,7 +157,7 @@ export default function Header() {
       <header className="site-header fixed w-full left-0 right-0 z-[8888]">
         <div className="header-inner max-w-screen-xl mx-auto mt-4 px-4 md:px-8">
           <div className="header-card bg-white rounded-[18px] shadow-md py-3 px-6 flex justify-between items-center">
-            <Link href="/" aria-label="Home">
+            <Link href="https://www.madaravet.com" aria-label="Home">
               <img src="/madaravet-next/images/logo.svg" alt="MadaraVet logo" className="h-10 md:h-12" />
             </Link>
 
@@ -184,13 +184,14 @@ export default function Header() {
                   <div className="line h-[2px] bg-white rounded" />
                 </div>
 
-                <img src="/madaravet-next/images/logo_white.svg" alt="Logo" className={`menu-logo relative w-40 mt-4 mb-4 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
+            
 
                 <ul
                   role="menu"
                   aria-hidden={!menuOpen}
                   className={`menu-list  top-full left-1/2  mt-4 transition-opacity ease-in-out flex flex-col items-center space-y-4 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} text-white rounded-lg py-2 px-3 w-56 md:w-64 z-[9999]`}
                 >
+                  <li>    <img src="/madaravet-next/images/logo_white.svg" alt="Logo" className={`menu-logo relative w-40 mt-4 mb-4 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} /></li>
                   <li className="w-full text-center"><Link href="/about" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_about">nav_about</span></Link></li>
                   <li className="w-full text-center"><Link href="/services" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_services">nav_services</span></Link></li>
                   <li className="w-full text-center"><Link href="/blog" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_blog">nav_blog</span></Link></li>
