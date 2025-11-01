@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[54909,["/madaravet-next/_next/static/chunks/9b0d9907543599d7.js","/madaravet-next/_next/static/chunks/7c54fce4728ad917.js"],"default"]
+2:I[54909,["/madaravet-next/_next/static/chunks/60904a161ee06bbc.js","/madaravet-next/_next/static/chunks/7c54fce4728ad917.js"],"default"]
 3:I[97367,["/madaravet-next/_next/static/chunks/ff1a16fafef87110.js","/madaravet-next/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"buildId":"qgzr8MbIj3uB8Jnqeh7GP","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/madaravet-next/_next/static/chunks/7c54fce4728ad917.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"82RhBFFP8CTURPP9GdFP1","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/madaravet-next/_next/static/chunks/7c54fce4728ad917.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null
