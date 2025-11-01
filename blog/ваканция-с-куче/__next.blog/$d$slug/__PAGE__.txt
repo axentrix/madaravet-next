@@ -19,6 +19,6 @@
 Строго препоръчително е и третирането на животното с препарат против външни паразити, за да се избегнат пренасяните от тях заболявания, както и срещу дирофилария.<br/>
 И, независимо дали сте в планината или на плажа, не забравяйте да намажете незащитените части като носа и ушите на кучето със слънцезащитен крем!<br/>
 Приятна ваканция!</p>
-</div>0:{"buildId":"WZdZvtdAkrtOOOxU0rtvA","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-20","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]}],null,"$L3"]}],"loading":null,"isPartial":false}
+</div>0:{"buildId":"vxP5XSlZRZyfSQmJxWnx_","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-20","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]}],null,"$L3"]}],"loading":null,"isPartial":false}
 3:["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]
 6:null
