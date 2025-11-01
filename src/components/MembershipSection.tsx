@@ -16,8 +16,15 @@ export default function MembershipSection() {
     if (isMobile) return;
 
     const loadGSAP = async () => {
-      const gsap = (await import('gsap')).default;
-      const ScrollTrigger = (await import('gsap/ScrollTrigger')).default;
+      // Prefer global GSAP from CDN if available
+      const gsap = (window as any).gsap || (await import('gsap')).default;
+      const ScrollTrigger = (window as any).ScrollTrigger || (await import('gsap/ScrollTrigger')).default;
+      
+      if (!gsap || !ScrollTrigger) {
+        console.warn('GSAP or ScrollTrigger not available');
+        return;
+      }
+      
       gsap.registerPlugin(ScrollTrigger);
 
       const image = imageRef.current;

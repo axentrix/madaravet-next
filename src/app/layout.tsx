@@ -5,7 +5,6 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TranslationProvider from "../components/TranslationProvider";
-import Loader from "../components/Loader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,26 +31,33 @@ export default function RootLayout({
       <head>
         {/* Google font for Advent Pro and custom stylesheet */}
         <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/custom.css" />
-        <link rel="stylesheet" href="/loader-fix.css" />
+        <link rel="stylesheet" href="/madaravet-next/custom.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
       </head>
       <body>
-        {/* Static loader present on every page; toggled by client Loader component */}
-        <div id="loader" className="loader-overlay" aria-hidden="true" style={{ opacity: 0, pointerEvents: 'none', visibility: 'hidden' }}>
-          <div className="loader-inner">
-            <div className="loader-header"><Header /></div>
-            <div id="loader-circle" className="loader-circle" aria-hidden="true">Loading...</div>
-            <div className="loader-footer"><Footer /></div>
-          </div>
-        </div>
-
         <TranslationProvider>
-          {/* Client-side controller that toggles the static loader */}
-          <React.Suspense fallback={null}>
-            <Loader />
-          </React.Suspense>
-
+          <div id="loader" style={{ 
+            position: 'fixed', 
+          
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            backgroundColor: '#177DDF', 
+            color: 'white', 
+            zIndex: 99999,
+            width: '200vw', 
+            height: '200vh', 
+            top: '50vh', 
+            left: '50vw' 
+          }}>
+            <div style={{ 
+              borderRadius: '999px', 
+              backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+              padding: '2rem' 
+            }}>
+              Loading...
+            </div>
+          </div>
           <Header />
           <main>{children}</main>
           <Footer />
@@ -67,8 +73,8 @@ export default function RootLayout({
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CSSRulePlugin.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-        <script src="/custom.js"></script>
-        <script src="/menu-home.js"></script>
+        <script src="/madaravet-next/custom.js"></script>
+        <script src="/madaravet-next/menu-home.js"></script>
       </body>
     </html>
   );

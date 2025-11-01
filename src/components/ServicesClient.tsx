@@ -153,6 +153,8 @@ export default function ServicesClient() {
       }
 
       function createPhysicsWorld() {
+        if (!section) return;
+        
         engine = Engine.create();
         world = engine.world;
         runner = Runner.create();

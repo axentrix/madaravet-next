@@ -1,0 +1,486 @@
+a* {
+  box-sizing: border-box;
+}
+#language-toggle{
+  cursor:pointer;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+}
+
+#scrollRibbon{
+  height:20vh;
+  display:flex;
+  align-items:center;
+}
+.image-cards {
+  padding: 0;
+  margin: 0;
+  display: grid;
+
+
+  perspective: 1000px;
+
+  > * {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  li {
+    list-style: none;
+  }
+}
+.circles{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:50vh;
+}
+.circle-card{
+    width:50vh;
+    height:50vh;
+}
+.card {
+  height: 70svh;
+  background-color: red;
+  min-height: auto;
+  padding: 30px;
+}
+
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+}
+
+/* Use Advent Pro as primary font */
+body {
+  font-family: 'Advent Pro', sans-serif;
+}
+
+/* Section 2 sizing and ribbon child layout */
+#section2 {
+  height: max(20vmin, 6vmax);
+  min-height: unset;
+}
+section#scrollRibbon > div {
+  display: flex;
+  align-items: center;
+}
+
+svg path.draw1, svg path.draw2 {
+  stroke: #FFCECE;
+  stroke-dasharray: 8;
+  stroke-width: 6;
+  fill: none;
+} 
+
+#maskedImage,
+#maskedImage2 {
+  width: 100%;
+  height: auto;
+max-height:80vh;
+}
+
+#maskedImage,
+#maskedImage2 {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+}
+.circle-card{
+  transform-origin:50% 50%;
+}
+@media (max-width: 767px) {
+  #section4,
+  #section6 {
+    min-height: 60vh;
+    overflow: hidden;
+    min-height:unset;
+  }
+  #section3,
+#section4,
+#section5 {
+  position: relative;
+  z-index: 10;
+}
+  #maskedImage,
+  #maskedImage2 {
+    height: 80vh;
+    max-height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #maskedImage img,
+  #maskedImage2 img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    min-width: 100%;
+  }
+}
+
+#menuCircle, #menuCircle .circle {
+  transform-origin: top right;
+}
+
+#menuCircle ul, 
+#menuCircle img {
+  opacity: 0;
+}
+/* legacy #loader rules removed to avoid conflicts with .loader-overlay */
+
+  .swiper-slide{
+
+      height:360px;
+      border-radius:12px;
+      overflow:hidden;
+    }
+/* Mobile styles for header and menuCircle */
+@media (max-width: 767px) {
+    .swiper-slide{
+
+      height:48vw;
+      border-radius:12px;
+      overflow:hidden;
+    }
+
+  header .bg-white {
+    justify-content: space-between;
+   
+  }
+   #maskedImage,
+  #maskedImage2 {
+    max-height: 90vh;
+    max-width: 90vh;
+ 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+  
+  }
+  .additional-info {
+    position: relative;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+  
+  .additional-info span {
+    display: none;
+  }
+  
+  #menuCircle {
+    position: relative;
+    display: flex !important;
+    z-index: 9000;
+    margin-left: auto;
+  }
+}
+
+#menuCircle::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#menuCircle.open::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.circle-clone {
+  pointer-events: none;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.circle-clone .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.big-circle,
+.dogcat {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+}
+.circle-clone ul, 
+.circle-clone img {
+  opacity: 0;
+}
+.split-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Fallback split character styling when SplitText plugin isn't available */
+.split-char {
+  display: inline-block;
+  white-space: pre;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+/* Ensure dogcat scales from center */
+.dogcat {
+  transform-origin: center center;
+}
+/* Mobile styles for menu clone */
+@media (max-width: 767px) {
+  .circle-clone ul {
+    font-size: 1.2rem;
+    padding: 0;
+  }
+  
+  .circle-clone ul a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+}
+
+.big-circle{
+  z-index:-1;
+}
+
+  .google-review {
+    will-change: transform;
+  }
+
+  .google-review {
+  position: fixed;
+  width: 160px;
+  height: 160px;
+  background-color: white;
+  border-radius: 9999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  z-index: 100;
+  top: -100px; /* start off-screen */
+  left: 0;
+ padding:12px;
+ 
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+
+  
+  #maskedImage img,
+  #maskedImage2 img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+.image-card{
+  max-width:640px;
+  max-height:640px;
+}
+.fixedsection{
+  z-index:-1;
+}
+.circle-card {
+  will-change: transform;
+  position: absolute;
+}
+
+#menuCircleClone.open + .bg-overlay{
+  content:"";
+  display:flex;
+  position:absolute;
+  background:rgba(0,0,0,0.4);
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index: 8999;
+}
+
+/* Loader overlay styles */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 8000; /* below header by default */
+  background: rgba(0,0,0,0.45);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none; /* never block clicks when not visible */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-overlay.visible {
+  z-index: 2147483646; /* when visible, bring to top */
+  pointer-events: auto;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.loader-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 1rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.loader-header {
+  pointer-events: none; /* header inside loader is decorative */
+}
+
+.loader-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  background: #177DDF;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 10px 30px rgba(23,125,223,0.25);
+  margin: 0 auto;
+}
+
+.loader-footer {
+  pointer-events: none;
+}
+/* Make swiper container full width or whatever width you want */
+.swiper {
+  width: 100%;
+  max-width: 100vw; /* avoid overflow */
+}
+
+/* Swiper wrapper uses flex, no need to touch */
+
+/* Make each slide size correctly */
+.swiper-slide {
+  width: auto; /* let Swiper control width */
+  display: flex;
+  justify-content: center; /* center content */
+  align-items: center;
+}
+
+/* Make images fill their slide but keep aspect ratio */
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain; /* or cover depending on your need */
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Menu sizing: ensure menu items fit inside the circular menu and list does not scroll */
+#menuCircle .menu-list,
+.circle-clone .menu-list {
+  overflow: visible !important; /* never auto */
+  max-height: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0; /* reset any vertical padding that could cause overflow */
+}
+
+#menuCircle .menu-list li,
+.circle-clone .menu-list li {
+  height: 18vh; /* use viewport units so items scale with the open circle */
+  min-height: 48px;
+  width: 100%;
+  list-style: none;
+}
+
+#menuCircle .menu-list li a,
+.circle-clone .menu-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0; /* remove extra vertical padding */
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  #menuCircle .menu-list li,
+  .circle-clone .menu-list li {
+    height: 20vh; /* slightly larger on small screens */
+  }
+}
+
+/* Ensure total items height is always less than the clone height.
+   We assume 4 menu items; adjust --menu-items-count if you add/remove items. */
+:root {
+  --menu-items-count: 4;
+  --menu-list-max-percent: 85%; /* fraction of the circle reserved for menu items */
+}
+
+.circle-clone .menu-list,
+#menuCircle .menu-list {
+  /* Limit the visible menu area to a percentage of the clone's height */
+  max-height: var(--menu-list-max-percent);
+  box-sizing: border-box;
+}
+
+.circle-clone .menu-list li,
+#menuCircle .menu-list li {
+  /* Allow li to size up to a fraction of the available menu-list space */
+  height: auto;
+  max-height: calc(var(--menu-list-max-percent) / var(--menu-items-count));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Small screens: keep per-item max consistent with viewport sizing */
+@media (max-width: 767px) {
+  .circle-clone .menu-list,
+  #menuCircle .menu-list {
+    max-height: 78%;
+  }
+  .circle-clone .menu-list li,
+  #menuCircle .menu-list li {
+    max-height: calc(78% / var(--menu-items-count));
+  }
+}

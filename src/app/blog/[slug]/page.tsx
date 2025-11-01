@@ -6,6 +6,23 @@ type Props = {
   params: any; // params may be a Promise in newer Next.js — await below
 };
 
+export async function generateStaticParams() {
+  const postsDir = path.join(process.cwd(), 'madaravet_export', 'posts');
+  
+  if (!fs.existsSync(postsDir)) {
+    return [];
+  }
+
+  const files = fs.readdirSync(postsDir);
+  const slugs = files
+    .filter(file => file.endsWith('.html'))
+    .map(file => ({
+      slug: file.replace('.html', '')
+    }));
+
+  return slugs;
+}
+
 function inlineImagesInHtml(html: string, slug: string): string {
   // replace relative ../images/... with data URLs by reading files
   return html.replace(/src\s*=\s*"(\.\.\/images\/([^\"']+?)\/([^\"']+?))"/gi, (m, p1, p2, p3) => {

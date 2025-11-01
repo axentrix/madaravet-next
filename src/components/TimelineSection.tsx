@@ -11,8 +11,15 @@ export default function TimelineSection() {
     if (typeof window === 'undefined') return;
 
     const loadGSAP = async () => {
-      const gsap = (await import('gsap')).default;
-      const ScrollTrigger = (await import('gsap/ScrollTrigger')).default;
+      // Prefer global GSAP from CDN if available
+      const gsap = (window as any).gsap || (await import('gsap')).default;
+      const ScrollTrigger = (window as any).ScrollTrigger || (await import('gsap/ScrollTrigger')).default;
+      
+      if (!gsap || !ScrollTrigger) {
+        console.warn('GSAP or ScrollTrigger not available');
+        return;
+      }
+      
       gsap.registerPlugin(ScrollTrigger);
 
       const cards = cardsRef.current.filter(Boolean);
@@ -71,7 +78,7 @@ export default function TimelineSection() {
 
           {/* Card 1 - 1992 (Pink) */}
           <div 
-            ref={el => cardsRef.current[0] = el}
+            ref={el => { cardsRef.current[0] = el; }}
             className="timeline-card card-1992 absolute"
           >
             <div className="card-year">1992</div>
@@ -82,7 +89,7 @@ export default function TimelineSection() {
 
           {/* Card 2 - 1993-1996 (Yellow) */}
           <div 
-            ref={el => cardsRef.current[1] = el}
+            ref={el => { cardsRef.current[1] = el; }}
             className="timeline-card card-1993 absolute"
           >
             <div className="card-year">1993-1996</div>
@@ -93,7 +100,7 @@ export default function TimelineSection() {
 
           {/* Card 3 - 2001 (Green) */}
           <div 
-            ref={el => cardsRef.current[2] = el}
+            ref={el => { cardsRef.current[2] = el; }}
             className="timeline-card card-2001 absolute"
           >
             <div className="card-year">2001</div>
@@ -104,7 +111,7 @@ export default function TimelineSection() {
 
           {/* Card 4 - 2005 (Blue) */}
           <div 
-            ref={el => cardsRef.current[3] = el}
+            ref={el => { cardsRef.current[3] = el; }}
             className="timeline-card card-2005 absolute"
           >
             <div className="card-year">2005</div>
@@ -115,7 +122,7 @@ export default function TimelineSection() {
 
           {/* Photo card */}
           <div 
-            ref={el => cardsRef.current[4] = el}
+            ref={el => { cardsRef.current[4] = el; }}
             className="timeline-card card-photo absolute"
           >
             <img 

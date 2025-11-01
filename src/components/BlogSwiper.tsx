@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 type Post = {
   slug: string;
@@ -20,24 +21,26 @@ export default function BlogSwiper({ posts }: { posts: Post[] }) {
 
       try {
         // dynamically load swiper to avoid build-time module resolution issues
-        const SwiperModule = await import('swiper');
-        const SwiperCSS = await import('swiper/css'); // ensure css loaded
-        await import('swiper/css/pagination');
-        await import('swiper/css/navigation');
-
-        // named exports for modules
         // prefer CDN/global Swiper if available (homepage loads CDN), otherwise use imported module
         const globalSwiper = typeof window !== 'undefined' ? (window as any).Swiper : undefined;
         let SwiperConstructor: any = null;
         let Autoplay: any = null;
         let Pagination: any = null;
         let Navigation: any = null;
-        try {
-          SwiperConstructor = globalSwiper || (SwiperModule && (SwiperModule.default || SwiperModule.Swiper));
-          Autoplay = SwiperModule.Autoplay || SwiperModule.autoplay || null;
-          Pagination = SwiperModule.Pagination || SwiperModule.pagination || null;
-          Navigation = SwiperModule.Navigation || SwiperModule.navigation || null;
-        } catch (e) {}
+
+        if (globalSwiper) {
+          // use CDN version
+          SwiperConstructor = globalSwiper;
+        } else {
+          // dynamically import Swiper modules
+          const SwiperModule = await import('swiper');
+          const SwiperModules = await import('swiper/modules');
+          
+          SwiperConstructor = SwiperModule.default || SwiperModule.Swiper;
+          Autoplay = SwiperModules.Autoplay;
+          Pagination = SwiperModules.Pagination;
+          Navigation = SwiperModules.Navigation;
+        }
 
         // instantiate on the rendered container
         if (containerRef.current) {
@@ -98,7 +101,7 @@ export default function BlogSwiper({ posts }: { posts: Post[] }) {
           {posts.map(p => (
             <div className="swiper-slide" key={p.slug}>
               <article className="blog-card">
-                <a href={`/blog/${encodeURIComponent(p.slug)}`} className="block h-full">
+                <Link href={`/blog/${encodeURIComponent(p.slug)}`} prefetch={false} className="block h-full">
                   <div className="card-media">
                     {p.image ? <img src={p.image} alt={p.title} /> : <div className="card-media-fallback">No image</div>}
                   </div>
@@ -116,7 +119,7 @@ export default function BlogSwiper({ posts }: { posts: Post[] }) {
 
                     <div className="card-cta">Read article →</div>
                   </div>
-                </a>
+                </Link>
               </article>
             </div>
           ))}

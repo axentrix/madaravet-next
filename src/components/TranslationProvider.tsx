@@ -26,7 +26,7 @@ export default function TranslationProvider({ children }: { children: React.Reac
 
   useEffect(() => {
     let mounted = true;
-    fetch('/lang.json').then(res => res.json()).then((data) => {
+    fetch('/madaravet-next/lang.json').then(res => res.json()).then((data) => {
       if (!mounted) return;
       setTranslations(data);
     }).catch((e) => {

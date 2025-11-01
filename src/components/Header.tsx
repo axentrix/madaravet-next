@@ -138,12 +138,12 @@ export default function Header() {
           aria-modal="true"
         >
           <div className="react-clone-inner" style={{ opacity: menuOpen ? 1 : 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: 12 }}>
-            <img src="/images/logo_white.svg" alt="Logo" className="menu-logo" style={{ width: 140, opacity: menuOpen ? 1 : 0, transition: 'opacity 0.25s ease', position: 'relative', zIndex: 10000 }} />
+            <img src="/madaravet-next/images/logo_white.svg" alt="Logo" className="menu-logo" style={{ width: 140, opacity: menuOpen ? 1 : 0, transition: 'opacity 0.25s ease', position: 'relative', zIndex: 10000 }} />
             <ul className="menu-list react-clone-list" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, width: '100%', alignItems: 'center', opacity: menuOpen ? 1 : 0, transition: 'opacity 0.2s ease', pointerEvents: menuOpen ? 'auto' : 'none' }}>
-              <li style={{ width: '100%' }}><a href="/about" onClick={() => { setMenuOpen(false); }} className="block w-full text-center py-3 font-bold text-white">{t('nav_about') || 'ABOUT'}</a></li>
-              <li style={{ width: '100%' }}><a href="/services" onClick={() => { setMenuOpen(false); }} className="block w-full text-center py-3 font-bold text-white">{t('nav_services') || 'SERVICES'}</a></li>
-              <li style={{ width: '100%' }}><a href="/blog" onClick={() => { setMenuOpen(false); }} className="block w-full text-center py-3 font-bold text-white">{t('nav_blog') || 'BLOG'}</a></li>
-              <li style={{ width: '100%' }}><a href="/contact" onClick={() => { setMenuOpen(false); }} className="block w-full text-center py-3 font-bold text-white">{t('nav_contact') || 'CONTACT'}</a></li>
+              <li style={{ width: '100%' }}><Link href="/about" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_about') || 'ABOUT'}</Link></li>
+              <li style={{ width: '100%' }}><Link href="/services" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_services') || 'SERVICES'}</Link></li>
+              <li style={{ width: '100%' }}><Link href="/blog" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_blog') || 'BLOG'}</Link></li>
+              <li style={{ width: '100%' }}><Link href="/contact" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_contact') || 'CONTACT'}</Link></li>
             </ul>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function Header() {
         <div className="header-inner max-w-screen-xl mx-auto mt-4 px-4 md:px-8">
           <div className="header-card bg-white rounded-[18px] shadow-md py-3 px-6 flex justify-between items-center">
             <Link href="/" aria-label="Home">
-              <img src="/images/logo.svg" alt="MadaraVet logo" className="h-10 md:h-12" />
+              <img src="/madaravet-next/images/logo.svg" alt="MadaraVet logo" className="h-10 md:h-12" />
             </Link>
 
             <div className="header-info flex items-center gap-4 text-lg md:text-lg font-semibold">
@@ -184,17 +184,17 @@ export default function Header() {
                   <div className="line h-[2px] bg-white rounded" />
                 </div>
 
-                <img src="/images/logo_white.svg" alt="Logo" className={`menu-logo relative w-40 mb-4 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
+                <img src="/madaravet-next/images/logo_white.svg" alt="Logo" className={`menu-logo relative w-40 mt-4 mb-4 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
 
                 <ul
                   role="menu"
                   aria-hidden={!menuOpen}
-                  className={`menu-list absolute top-full left-1/2 -translate-x-1/2 mt-4 transition-opacity ease-in-out flex flex-col items-center space-y-4 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} bg-[#167DFF] text-white rounded-lg py-2 px-3 w-56 md:w-64 z-[9999]`}
+                  className={`menu-list  top-full left-1/2  mt-4 transition-opacity ease-in-out flex flex-col items-center space-y-4 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} text-white rounded-lg py-2 px-3 w-56 md:w-64 z-[9999]`}
                 >
-                  <li className="w-full text-center"><Link href="/about" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_about">nav_about</span></Link></li>
-                  <li className="w-full text-center"><Link href="/services" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_services">nav_services</span></Link></li>
-                  <li className="w-full text-center"><Link href="/blog" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_blog">nav_blog</span></Link></li>
-                  <li className="w-full text-center"><Link href="/contact" className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_contact">nav_contact</span></Link></li>
+                  <li className="w-full text-center"><Link href="/about" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_about">nav_about</span></Link></li>
+                  <li className="w-full text-center"><Link href="/services" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_services">nav_services</span></Link></li>
+                  <li className="w-full text-center"><Link href="/blog" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_blog">nav_blog</span></Link></li>
+                  <li className="w-full text-center"><Link href="/contact" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_contact">nav_contact</span></Link></li>
                 </ul>
               </div>
             </div>
