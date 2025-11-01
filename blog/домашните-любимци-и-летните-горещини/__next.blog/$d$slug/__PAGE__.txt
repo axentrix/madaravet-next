@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-4:I[97367,["/madaravet-next/_next/static/chunks/ff1a16fafef87110.js","/madaravet-next/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
 2:T3ee82,
   <header>
@@ -18,6 +18,6 @@
 <p>И моля НИКОГА не оставяйте кучето си в колата само през лятото! Дори за кратко време температурата в автомобила може да достигне над 50 градуса, а кучетата имат малко потни жлези и са предразположени към прегряване и получаване на топлинен удар.</p>
 <p>За домашните гризачи също е много важно да имат винаги прясна вода и свежа храна, а клетката им не трябва да е на слънце, нито до прозорец поради опасност от въздушно течение.</p>
 <p>И накрая една идея за разхлаждане: някои кучета се чувстват прекрасно ако им облечете намокрена детска фланелка вкъщи или преди разходка!</p>
-</div>0:{"buildId":"OxCYGtZchnYtmWMTmUgmD","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-20","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]}],null,"$L3"]}],"loading":null,"isPartial":false}
+</div>0:{"buildId":"t0JKN-eww9cv3UiXrgNaM","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-20","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]}],null,"$L3"]}],"loading":null,"isPartial":false}
 3:["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]
 6:null

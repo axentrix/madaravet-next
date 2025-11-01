@@ -556,22 +556,7 @@ if (section4El) {
     trigger: "#section4",
     start: "top 60%",
     end: "bottom top",
-    onEnter: () => {
-      try { tl4.restart(true); } catch(e){}
-      // animate dogcat and big-circle on enter to ensure they trigger even if inserted late
-      animateIfPresent('.dogcat', { scale: isMobile ? 3 : 2.5, duration: 1, ease: 'power3.out' });
-      animateIfPresent('.big-circle', { scale: isMobile ? 3 : 2.5, duration: 1, ease: 'power3.out' });
-    },
-    onEnterBack: () => {
-      try { tl4.restart(true); } catch(e){}
-      animateIfPresent('.dogcat', { scale: isMobile ? 3 : 2.5, duration: 1, ease: 'power3.out' });
-      animateIfPresent('.big-circle', { scale: isMobile ? 3 : 2.5, duration: 1, ease: 'power3.out' });
-    },
-    onLeave: () => { try { tl4.pause(0); } catch(e){} },
-    onLeaveBack: () => { try { tl4.pause(0); } catch(e){} },
-    invalidateOnRefresh: true,
-    // set markers to true temporarily if you need to debug positions
-    markers: false
+    toggleActions: "play play reverse play",
   });
 }
 
@@ -1124,7 +1109,7 @@ let translations = {};
 
 async function loadTranslations() {
   try {
-    const response = await fetch('/madaravet-next/lang.json');
+    const response = await fetch('/lang.json');
     translations = await response.json();
     applyTranslations(currentLang);
    initAnimations(); // initialize animations after translations are applied
