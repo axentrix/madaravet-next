@@ -1124,7 +1124,7 @@ let translations = {};
 
 async function loadTranslations() {
   try {
-    const response = await fetch('./lang.json');
+    const response = await fetch('/madaravet-next/lang.json');
     translations = await response.json();
     applyTranslations(currentLang);
    initAnimations(); // initialize animations after translations are applied
