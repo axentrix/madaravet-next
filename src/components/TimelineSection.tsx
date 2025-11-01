@@ -10,6 +10,10 @@ export default function TimelineSection() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Only run animations on desktop
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
+
     const loadGSAP = async () => {
       // Prefer global GSAP from CDN if available
       const gsap = (window as any).gsap || (await import('gsap')).default;
@@ -65,21 +69,21 @@ export default function TimelineSection() {
 
   return (
     <section ref={sectionRef} className="timeline-section py-24 md:py-32 relative overflow-hidden">
-      <div className="timeline-container">
-        <div className="timeline-grid relative min-h-[800px] flex items-center justify-center">
-          
-          {/* Title - revealed in center */}
-          <h2 
-            ref={titleRef}
-            className="timeline-title absolute z-10 text-center uppercase font-bold text-[#09284B]"
-          >
-            Д-р Юлиана Соколова
-          </h2>
+      <div className="timeline-container px-4">
+        {/* Title - visible on mobile, animated on desktop */}
+        <h2 
+          ref={titleRef}
+          className="timeline-title block md:absolute z-10 text-center uppercase font-bold text-[#09284B] mb-8 md:mb-0"
+        >
+          Д-р Юлиана Соколова
+        </h2>
+
+        <div className="timeline-grid relative md:min-h-[800px] flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
 
           {/* Card 1 - 1992 (Pink) */}
           <div 
             ref={el => { cardsRef.current[0] = el; }}
-            className="timeline-card card-1992 absolute"
+            className="timeline-card card-1992 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">1992</div>
             <div className="card-text">
@@ -90,7 +94,7 @@ export default function TimelineSection() {
           {/* Card 2 - 1993-1996 (Yellow) */}
           <div 
             ref={el => { cardsRef.current[1] = el; }}
-            className="timeline-card card-1993 absolute"
+            className="timeline-card card-1993 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">1993-1996</div>
             <div className="card-text">
@@ -101,7 +105,7 @@ export default function TimelineSection() {
           {/* Card 3 - 2001 (Green) */}
           <div 
             ref={el => { cardsRef.current[2] = el; }}
-            className="timeline-card card-2001 absolute"
+            className="timeline-card card-2001 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">2001</div>
             <div className="card-text">
@@ -112,7 +116,7 @@ export default function TimelineSection() {
           {/* Card 4 - 2005 (Blue) */}
           <div 
             ref={el => { cardsRef.current[3] = el; }}
-            className="timeline-card card-2005 absolute"
+            className="timeline-card card-2005 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">2005</div>
             <div className="card-text">
@@ -123,7 +127,7 @@ export default function TimelineSection() {
           {/* Photo card */}
           <div 
             ref={el => { cardsRef.current[4] = el; }}
-            className="timeline-card card-photo absolute"
+            className="timeline-card card-photo relative md:absolute w-full md:w-auto"
           >
             <img 
               src="https://api.builder.io/api/v1/image/assets/TEMP/8c79fa4446a479806f0d11a64004d98ef9308f84?width=572" 

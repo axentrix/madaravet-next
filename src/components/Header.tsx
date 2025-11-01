@@ -138,7 +138,7 @@ export default function Header() {
           aria-modal="true"
         >
           <div className="react-clone-inner" style={{ opacity: menuOpen ? 1 : 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: 12 }}>
-            <img src="/madaravet-next/images/logo_white.svg" alt="Logo" className="menu-logo" style={{ width: 140, opacity: menuOpen ? 1 : 0, transition: 'opacity 0.25s ease', position: 'relative', zIndex: 10000 }} />
+            <img src="/images/logo_white.svg" alt="Logo" className="menu-logo" style={{ width: 140, opacity: menuOpen ? 1 : 0, transition: 'opacity 0.25s ease', position: 'relative', zIndex: 10000 }} />
             <ul className="menu-list react-clone-list" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, width: '100%', alignItems: 'center', opacity: menuOpen ? 1 : 0, transition: 'opacity 0.2s ease', pointerEvents: menuOpen ? 'auto' : 'none' }}>
               <li style={{ width: '100%' }}><Link href="/about" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_about') || 'ABOUT'}</Link></li>
               <li style={{ width: '100%' }}><Link href="/services" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_services') || 'SERVICES'}</Link></li>

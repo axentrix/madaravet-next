@@ -31,7 +31,7 @@ export default function RootLayout({
       <head>
         {/* Google font for Advent Pro and custom stylesheet */}
         <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="/madaravet-next/custom.css" />
+        <link rel="stylesheet" href="/custom.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
       </head>
       <body>
@@ -73,8 +73,8 @@ export default function RootLayout({
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CSSRulePlugin.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-        <script src="/madaravet-next/custom.js"></script>
-        <script src="/madaravet-next/menu-home.js"></script>
+        <script src="/custom.js"></script>
+        <script src="/menu-home.js"></script>
       </body>
     </html>
   );

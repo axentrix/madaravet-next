@@ -42,7 +42,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="contact-hours">
+      <section className="contact-hours" id="hours">
         <div className="hours-circle">
           <h2 className="hours-main-title" data-i18n="section5_title1">МАДАРАВЕТ</h2>
           <h3 className="hours-subtitle" data-i18n="section5_title2">РАБОТНО ВРЕМЕ</h3>

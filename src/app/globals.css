@@ -1046,12 +1046,14 @@ body {
     width: 100%;
     max-width: 500px;
   }
-
+section{
+  margin:16px 0;
+}
   .map-card {
     width: 100%;
     max-width: 350px;
     height: auto;
-    min-height: 200px;
+ 
   }
 
   .map-wrapper {
