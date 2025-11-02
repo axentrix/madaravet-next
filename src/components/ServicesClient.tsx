@@ -83,7 +83,6 @@ export default function ServicesClient() {
 
       const circles = Array.from(section.querySelectorAll('.service-circle'));
       const radius = 138.5; // half of 277px
-      const isMobile = window.innerWidth <= 768;
 
       // compute footer top to use as floor
       const footerEl = document.querySelector('footer');
@@ -156,31 +155,13 @@ export default function ServicesClient() {
 
         // floor positioned at bottom of this section (so circles land on last section before footer)
         const floorYDoc = sectionTop + sectionRect.height - 10; // document coord for floor
-        const floorWidth = isMobile ? window.innerWidth : sectionRect.width + 400;
-        const floorX = isMobile ? window.scrollX + window.innerWidth / 2 : sectionLeft + sectionRect.width / 2;
+        const floorWidth = sectionRect.width + 400;
+        const floorX = sectionLeft + sectionRect.width / 2;
         const floor = Bodies.rectangle(floorX, floorYDoc, floorWidth, 60, { isStatic: true, restitution: 0.2 });
 
-        // On mobile: walls at viewport edges, On desktop: walls at section edges
-        let wallL, wallR;
-        if (isMobile) {
-          const wallHeight = sectionRect.height + 2000;
-          const wallCenterY = sectionTop + sectionRect.height / 2;
-          // Left wall - positioned at left edge of viewport (document coords)
-          wallL = Bodies.rectangle(window.scrollX + radius, wallCenterY, 40, wallHeight, { 
-            isStatic: true, 
-            restitution: 0.3,
-            friction: 0.5 
-          });
-          // Right wall - positioned at right edge of viewport (document coords)
-          wallR = Bodies.rectangle(window.scrollX + window.innerWidth - radius, wallCenterY, 40, wallHeight, { 
-            isStatic: true, 
-            restitution: 0.3,
-            friction: 0.5 
-          });
-        } else {
-          wallL = Bodies.rectangle(sectionLeft - 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
-          wallR = Bodies.rectangle(sectionLeft + sectionRect.width + 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
-        }
+        // walls at section edges
+        const wallL = Bodies.rectangle(sectionLeft - 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
+        const wallR = Bodies.rectangle(sectionLeft + sectionRect.width + 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
         World.add(world, [floor, wallL, wallR]);
 
         const bubbles = circles.map((el: any, i) => {
@@ -190,42 +171,23 @@ export default function ServicesClient() {
           el.style.transform = 'none';
           el.style.zIndex = "9999";
 
-          // start centered horizontally, staggered vertically from top (document coords for physics)
-          let xDoc, yDoc;
-          
-          if (isMobile) {
-            // On mobile: all start at center horizontally, staggered vertically above section
-            xDoc = sectionLeft + sectionRect.width / 2;
-            yDoc = sectionTop - 300 - (i * 200); // stagger vertically so they drop in sequence
-          } else {
-            // On desktop: start with horizontal spread
-            xDoc = sectionLeft + sectionRect.width / 2 + (i - 1) * (radius * 0.6);
-            yDoc = sectionTop + 200 - Math.random() * 40;
-          }
+          // start with horizontal spread
+          const xDoc = sectionLeft + sectionRect.width / 2 + (i - 1) * (radius * 0.6);
+          const yDoc = sectionTop + 200 - Math.random() * 40;
 
           const body = Bodies.circle(xDoc, yDoc, radius, {
-            restitution: isMobile ? 0.2 : 0.6, // Very little bounce on mobile
-            friction: isMobile ? 0.3 : 0.1, // More friction on mobile
-            frictionAir: isMobile ? 0.01 : 0.02,
+            restitution: 0.6,
+            friction: 0.1,
+            frictionAir: 0.02,
             density: 0.002
           });
 
           // give them some initial spin and sideways force
-          if (isMobile) {
-            // On mobile: no horizontal movement, straight drop
-            Body.setAngularVelocity(body, 0);
-            Body.setVelocity(body, {
-              x: 0, // No horizontal movement
-              y: 4 // Consistent drop speed
-            });
-          } else {
-            // On desktop: more dynamic physics
-            Body.setAngularVelocity(body, gsap.utils.random(-0.3, 0.3));
-            Body.setVelocity(body, {
-              x: gsap.utils.random(-3, 3),
-              y: gsap.utils.random(2, 6)
-            });
-          }
+          Body.setAngularVelocity(body, gsap.utils.random(-0.3, 0.3));
+          Body.setVelocity(body, {
+            x: gsap.utils.random(-3, 3),
+            y: gsap.utils.random(2, 6)
+          });
 
           World.add(world, body);
           return { el, body };
