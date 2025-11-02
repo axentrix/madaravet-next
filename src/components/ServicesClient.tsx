@@ -186,21 +186,21 @@ export default function ServicesClient() {
         const bubbles = circles.map((el: any, i) => {
           el.style.opacity = "1";
           el.style.display = "flex";
-          el.style.position = "fixed"; // fixed relative to viewport so they do not affect document height
+          el.style.position = "absolute"; // absolute positioning to work with document flow
           el.style.transform = 'none';
           el.style.zIndex = "9999";
 
-          // start centered in viewport with slight offsets
+          // start centered horizontally, staggered vertically from top of section
           let xDoc, yDoc;
           
           if (isMobile) {
-            // On mobile: all start at center horizontally, staggered vertically to drop one after another
-            xDoc = window.scrollX + window.innerWidth / 2;
-            yDoc = window.scrollY - 300 - (i * 200); // stagger vertically so they drop in sequence
+            // On mobile: all start at center horizontally, staggered vertically above section
+            xDoc = sectionLeft + sectionRect.width / 2;
+            yDoc = sectionTop - 300 - (i * 200); // stagger vertically so they drop in sequence
           } else {
             // On desktop: start with horizontal spread
-            xDoc = window.scrollX + window.innerWidth / 2 + (i - 1) * (radius * 0.6);
-            yDoc = window.scrollY + window.innerHeight / 2 - 120 - Math.random() * 40;
+            xDoc = sectionLeft + sectionRect.width / 2 + (i - 1) * (radius * 0.6);
+            yDoc = sectionTop + 200 - Math.random() * 40;
           }
 
           const body = Bodies.circle(xDoc, yDoc, radius, {
@@ -244,12 +244,12 @@ export default function ServicesClient() {
             }
             if (!body.isStatic) allStatic = false;
 
-            // Convert body's document coords to viewport-local for fixed positioning
-            const leftViewport = body.position.x - radius - window.scrollX;
-            const topViewport = body.position.y - radius - window.scrollY;
+            // For absolute positioning, use document coordinates directly
+            const leftDoc = body.position.x - radius;
+            const topDoc = body.position.y - radius;
 
-            el.style.left = `${leftViewport}px`;
-            el.style.top = `${topViewport}px`;
+            el.style.left = `${leftDoc}px`;
+            el.style.top = `${topDoc}px`;
 
             // Apply rotation based on body.angle
             el.style.transform = `rotate(${body.angle}rad)`;
