@@ -872,7 +872,7 @@ body {
   }
 
   .service-circle {
-    position: relative !important;
+    position: fixed !important;
     opacity: 1 !important;
     width: 100%;
     max-width: 280px;
