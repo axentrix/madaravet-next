@@ -41,7 +41,6 @@ export default function RootLayout({
         <TranslationProvider>
           <div id="loader" style={{ 
             position: 'fixed', 
-          
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center', 
@@ -49,9 +48,10 @@ export default function RootLayout({
             color: 'white', 
             zIndex: 99999,
             width: '200vw', 
-            height: '200vh', 
-            top: '50vh', 
-            left: '50vw' 
+            height: '200vw', 
+            top: '50%', 
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
           }}>
             <div style={{ 
               borderRadius: '999px', 
@@ -62,7 +62,7 @@ export default function RootLayout({
             </div>
           </div>
           <Header />
-          <main>{children}</main>
+          <main className="main-content">{children}</main>
           <Footer />
         </TranslationProvider>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
