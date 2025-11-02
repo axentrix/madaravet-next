@@ -1,6 +1,6 @@
 export default function ContactPage() {
   return (
-    <div className="contact-page">
+    <div id="contact-page" className="contact-page page-contact">
       <section className="contact-hero">
         <div className="hero-banner-wrapper">
           <img

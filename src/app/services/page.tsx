@@ -1,5 +1,9 @@
 import ServicesClient from '@/components/ServicesClient';
 
 export default function ServicesPage() {
-  return <ServicesClient />;
+  return (
+    <div id="services-page" className="page-services">
+      <ServicesClient />
+    </div>
+  );
 }

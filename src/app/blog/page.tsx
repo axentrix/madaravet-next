@@ -107,7 +107,7 @@ export default async function BlogPage() {
   }));
 
   return (
-    <section className="blog-page max-w-screen-xl mx-auto px-4 py-20">
+    <section id="blog-page" className="blog-page page-blog max-w-screen-xl mx-auto px-4 py-20">
       <h1 className="text-3xl md:text-4xl font-bold mb-6">Блог</h1>
 
       <p className="mb-6">Последни статии</p>
