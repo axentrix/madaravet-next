@@ -163,9 +163,20 @@ export default function ServicesClient() {
         // On mobile: walls at viewport edges, On desktop: walls at section edges
         let wallL, wallR;
         if (isMobile) {
-          const wallHeight = sectionRect.height + 1000;
-          wallL = Bodies.rectangle(window.scrollX + 10, sectionTop + sectionRect.height / 2, 20, wallHeight, { isStatic: true, restitution: 0.3 });
-          wallR = Bodies.rectangle(window.scrollX + window.innerWidth - 10, sectionTop + sectionRect.height / 2, 20, wallHeight, { isStatic: true, restitution: 0.3 });
+          const wallHeight = sectionRect.height + 2000;
+          const wallCenterY = sectionTop + sectionRect.height / 2;
+          // Left wall - positioned at left edge of viewport (document coords)
+          wallL = Bodies.rectangle(window.scrollX + radius, wallCenterY, 40, wallHeight, { 
+            isStatic: true, 
+            restitution: 0.3,
+            friction: 0.5 
+          });
+          // Right wall - positioned at right edge of viewport (document coords)
+          wallR = Bodies.rectangle(window.scrollX + window.innerWidth - radius, wallCenterY, 40, wallHeight, { 
+            isStatic: true, 
+            restitution: 0.3,
+            friction: 0.5 
+          });
         } else {
           wallL = Bodies.rectangle(sectionLeft - 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
           wallR = Bodies.rectangle(sectionLeft + sectionRect.width + 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
