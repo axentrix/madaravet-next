@@ -551,12 +551,20 @@ if (section4El) {
     }, 0);
   }
 
-  // Use a dedicated ScrollTrigger to control playback so enter/enterBack reliably restart the paused timeline
+  // Use ScrollTrigger with scrub for smooth reversing
   ScrollTrigger.create({
     trigger: "#section4",
-    start: "top 60%",
-    end: "bottom top",
-    toggleActions: "play play reverse play",
+    start: "top 80%",
+    end: "bottom 20%",
+    scrub: 1,
+    onUpdate: (self) => {
+      if (tl4) {
+        const progress = self.progress;
+        tl4.progress(progress);
+      }
+    },
+    invalidateOnRefresh: true,
+    markers: false
   });
 }
 
@@ -758,15 +766,10 @@ circleAnim.to(".dogcat", {
  const tl6 = gsap.timeline({
     scrollTrigger: {
       trigger: "#section6",
-      start: "top 20%",
-      end: isMobile ? "+=1200" : "+=2000",
-      scrub:false,
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: 1,
       pin: false,
-      toggleActions: "play reverse play reverse",
-      onEnter: () => tl6.restart(true),
-      onEnterBack: () => tl6.restart(true),
-      onLeave: () => tl6.pause(0),
-      onLeaveBack: () => tl6.pause(0),
       invalidateOnRefresh: true
     }
   });
