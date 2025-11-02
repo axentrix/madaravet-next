@@ -156,12 +156,20 @@ export default function ServicesClient() {
 
         // floor positioned at bottom of this section (so circles land on last section before footer)
         const floorYDoc = sectionTop + sectionRect.height - 10; // document coord for floor
-        const floorWidth = sectionRect.width + 400;
-        const floor = Bodies.rectangle(sectionLeft + sectionRect.width / 2, floorYDoc, floorWidth, 60, { isStatic: true, restitution: 0.2 });
+        const floorWidth = isMobile ? window.innerWidth : sectionRect.width + 400;
+        const floorX = isMobile ? window.scrollX + window.innerWidth / 2 : sectionLeft + sectionRect.width / 2;
+        const floor = Bodies.rectangle(floorX, floorYDoc, floorWidth, 60, { isStatic: true, restitution: 0.2 });
 
-        // left/right walls at section edges (document coords)
-        const wallL = Bodies.rectangle(sectionLeft - 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
-        const wallR = Bodies.rectangle(sectionLeft + sectionRect.width + 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
+        // On mobile: walls at viewport edges, On desktop: walls at section edges
+        let wallL, wallR;
+        if (isMobile) {
+          const wallHeight = sectionRect.height + 1000;
+          wallL = Bodies.rectangle(window.scrollX + 10, sectionTop + sectionRect.height / 2, 20, wallHeight, { isStatic: true, restitution: 0.3 });
+          wallR = Bodies.rectangle(window.scrollX + window.innerWidth - 10, sectionTop + sectionRect.height / 2, 20, wallHeight, { isStatic: true, restitution: 0.3 });
+        } else {
+          wallL = Bodies.rectangle(sectionLeft - 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
+          wallR = Bodies.rectangle(sectionLeft + sectionRect.width + 50, sectionTop + sectionRect.height / 2, 100, sectionRect.height + 600, { isStatic: true, restitution: 0.8 });
+        }
         World.add(world, [floor, wallL, wallR]);
 
         const bubbles = circles.map((el: any, i) => {
@@ -175,12 +183,9 @@ export default function ServicesClient() {
           let xDoc, yDoc;
           
           if (isMobile) {
-            // On mobile: spread horizontally, drop from top
-            // Calculate positions to fit 3 circles side by side
-            const viewportWidth = window.innerWidth;
-            const spacing = (viewportWidth - (radius * 2 * 3)) / 4; // space between and on sides
-            xDoc = window.scrollX + spacing + radius + (i * (radius * 2 + spacing));
-            yDoc = window.scrollY - 200 - (i * 50); // slight stagger in drop time
+            // On mobile: all start at center horizontally, staggered vertically to drop one after another
+            xDoc = window.scrollX + window.innerWidth / 2;
+            yDoc = window.scrollY - 300 - (i * 200); // stagger vertically so they drop in sequence
           } else {
             // On desktop: start with horizontal spread
             xDoc = window.scrollX + window.innerWidth / 2 + (i - 1) * (radius * 0.6);
