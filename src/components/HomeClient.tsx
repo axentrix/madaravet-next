@@ -35,7 +35,7 @@ export default function HomeClient() {
       { src: "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js", id: "gsap-splittext" },
       { src: "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js", id: "gsap-textplugin" },
       { src: "https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js", id: "matterjs" },
-      { src: "/madaravet-next/custom.js", id: "custom-js" },
+      { src: "/custom.js", id: "custom-js" },
     ];
 
     const loadSequential = async () => {
@@ -88,11 +88,11 @@ export default function HomeClient() {
           <div className="relative z-[89] flex align-items-center justify-center flex-col">
             <div className="flex gap-4 mb-10 justify-center flex-col md:flex-row items-start md:order-2">
               <div className="flex w-auto infobox1 split-text items-center gap-2 bg-[#177DDF] text-white px-4 py-2 rounded-full text-lg">
-                <img src="/madaravet-next/images/pin.svg" className="w-4 h-4" alt="pin" />
+                <img src="/images/pin.svg" className="w-4 h-4" alt="pin" />
                 <span data-i18n="section1_address"></span>
               </div>
               <div className="flex w-auto infobox2 split-text items-center gap-2 bg-[#177DDF] text-white px-4 py-2 rounded-full text-lg">
-                <img src="/madaravet-next/images/phone.svg" className="w-4 h-4" alt="phone" />
+                <img src="/images/phone.svg" className="w-4 h-4" alt="phone" />
                 <span>+888 198 585</span>
               </div>
             </div>
@@ -108,9 +108,9 @@ export default function HomeClient() {
         </div>
 
         <div className="circle-init2 absolute left-[-100px] md:left-[200px] bottom-[100px] w-[360px] h-[360px] rounded-full bg-[#FFF5DA] z-[74]" />
-        <img src="/madaravet-next/images/puppies.png" alt="Left Puppies" className="puppies1 absolute left-[-100px] md:left-[200px] bottom-[5vh] w-auto h-[40vh] max-w-[90vw] md:h-[60vh] md:w-auto z-[81]" />
+        <img src="/images/puppies.png" alt="Left Puppies" className="puppies1 absolute left-[-100px] md:left-[200px] bottom-[5vh] w-auto h-[40vh] max-w-[90vw] md:h-[60vh] md:w-auto z-[81]" />
         <div className="circle-init1 absolute right-[-160px] top-[180px] w-[560px] h-[560px] rounded-full bg-[#D8F1FF] z-[76]" />
-        <img src="/madaravet-next/images/puppies2.png" alt="Dr. Juliana Sokolova" className="absolute puppies2 right-[0] w-auto h-[55vh] max-w-none md:h-[90vh] md:w-auto bottom-[-50px] md:bottom-[-10vh] z-[82]" />
+        <img src="/images/puppies2.png" alt="Dr. Juliana Sokolova" className="absolute puppies2 right-[0] w-auto h-[55vh] max-w-none md:h-[90vh] md:w-auto bottom-[-50px] md:bottom-[-10vh] z-[82]" />
       </section>
 
       <section id="section2" className="relative w-full min-h-screen flex items-center justify-center px-4 py-20 z-[106]">
@@ -132,19 +132,19 @@ export default function HomeClient() {
 
           <div className="circle-card z-68 absolute top-1/2 transform -translate-y-1/2 left-1/2 w-[30vh] h-[30vh] flex flex-col items-center justify-center text-center px-4">
             <div className="circle absolute bg-[#FFF5DA] w-full h-full flex rounded-full z-[-1]" />
-            <img src="/madaravet-next/images/ico1.svg" alt="Icon" className="w-6 mb-2" />
+            <img src="/images/ico1.svg" alt="Icon" className="w-6 mb-2" />
             <p className="text-[#E3362D] text-xl font-bold leading-tight" data-i18n="section3_card1">ДИАГНОСТИЧНИ<br />ТЕСТОВЕ</p>
           </div>
 
           <div className="circle-card z-69 absolute top-1/2 left-1/2 transform -translate-y-1/2 w-[30vh] h-[30vh] rounded-full flex flex-col items-center justify-center text-center px-4">
             <div className="circle absolute bg-[#FFEAEA] w-full h-full flex rounded-full z-[-1]" />
-            <img src="/madaravet-next/images/ico2.svg" alt="Icon" className="w-6 mb-2" />
+            <img src="/images/ico2.svg" alt="Icon" className="w-6 mb-2" />
             <p className="text-[#E3362D] text-xl font-bold leading-tight" data-i18n="section3_card2">ИНДИВИДУАЛНО<br />НАСОЧЕНА<br />ПРОФИЛАКТИКА</p>
           </div>
 
           <div className="circle-card z-70 absolute top-1/2 left-1/2 transform -translate-y-1/2 w-[30vh] h-[30vh] rounded-full flex flex-col items-center justify-center text-center px-4">
             <div className="circle absolute bg-[#E0FFD4] w-full h-full flex rounded-full z-[-1]" />
-            <img src="/madaravet-next/images/ico3.svg" alt="Icon" className="w-6 mb-2" />
+            <img src="/images/ico3.svg" alt="Icon" className="w-6 mb-2" />
             <p className="text-[#E3362D] text-xl font-bold leading-tight" data-i18n="section3_card3">ХИРУРГИЧНО<br />ЛЕЧЕНИЕ</p>
           </div>
 
@@ -160,19 +160,19 @@ export default function HomeClient() {
         <div className="image-cards relative z-20">
           <div className="image-card flex w-[80vw] h-[80vh] md:w-auto md:h-auto max-w-[640px] max-h-[640px]">
             <div className="image1 service">
-              <img src="/madaravet-next/images/service1.png" alt="Диагностика" className="rounded-xl w-full object-cover" data-i18n-alt="section3_img1" />
+              <img src="/images/service1.png" alt="Диагностика" className="rounded-xl w-full object-cover" data-i18n-alt="section3_img1" />
             </div>
           </div>
 
           <div className="image-card flex w-[80vw] h-[80vh] md:w-auto md:h-auto max-w-[640px] max-h-[640px]">
             <div className="image2 service">
-              <img src="/madaravet-next/images/service2.png" alt="Профилактика" className="rounded-xl w-full object-cover" data-i18n-alt="section3_img2" />
+              <img src="/images/service2.png" alt="Профилактика" className="rounded-xl w-full object-cover" data-i18n-alt="section3_img2" />
             </div>
           </div>
 
           <div className="image-card flex w-[80vw] h-[80vh] md:w-auto md:h-auto max-w-[640px] max-h-[640px]">
             <div className="image2 service">
-              <img src="/madaravet-next/images/service3.png" alt="Хирургия" className="rounded-xl w-full object-cover" data-i18n-alt="section3_img3" />
+              <img src="/images/service3.png" alt="Хирургия" className="rounded-xl w-full object-cover" data-i18n-alt="section3_img3" />
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function HomeClient() {
 
       <section className="relative w-full overflow-hidden z-69 align-items-end " id="section4">
         <div id="maskedImage" className="w-full overflow-hidden rounded-[40px]">
-          <img src="/madaravet-next/images/landscape.jpg" alt="Dr.Juliana Sokolova" className="w-full h-auto" />
+          <img src="/images/landscape.jpg" alt="Dr.Juliana Sokolova" className="w-full h-auto" />
         </div>
       </section>
 
@@ -269,11 +269,11 @@ C10.5,645.6,8.3,687.2,15,727"/>
 
       <section className="relative w-full overflow-hidden flex-col z-64 " id="section6">
         <div id="maskedImage2" className="w-full overflow-hidden rounded-[40px]">
-          <img id="dogImage" src="/madaravet-next/images/dogs.jpg" alt="Dogs" className="w-full h-auto" />
+          <img id="dogImage" src="/images/dogs.jpg" alt="Dogs" className="w-full h-auto" />
         </div>
 
         <div className="absolute google top-[240px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-white rounded-full flex flex-col items-center justify-center text-center text-lg font-bold z-10">
-          <img src="/madaravet-next/images/google.svg" alt="Google" className="w-20 mb-1" />
+          <img src="/images/google.svg" alt="Google" className="w-20 mb-1" />
           <div className="text-yellow-500 text-xl">★★★★★</div>
           <div className="text-[#11294B] mt-1">199+ REVIEWS</div>
         </div>
@@ -313,22 +313,22 @@ C10.5,645.6,8.3,687.2,15,727"/>
 
           <div className="swiper mySwiper">
             <div className="swiper-wrapper">
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/1.jpg" alt="1" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/2.jpg" alt="2" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/3.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/4.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/5.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/6.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/7.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/8.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/9.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/10.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/11.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/12.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/13.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/14.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/15.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/madaravet-next/images/gallery/16.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/1.jpg" alt="1" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/2.jpg" alt="2" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/3.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/4.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/5.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/6.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/7.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/8.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/9.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/10.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/11.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/12.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/13.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/14.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/15.jpg" alt="3" /></div>
+              <div className="swiper-slide"><img src="/images/gallery/16.jpg" alt="3" /></div>
             </div>
             <div className="swiper-pagination"></div>
           </div>
@@ -338,7 +338,7 @@ C10.5,645.6,8.3,687.2,15,727"/>
       </section>
 
       <div className="absolute big-circle w-[90vh] h-[90vh] bg-[#D8F1FF] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <img src="/madaravet-next/images/catdog.svg" alt="Cat and Dog" className="absolute dogcat w-[60vh] max-w-[80vh]" />
+        <img src="/images/catdog.svg" alt="Cat and Dog" className="absolute dogcat w-[60vh] max-w-[80vh]" />
       </div>
 
     </div>

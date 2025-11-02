@@ -9,7 +9,7 @@ export default function AboutPage() {
         <h1 className="title-text text-center uppercase leading-tight flex flex-wrap justify-center items-center gap-3">
           <span className="title-part title-blue" data-i18n="about_intro">Ние, екипът на</span>
     <img
-            src="/madaravet-next/images/aboutlogo.svg"
+            src="/images/aboutlogo.svg"
             alt="MadaraVet"
            
             data-i18n-alt="contact_hero_alt"

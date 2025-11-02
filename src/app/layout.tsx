@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "MadaraVet",
   description: "Д-р Юлиана Соколова",
+  icons: {
+    icon: '/images/favicon/favicon.ico',
+  },
 };
 
 export default function RootLayout({
