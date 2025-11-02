@@ -85,15 +85,6 @@ export default function ServicesClient() {
       const radius = 138.5; // half of 277px
       const isMobile = window.innerWidth <= 768;
 
-      if (isMobile) {
-        // On mobile, just show the circles normally
-        circles.forEach((el: any) => {
-          el.style.opacity = "1";
-          el.style.position = "relative";
-        });
-        return;
-      }
-
       // compute footer top to use as floor
       const footerEl = document.querySelector('footer');
       const footerTop = footerEl ? (footerEl.getBoundingClientRect().top + window.scrollY) : (document.body.scrollHeight);
@@ -181,22 +172,41 @@ export default function ServicesClient() {
           el.style.zIndex = "9999";
 
           // start centered in viewport with slight offsets
-          const xDoc = window.scrollX + window.innerWidth / 2 + (i - 1) * (radius * 0.6);
-          const yDoc = window.scrollY + window.innerHeight / 2 - 120 - Math.random() * 40;
+          let xDoc, yDoc;
+          
+          if (isMobile) {
+            // On mobile: start at center horizontally, staggered vertically from top
+            xDoc = window.scrollX + window.innerWidth / 2;
+            yDoc = window.scrollY - 200 - (i * 150); // stagger from above viewport
+          } else {
+            // On desktop: start with horizontal spread
+            xDoc = window.scrollX + window.innerWidth / 2 + (i - 1) * (radius * 0.6);
+            yDoc = window.scrollY + window.innerHeight / 2 - 120 - Math.random() * 40;
+          }
 
           const body = Bodies.circle(xDoc, yDoc, radius, {
-            restitution: 0.6,
-            friction: 0.1,
-            frictionAir: 0.02,
+            restitution: isMobile ? 0.3 : 0.6, // Less bouncy on mobile
+            friction: isMobile ? 0.15 : 0.1,
+            frictionAir: isMobile ? 0.01 : 0.02, // Less air resistance on mobile
             density: 0.002
           });
 
           // give them some initial spin and sideways force
-          Body.setAngularVelocity(body, gsap.utils.random(-0.3, 0.3));
-          Body.setVelocity(body, {
-            x: gsap.utils.random(-3, 3),
-            y: gsap.utils.random(2, 6)
-          });
+          if (isMobile) {
+            // On mobile: minimal horizontal movement, just drop
+            Body.setAngularVelocity(body, gsap.utils.random(-0.1, 0.1));
+            Body.setVelocity(body, {
+              x: gsap.utils.random(-0.5, 0.5), // Very little horizontal
+              y: gsap.utils.random(3, 5) // Consistent drop speed
+            });
+          } else {
+            // On desktop: more dynamic physics
+            Body.setAngularVelocity(body, gsap.utils.random(-0.3, 0.3));
+            Body.setVelocity(body, {
+              x: gsap.utils.random(-3, 3),
+              y: gsap.utils.random(2, 6)
+            });
+          }
 
           World.add(world, body);
           return { el, body };

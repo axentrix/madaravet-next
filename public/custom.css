@@ -447,3 +447,21 @@ color:#ffffff;
     max-height: calc(78% / var(--menu-items-count));
   }
 }
+
+@media (orientation:portrait) and (max-width: 767px) {
+  #loader {
+    width: 150vh;
+    height: 150vh;
+  }
+  #home-page #section1{
+margin-top:-60px;
+    justify-content:flex-start;
+  }
+  .circle-card {
+    width: 80vw;
+    height: 80vw;
+}
+#contact-page{
+  margin:120px 16px;
+}
+}
