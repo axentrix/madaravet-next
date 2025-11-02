@@ -175,9 +175,12 @@ export default function ServicesClient() {
           let xDoc, yDoc;
           
           if (isMobile) {
-            // On mobile: start at center horizontally, staggered vertically from top
-            xDoc = window.scrollX + window.innerWidth / 2;
-            yDoc = window.scrollY - 200 - (i * 150); // stagger from above viewport
+            // On mobile: spread horizontally, drop from top
+            // Calculate positions to fit 3 circles side by side
+            const viewportWidth = window.innerWidth;
+            const spacing = (viewportWidth - (radius * 2 * 3)) / 4; // space between and on sides
+            xDoc = window.scrollX + spacing + radius + (i * (radius * 2 + spacing));
+            yDoc = window.scrollY - 200 - (i * 50); // slight stagger in drop time
           } else {
             // On desktop: start with horizontal spread
             xDoc = window.scrollX + window.innerWidth / 2 + (i - 1) * (radius * 0.6);
@@ -185,19 +188,19 @@ export default function ServicesClient() {
           }
 
           const body = Bodies.circle(xDoc, yDoc, radius, {
-            restitution: isMobile ? 0.3 : 0.6, // Less bouncy on mobile
-            friction: isMobile ? 0.15 : 0.1,
-            frictionAir: isMobile ? 0.01 : 0.02, // Less air resistance on mobile
+            restitution: isMobile ? 0.2 : 0.6, // Very little bounce on mobile
+            friction: isMobile ? 0.3 : 0.1, // More friction on mobile
+            frictionAir: isMobile ? 0.01 : 0.02,
             density: 0.002
           });
 
           // give them some initial spin and sideways force
           if (isMobile) {
-            // On mobile: minimal horizontal movement, just drop
-            Body.setAngularVelocity(body, gsap.utils.random(-0.1, 0.1));
+            // On mobile: no horizontal movement, straight drop
+            Body.setAngularVelocity(body, 0);
             Body.setVelocity(body, {
-              x: gsap.utils.random(-0.5, 0.5), // Very little horizontal
-              y: gsap.utils.random(3, 5) // Consistent drop speed
+              x: 0, // No horizontal movement
+              y: 4 // Consistent drop speed
             });
           } else {
             // On desktop: more dynamic physics
