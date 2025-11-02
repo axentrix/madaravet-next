@@ -626,7 +626,8 @@ body {
 }
 
 .services-cards {
-  padding: 64px 0 200px 0;
+  padding: 64px 0;
+  margin-bottom: 200px;
 }
 
 .cards-wrapper {

@@ -186,11 +186,11 @@ export default function ServicesClient() {
         const bubbles = circles.map((el: any, i) => {
           el.style.opacity = "1";
           el.style.display = "flex";
-          el.style.position = "absolute"; // absolute positioning to work with document flow
+          el.style.position = "fixed"; // fixed so they don't affect page height
           el.style.transform = 'none';
           el.style.zIndex = "9999";
 
-          // start centered horizontally, staggered vertically from top of section
+          // start centered horizontally, staggered vertically from top (document coords for physics)
           let xDoc, yDoc;
           
           if (isMobile) {
@@ -244,12 +244,12 @@ export default function ServicesClient() {
             }
             if (!body.isStatic) allStatic = false;
 
-            // For absolute positioning, use document coordinates directly
-            const leftDoc = body.position.x - radius;
-            const topDoc = body.position.y - radius;
+            // For fixed positioning, convert document coords to viewport coords
+            const leftViewport = body.position.x - radius - window.scrollX;
+            const topViewport = body.position.y - radius - window.scrollY;
 
-            el.style.left = `${leftDoc}px`;
-            el.style.top = `${topDoc}px`;
+            el.style.left = `${leftViewport}px`;
+            el.style.top = `${topViewport}px`;
 
             // Apply rotation based on body.angle
             el.style.transform = `rotate(${body.angle}rad)`;
