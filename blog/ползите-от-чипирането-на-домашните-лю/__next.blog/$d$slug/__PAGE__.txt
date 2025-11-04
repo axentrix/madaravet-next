@@ -24,5 +24,5 @@
 При изгубване на животното могат да ви го върнат чрез данните записани в микрочипа и прочетени от ветеринарен лекар с четец.<br/>
 При кражба на животното можете да удостоверите чрез номера на чипа, че Вие сте собственика му.<br/>
 Можете да пътувате спокойно с вашия любимец извън България.</p>
-</div>0:{"buildId":"D1blGzlCyfWFPI6284rTU","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-20","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+</div>0:{"buildId":"fkFPKYFaym-336lLvCjvL","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-20","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null
