@@ -517,7 +517,7 @@ color:#ffffff;
     height: 150vh;
   }
   #home-page #section1{
-margin-top:-60px;
+margin-top:0px;
     justify-content:flex-start;
   }
   .circle-card {
