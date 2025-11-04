@@ -274,14 +274,42 @@ color:#ffffff;
 /* Ensure dogcat scales from center and stays sharp */
 .dogcat {
   transform-origin: center center;
-  shape-rendering: geometricPrecision;
   will-change: transform;
+  /* Force GPU acceleration for smooth, sharp rendering */
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  /* Size constraints */
   max-width: 60vh;
   width: 60vh;
   height: auto;
+  /* Prevent anti-aliasing blur */
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  /* Webkit specific optimizations */
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* SVG specific - ensure crisp vector edges at all scales */
+.dogcat path,
+.dogcat g,
+.dogcat line,
+.dogcat polygon {
+  shape-rendering: geometricPrecision;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Ensure SVG viewBox scales properly */
+.dogcat svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* Prevent excessive scaling that can cause blur */
