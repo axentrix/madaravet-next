@@ -19,7 +19,7 @@ main>div{
   max-width:1200px;
 }
 main>div#home-page{
-   max-width:unset;
+   max-width:100%;
 }
 #scrollRibbon{
   height:20vh;
