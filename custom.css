@@ -18,6 +18,9 @@ main{
 main>div{
   max-width:1200px;
 }
+main>div#home-page{
+   max-width:unset;
+}
 #scrollRibbon{
   height:20vh;
   display:flex;
@@ -268,9 +271,32 @@ color:#ffffff;
   will-change: transform, opacity;
 }
 
-/* Ensure dogcat scales from center */
+/* Ensure dogcat scales from center and stays sharp */
 .dogcat {
   transform-origin: center center;
+  shape-rendering: geometricPrecision;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  max-width: 60vh;
+  width: 60vh;
+  height: auto;
+}
+
+/* Prevent excessive scaling that can cause blur */
+@media (min-width: 1920px) {
+  .dogcat {
+    max-width: 50vh;
+    width: 50vh;
+  }
+}
+
+@media (max-width: 767px) {
+  .dogcat {
+    max-width: 70vw;
+    width: 70vw;
+  }
 }
 /* Mobile styles for menu clone */
 @media (max-width: 767px) {
