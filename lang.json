@@ -75,7 +75,16 @@
     "contact_address_text": "For emergencies or checkups, you can reach us at: tel: 024428585, 0888198585 Tundzha St 22 1606 Sofia",
     "contact_find_us": "Find us on the map",
     "contact_hero_alt": "MadaraVet Contact",
-    "contact_map_alt": "Location Map"
+    "contact_map_alt": "Location Map",
+
+    "timeline_title": "Dr. Yuliana Sokolova",
+    "timeline_1992": "In 1993 graduated from French Language High School \"Alphonse de Lamartine\" Sofia",
+    "timeline_1993_1996": "studied Veterinary Medicine at Thracian University, Stara Zagora",
+    "timeline_2001": "graduated in Veterinary Medicine from Justus Liebig University, Giessen, Germany",
+    "timeline_2005": "obtained a PhD in Veterinary Medicine from Justus Liebig University, Giessen, Germany",
+    "owner_text": "Since 2014 is the owner and manager of Madara Vet",
+    "membership_text": "Member of the Bulgarian Veterinary Union and the German Association of Veterinarians (Deutsche Tierärztekammer)",
+    "internship_text": "Completed internships in:<br />• Duisburg (Kaiserberg Veterinary Clinic)<br />• Bochum (Dr. Hesse Clinic)<br />• Marburg (Dr. Birke Clinic)"
   },
   "bg": {
     "header_worktime": "РАБОТНО ВРЕМЕ",
@@ -150,6 +159,15 @@
     "contact_address_text": "За спешни случаи или за профилактика, можете да ни потърсите на: тел: 024428585, 0888198585 ул. Тунджа 22 1606 София",
     "contact_find_us": "Намерете ни на картата",
     "contact_hero_alt": "MadaraVet Contact",
-    "contact_map_alt": "Location Map"
+    "contact_map_alt": "Location Map",
+
+    "timeline_title": "Д-р Юлиана Соколова",
+    "timeline_1992": "През 1993 завършва Френска езикова гимназия \"Алфонс дьо Ламартин\" гр. София",
+    "timeline_1993_1996": "следва Ветеринарна медицина в Тракийски университет, гр. Стара Загора",
+    "timeline_2001": "завършва ветеринарна медицина в Юстус Либиг университет, Гийсен, Германия",
+    "timeline_2005": "придобива докторска степен по Ветеринарна медицина в Юстус Либиг университет, Гийсен, Германия",
+    "owner_text": "От 2014 е собственик и управител на Мадара Вет",
+    "membership_text": "Член е на Българския ветеринарен съюз и на Немската асоциация на ветеринарните лекари (Deutche Tierärztekammer)",
+    "internship_text": "Провела е стажове в:<br />• Дуисбург (Ветеринарна клиника Кайзерберг)<br />• Бохум (Клиника \"Д-р Хесе\")<br />• Марбург (Клиника \"Д-р Бирке\")"
   }
 }

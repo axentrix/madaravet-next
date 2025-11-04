@@ -522,6 +522,7 @@ if (section4El) {
       duration: 1
     }, 0);
   }
+  
 
   // Scale image inside the div if img exists
   if (document.querySelector("#maskedImage img")) {
