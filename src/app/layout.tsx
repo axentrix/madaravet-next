@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Advent_Pro } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Header from "../components/Header";
@@ -16,6 +16,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const adventPro = Advent_Pro({
+  variable: "--font-advent-pro",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+  preload: true,
+});
+
 export const metadata: Metadata = {
   title: "MadaraVet",
   description: "Д-р Юлиана Соколова",
@@ -30,10 +38,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${adventPro.variable} antialiased`}>
       <head>
-        {/* Google font for Advent Pro and custom stylesheet */}
-        <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+        {/* Custom stylesheet */}
         <link rel="stylesheet" href="/custom.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
       </head>

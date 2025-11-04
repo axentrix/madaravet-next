@@ -15,8 +15,8 @@ export default function AboutPage() {
             data-i18n-alt="contact_hero_alt"
           />
           <span className="title-part">
-            <span className="text-blue-primary" data-i18n="company_name">Мадара вет</span>
-            <span className="text-red-primary">,</span>
+            <span className="title-blue" data-i18n="company_name">Мадара вет</span>
+            <span className="title-blue">,</span>
           </span>
           <span className="title-part title-red" data-i18n="about_welcome">ви очакваме!</span>
         </h1>

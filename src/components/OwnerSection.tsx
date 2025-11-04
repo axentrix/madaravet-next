@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTranslation } from './TranslationProvider';
 
 export default function OwnerSection() {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const circleRef = useRef<HTMLDivElement>(null);
@@ -86,8 +88,8 @@ export default function OwnerSection() {
               </defs>
             </svg>
 
-            <p className="owner-text">
-              От 2014 е собственик и управител на Мадара Вет.
+            <p className="owner-text" suppressHydrationWarning data-i18n="owner_text">
+              {t('owner_text')}
             </p>
           </div>
 

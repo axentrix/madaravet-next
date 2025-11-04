@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTranslation } from './TranslationProvider';
 
 export default function MembershipSection() {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
@@ -64,8 +66,8 @@ export default function MembershipSection() {
         <div className="membership-grid">
           
           <div className="membership-card" ref={membershipCardRef}>
-            <p className="membership-text">
-              Член е на Българския ветеринарен съюз и на Немската асоциация на ветеринарните лекари (Deutche Tierärztekammer).
+            <p className="membership-text" suppressHydrationWarning data-i18n="membership_text">
+              {t('membership_text')}
             </p>
           </div>
 
@@ -88,12 +90,12 @@ export default function MembershipSection() {
           </div>
 
           <div className="internship-card" ref={internshipCardRef}>
-            <p className="internship-text">
-              Провела е стажове в:<br />
-              • Дуисбург (Ветеринарна клиника Кайзерберг)<br />
-              • Бохум (Клиника „Д-р Хесе")<br />
-              • Марбург (Клиника „Д-р Бирке")
-            </p>
+            <p 
+              className="internship-text" 
+              suppressHydrationWarning 
+              data-i18n="internship_text"
+              dangerouslySetInnerHTML={{ __html: t('internship_text') }}
+            />
           </div>
 
         </div>

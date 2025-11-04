@@ -15,6 +15,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-advent: var(--font-advent-pro);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,7 +42,7 @@ body {
 }
 
 .za-nas-page .hero-title {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 6vw, 5rem);
   line-height: 1;
@@ -104,7 +105,7 @@ body {
 }
 
 .timeline-title {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.75rem);
   line-height: 1;
   z-index: 10;
@@ -125,7 +126,7 @@ body {
 }
 
 .timeline-card .card-year {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.5;
@@ -134,7 +135,7 @@ body {
 }
 
 .timeline-card .card-text {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.35;
@@ -217,7 +218,7 @@ body {
     font-size: 1.125rem;
   }
 .timeline-card.card-photo{
-  width:100%; 
+ 
   padding:0;
 }
   .card-photo .card-image {
@@ -289,7 +290,7 @@ body {
 }
 
 .owner-text {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 700;
   line-height: 1.35;
@@ -381,7 +382,7 @@ body {
 }
 
 .membership-text {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32.493px;
@@ -435,7 +436,7 @@ body {
 }
 
 .internship-text {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32.493px;
@@ -586,7 +587,7 @@ body {
 }
 
 .title-text {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 80px;
   font-weight: 700;
   line-height: 80px;
@@ -619,7 +620,7 @@ body {
 }
 
 .description-text {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32.493px;
@@ -645,7 +646,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: -64px;
+
   z-index: 2;
 }
 
@@ -710,7 +711,7 @@ body {
 }
 
 .circle-title {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 24px;
@@ -928,7 +929,7 @@ display: inline-block;
 }
 
 .kontakti-title .title-text {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 80px;
   font-weight: 700;
   line-height: 80px;
@@ -971,7 +972,7 @@ display: inline-block;
 
 .address-title {
   align-self: stretch;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 60px;
@@ -981,7 +982,7 @@ display: inline-block;
 
 .address-text {
   align-self: stretch;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 32.493px;
@@ -1003,7 +1004,7 @@ display: inline-block;
 
 .map-title {
   align-self: stretch;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 32.493px;
@@ -1158,7 +1159,7 @@ section{
 
 .hours-main-title {
   align-self: stretch;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 97px;
   font-weight: 700;
   line-height: 97px;
@@ -1169,7 +1170,7 @@ section{
 
 .hours-subtitle {
   align-self: stretch;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 73px;
   font-weight: 700;
   line-height: 97px;
@@ -1198,7 +1199,7 @@ section{
 
 .day-label {
   width: 162px;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 32px;
@@ -1208,7 +1209,7 @@ section{
 
 .time-slot {
   width: 160px;
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-advent-pro), sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 32px;
@@ -1398,7 +1399,7 @@ section{
 
 .circle-clone .menu-list a, .circle-clone .menu-list span {
   color: #fff !important;
-  font-family: 'Advent Pro', sans-serif !important;
+  font-family: var(--font-advent-pro), sans-serif !important;
   font-size: 28px !important;
   font-weight: 700 !important;
   letter-spacing: 2px;

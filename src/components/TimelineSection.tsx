@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTranslation } from './TranslationProvider';
 
 export default function TimelineSection() {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -74,8 +76,10 @@ export default function TimelineSection() {
         <h2 
           ref={titleRef}
           className="timeline-title block md:absolute z-10 text-center uppercase font-bold text-[#09284B] mb-8 md:mb-0"
+          suppressHydrationWarning
+          data-i18n="timeline_title"
         >
-          Д-р Юлиана Соколова
+          {t('timeline_title')}
         </h2>
 
         <div className="timeline-grid relative md:min-h-[800px] flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
@@ -86,8 +90,8 @@ export default function TimelineSection() {
             className="timeline-card card-1992 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">1992</div>
-            <div className="card-text">
-              През 1993 завършва Френска езикова гимназия „Алфонс дьо Ламартин" гр. София.
+            <div className="card-text" suppressHydrationWarning data-i18n="timeline_1992">
+              {t('timeline_1992')}
             </div>
           </div>
 
@@ -97,8 +101,8 @@ export default function TimelineSection() {
             className="timeline-card card-1993 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">1993-1996</div>
-            <div className="card-text">
-              следва Ветеринарна медицина в Тракийски университет, гр. Стара Загора.
+            <div className="card-text" suppressHydrationWarning data-i18n="timeline_1993_1996">
+              {t('timeline_1993_1996')}
             </div>
           </div>
 
@@ -108,8 +112,8 @@ export default function TimelineSection() {
             className="timeline-card card-2001 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">2001</div>
-            <div className="card-text">
-              завършва ветеринарна медицина в Юстус Либиг университет, Гийсен, Германия.
+            <div className="card-text" suppressHydrationWarning data-i18n="timeline_2001">
+              {t('timeline_2001')}
             </div>
           </div>
 
@@ -119,8 +123,8 @@ export default function TimelineSection() {
             className="timeline-card card-2005 relative md:absolute w-full md:w-auto"
           >
             <div className="card-year">2005</div>
-            <div className="card-text">
-              придобива докторска степен по Ветеринарна медицина в Юстус Либиг университет, Гийсен, Германия.
+            <div className="card-text" suppressHydrationWarning data-i18n="timeline_2005">
+              {t('timeline_2005')}
             </div>
           </div>
 
