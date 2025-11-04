@@ -108,7 +108,7 @@ export default function HomeClient() {
         </div>
 
         <div className="circle-init2 absolute left-[-100px] md:left-[200px] bottom-[100px] w-[360px] h-[360px] rounded-full bg-[#FFF5DA] z-[74]" />
-        <img src="/images/puppies.png" alt="Left Puppies" className="puppies1 absolute left-[-100px] md:left-[200px] bottom-[5vh] w-auto h-[40vh] max-w-[90vw] md:h-[60vh] md:w-auto z-[81]" />
+        <img src="/images/puppies.png" alt="Д-р Юлиана Соколова" className="puppies1 absolute left-[-100px] md:left-[200px] bottom-[5vh] w-auto h-[40vh] max-w-[90vw] md:h-[60vh] md:w-auto z-[81]" />
         <div className="circle-init1 absolute right-[-160px] top-[180px] w-[560px] h-[560px] rounded-full bg-[#D8F1FF] z-[76]" />
         <img src="/images/puppies2.png" alt="Dr. Juliana Sokolova" className="absolute puppies2 right-[0] w-auto h-[55vh] max-w-none md:h-[90vh] md:w-auto bottom-[-50px] md:bottom-[-10vh] z-[82]" />
       </section>
