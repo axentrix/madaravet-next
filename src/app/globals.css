@@ -1454,7 +1454,7 @@ section{
 /* Article styles */
 .article-page img { max-width: 100%; height: auto; }
 .article-page .post-entry { line-height: 1.7; color: #111; }
-.article-page h1 { font-size: 28px; margin-bottom: 6px; }
+.article-page h1 { font-size: 32px; margin-bottom: 6px; color:#177DDF;}
 .article-page .date { color: #666; margin-bottom: 12px; }
 
 /* Global menu-list transition to avoid SSR/CSR mismatch */
