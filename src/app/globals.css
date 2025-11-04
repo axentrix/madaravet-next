@@ -814,25 +814,24 @@ body {
       text-align: center;
     height: auto;
   }
-
+article main{
+  margin-top:16px;
+}
   .hero-banner {
 display: inline-block;
   width: auto;
+  max-width:unset;
   height: 475px;
     aspect-ratio: 16/5;
   }
 
   .hero-logo {
-    width: 150px;
+    width: 250px;
     height: auto;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -30px;
+    bottom:0px;
     top: auto;
-  }
-
-  .hero-circle {
-    display: none;
   }
 
   

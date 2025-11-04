@@ -85,7 +85,7 @@ export default async function ArticlePage({ params }: Props) {
   const inlined = inlineImagesInHtml(content, slug);
 
   return (
-    <article className="article-page max-w-screen-md mx-auto px-4 py-20">
+    <article className="article-page max-w-screen-md mx-auto px-4 py-10">
       <div dangerouslySetInnerHTML={{ __html: inlined }} />
 
     </article>
