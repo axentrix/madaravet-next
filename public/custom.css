@@ -512,6 +512,9 @@ color:#ffffff;
 }
 
 @media (orientation:portrait) and (max-width: 767px) {
+  main>div{
+    max-width:100%;
+  }
   #loader {
     width: 150vh;
     height: 150vh;
