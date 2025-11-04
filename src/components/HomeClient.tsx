@@ -337,7 +337,7 @@ C10.5,645.6,8.3,687.2,15,727"/>
 
       </section>
 
-      <div className="absolute big-circle w-[90vh] h-[90vh] bg-[#D8F1FF] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute big-circle w-[90vh] h-[90vh] bg-[#D8F1FF] rounded-full top-1/2 left-1/2">
         <img src="/images/catdog.svg" alt="Cat and Dog" className="absolute dogcat w-[60vh] max-w-[80vh]" />
       </div>
 
