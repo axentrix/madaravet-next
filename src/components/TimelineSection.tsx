@@ -70,7 +70,7 @@ export default function TimelineSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="timeline-section py-24 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="timeline-section py-12 md:py-32 relative overflow-hidden">
       <div className="timeline-container px-4">
         {/* Title - visible on mobile, animated on desktop */}
         <h2 

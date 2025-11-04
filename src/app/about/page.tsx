@@ -5,7 +5,7 @@ import TimelineSection from '@/components/TimelineSection';
 export default function AboutPage() {
   return (
     <div id="about-page" className="about-page page-about">
-      <section className="hero-section flex flex-wrap justify-center items-center content-center gap-3 py-16 md:py-24 lg:py-32 px-4">
+      <section className="hero-section flex flex-wrap justify-center items-center content-center gap-3 py-16 md:py-24 lg:py-12 px-4">
         <h1 className="title-text text-center uppercase leading-tight flex flex-wrap justify-center items-center gap-3">
           <span className="title-part title-blue" data-i18n="about_intro">Ние, екипът на</span>
     <img
