@@ -22,7 +22,7 @@ export default function ContactPage() {
             <div className="address-card">
               <h2 className="address-title" data-i18n="contact_address_label">Адрес на кабинета</h2>
               <p className="address-text" data-i18n="contact_address_text">
-                За спешни случаи или за профилактика, можете да ни потърсите на: тел: 024428585, 0888198585 ул. Тунджа 22 1606 София
+                Тел: 024428585, 0888198585 ул. Тунджа 22 1606 София
               </p>
             </div>
 
@@ -62,7 +62,7 @@ export default function ContactPage() {
 
             <div className="schedule-row">
               <div className="day-label" data-i18n="wed">СРЯДА</div>
-              <div className="time-slot">9:00 - 12:00</div>
+              <div className="time-slot"></div>
               <div className="time-slot">15:00 - 19:00</div>
             </div>
 
