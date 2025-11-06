@@ -5,6 +5,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TranslationProvider from "../components/TranslationProvider";
+import Loader from "../components/Loader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${adventPro.variable} antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${adventPro.variable} antialiased`} suppressHydrationWarning>
       <head>
         {/* Custom stylesheet */}
         <link rel="stylesheet" href="/custom.css" />
@@ -46,7 +47,8 @@ export default function RootLayout({
       </head>
       <body>
         <TranslationProvider>
-          <div id="loader" style={{ 
+          <Loader />
+          <div id="loader" className="visible" suppressHydrationWarning style={{ 
             position: 'fixed', 
             display: 'flex', 
             alignItems: 'center', 
@@ -54,8 +56,6 @@ export default function RootLayout({
             backgroundColor: '#177DDF', 
             color: 'white', 
             zIndex: 99999,
-            width: '200vw', 
-            height: '200vw', 
             top: '50%', 
             left: '50%',
             transform: 'translate(-50%, -50%)'

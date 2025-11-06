@@ -84,7 +84,7 @@ export default function HomeClient() {
   return (
     <div className="bg-[#F6FEFF] text-blue-900 overflow-x-hidden relative">
       <section id="section1" className="relative w-full min-h-screen flex align-items-center justify-start flex-col">
-        <div className="max-w-screen-xl mx-auto pt-32 px-6 md:pt-32 relative pb-32 items-center justify-center text-center">
+        <div className="max-w-screen-xl mx-auto py-12 px-6 md:pt-32 relative pb-32 items-center justify-center text-center">
           <div className="relative z-[89] flex align-items-center justify-center flex-col">
             <div className="flex gap-4 mb-10 justify-center flex-col md:flex-row items-start md:order-2">
               <div className="flex w-auto infobox1 split-text items-center gap-2 bg-[#177DDF] text-white px-4 py-2 rounded-full text-lg">

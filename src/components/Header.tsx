@@ -16,6 +16,7 @@ export default function Header() {
   const cloneRef = useRef<HTMLDivElement | null>(null);
   const portalRootRef = useRef<HTMLElement | null>(null);
   const prevOpenRef = useRef<boolean>(false);
+  const closeMenuRef = useRef<(() => void) | null>(null);
 
   const toggleLocale = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -24,15 +25,29 @@ export default function Header() {
   };
 
   const openMenu = () => {
-    console.debug('Header: openMenu called');
     setShowingClone(true);
-    // slight delay to ensure portal mounts before opening animation
-    setTimeout(() => { console.debug('Header: setMenuOpen(true)'); setMenuOpen(true); }, 20);
+    setTimeout(() => { setMenuOpen(true); }, 20);
   };
-  const closeMenu = () => { console.debug('Header: closeMenu called'); setMenuOpen(false); };
+  const closeMenu = () => { 
+    setMenuOpen(false);
+    setShowingClone(false);
+    prevOpenRef.current = false;
+  };
+  
+  // Expose closeMenu globally with fresh reference
+  useEffect(() => {
+    (window as any).reactCloseMenu = () => {
+      setMenuOpen(false);
+      setShowingClone(false);
+      prevOpenRef.current = false;
+    };
+    return () => {
+      delete (window as any).reactCloseMenu;
+    };
+  }, [setMenuOpen, setShowingClone]);
+  
   const toggleMenu = (e?: React.MouseEvent | Event) => {
     if (e && 'preventDefault' in e) (e as Event).preventDefault();
-    console.debug('Header: toggleMenu, showingClone=', showingClone, 'menuOpen=', menuOpen);
     if (!showingClone) openMenu(); else closeMenu();
   };
 
@@ -120,6 +135,104 @@ export default function Header() {
     }
   }, [pathname]);
 
+  // Add event listener to worktime link after translation system runs
+  useEffect(() => {
+    let listeners: Array<() => void> = [];
+    
+    const attachWorktimeListener = () => {
+      setTimeout(() => {
+        const worktimeLinks = document.querySelectorAll('[data-i18n="header_worktime"]');
+        
+        worktimeLinks.forEach((link) => {
+          const handler = (e: Event) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const currentPath = window.location.pathname;
+            const isHomePage = currentPath === '/' || currentPath === '';
+            
+            // Close React menu
+            try {
+              if (typeof (window as any).reactCloseMenu === 'function') {
+                (window as any).reactCloseMenu();
+                console.log('REACT MENU CLOSED');
+              }
+            } catch (e) { console.log('React menu close failed', e); }
+            
+            // Close legacy menu
+            try {
+              if (typeof (window as any).legacyCloseMenu === 'function') {
+                (window as any).legacyCloseMenu();
+                console.log('LEGACY MENU CLOSED');
+              }
+            } catch (e) { console.log('Legacy menu close failed', e); }
+      
+            // Force remove menuCircleClone and restore original menu
+            try {
+              const menuClone = document.getElementById('menuCircleClone');
+              const bgOverlay = document.querySelector('.bg-overlay');
+              const originalMenu = document.getElementById('menuCircle');
+              
+              if (menuClone) {
+                menuClone.remove();
+                console.log('MENU CLONE REMOVED');
+              }
+              if (bgOverlay) {
+                bgOverlay.remove();
+                console.log('BG OVERLAY REMOVED');
+              }
+              if (originalMenu) {
+                (originalMenu as HTMLElement).style.opacity = '1';
+                console.log('ORIGINAL MENU RESTORED');
+              }
+            } catch (e) { console.log('Menu cleanup failed', e); }
+            
+            if (isHomePage) {
+              setTimeout(() => {
+                const section5 = document.getElementById('section5');
+                if (section5) {
+                  section5.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }, 450);
+            } else {
+              window.location.href = '/contact#hours';
+            }
+          };
+          
+          link.addEventListener('click', handler);
+          listeners.push(() => link.removeEventListener('click', handler));
+        });
+      }, 500);
+    };
+
+    attachWorktimeListener();
+    
+    return () => {
+      listeners.forEach(cleanup => cleanup());
+    };
+  }, [pathname, menuOpen, setMenuOpen]);
+
+  // Handle worktime click - scroll to section5 on homepage, otherwise link to /contact#hours
+  const handleWorktimeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const isHomePage = pathname === '/' || pathname === '';
+    
+    setMenuOpen(false);
+    
+    if (isHomePage) {
+      setTimeout(() => {
+        const section5 = document.getElementById('section5');
+        if (section5) {
+          section5.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 400);
+    } else {
+      window.location.href = '/contact#hours';
+    }
+  };
+
   // Build portal content when showingClone is true
   const portalContent = showingClone && portalRootRef.current ? (
     createPortal(
@@ -142,6 +255,20 @@ export default function Header() {
               <img src="/images/logo_white.svg" alt="Logo" className="menu-logo" style={{ width: 140, opacity: menuOpen ? 1 : 0, transition: 'opacity 0.25s ease', position: 'relative', zIndex: 10000 }} />
             </Link>
             <ul className="menu-list react-clone-list" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, width: '100%', alignItems: 'center', opacity: menuOpen ? 1 : 0, transition: 'opacity 0.2s ease', pointerEvents: menuOpen ? 'auto' : 'none' }}>
+              <li style={{ width: '100%' }}>
+                <button
+                  type="button"
+                  suppressHydrationWarning 
+                  className="block w-full text-center py-3 font-bold text-white cursor-pointer bg-transparent border-0" 
+                  onClick={(e) => {
+                    handleWorktimeClick(e as any);
+                  }}
+                  data-i18n="header_worktime"
+                  style={{ background: 'transparent', border: 'none', font: 'inherit' }}
+                >
+                  header_worktime
+                </button>
+              </li>
               <li style={{ width: '100%' }}><Link href="/about" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_about') || 'ABOUT'}</Link></li>
               <li style={{ width: '100%' }}><Link href="/services" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_services') || 'SERVICES'}</Link></li>
               <li style={{ width: '100%' }}><Link href="/blog" onClick={() => { setMenuOpen(false); }} prefetch={false} className="block w-full text-center py-3 font-bold text-white">{t('nav_blog') || 'BLOG'}</Link></li>
@@ -164,7 +291,7 @@ export default function Header() {
             </Link>
 
             <div className="header-info flex items-center gap-4 text-lg md:text-lg font-semibold">
-              <a suppressHydrationWarning className="header-worktime hidden md:inline text-[#177DDF] cursor-pointer" href="#hours" data-i18n="header_worktime">header_worktime</a>
+              <a suppressHydrationWarning className="header-worktime hidden md:inline text-[#177DDF] cursor-pointer" onClick={handleWorktimeClick} data-i18n="header_worktime" >header_worktime</a>
               <span suppressHydrationWarning className="header-phone hidden md:inline text-[#177DDF]" data-i18n="header_phone1">header_phone1</span>
               <span suppressHydrationWarning className="header-alt-phone hidden md:inline text-[#177DDF]" data-i18n="header_phone2">header_phone2</span>
               <a id="language-toggle" suppressHydrationWarning href="#" onClick={toggleLocale} className="header-language text-[#FF8F8F]" data-i18n="header_language">header_language</a>
@@ -191,10 +318,13 @@ export default function Header() {
                 <ul
                   role="menu"
                   aria-hidden={!menuOpen}
-                  className={`menu-list  top-full left-1/2  mt-4 transition-opacity ease-in-out flex flex-col items-center space-y-4 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} text-white rounded-lg py-2 px-3 w-56 md:w-64 z-[9999]`}
+                  className={`menu-list  top-full left-1/2  mt-4 transition-opacity ease-in-out flex flex-col items-center space-y-4 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} text-white rounded-lg py-2 px-3 w-70 md:w-64 z-[9999]`}
+                  style={{ display: 'none' }}
                 >
                   <li>   <Link href="https://www.madaravet.com" aria-label="Home">  <img src="/images/logo_white.svg" alt="Logo" className={`menu-logo relative w-40 mt-4 mb-4 transition-opacity duration-300 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} /></Link> </li>
-                  <li className="w-full text-center"><Link href="/about" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_about">nav_about</span></Link></li>
+                              <li style={{ width: '100%' }} id="headerworktime"><a suppressHydrationWarning className="block w-full text-center py-3 font-bold text-white cursor-pointer"  onClick={handleWorktimeClick}  data-i18n="header_worktime">header_worktime</a></li>
+                
+                 <li className="w-full text-center"><Link href="/about" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_about">nav_about</span></Link></li>
                   <li className="w-full text-center"><Link href="/services" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_services">nav_services</span></Link></li>
                   <li className="w-full text-center"><Link href="/blog" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_blog">nav_blog</span></Link></li>
                   <li className="w-full text-center"><Link href="/contact" prefetch={false} className="text-white hover:text-[#FF8F8F] transition-colors block w-full py-3" role="menuitem"><span suppressHydrationWarning data-i18n="nav_contact">nav_contact</span></Link></li>
