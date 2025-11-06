@@ -222,7 +222,7 @@ C10.5,645.6,8.3,687.2,15,727"/>
           <h2 className="splittitle1 text-center text-3xl md:text-6xl font-bold text-[#177DDF]" data-i18n="section5_title1">МАДАРАВЕТ</h2>
           <h3 className="splittitle2 text-center text-2xl md:text-6xl font-semibold text-[#11294B] mb-8" data-i18n="section5_title2">РАБОТНО ВРЕМЕ</h3>
 
-          <div className="hours grid gap-y-2 text-lg md:text-xl text-[#11294B] max-w-xl mx-auto">
+          <div className="hours grid gap-y-2 text-lg md:text-xl text-[#11294B] max-w-xl mx-auto" id="hours">
             <div className="grid grid-cols-3 gap-x-4 text-left border-b border-gray-300 pb-2">
               <p data-i18n="mon">ПОН</p>
               <p>9:00 - 12:00</p>

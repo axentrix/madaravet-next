@@ -512,6 +512,8 @@ color:#ffffff;
 }
 
 @media (orientation:portrait) and (max-width: 767px) {
+
+  
   main>div{
     max-width:100%;
   }
