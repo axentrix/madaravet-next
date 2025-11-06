@@ -95,6 +95,9 @@ body {
   margin-right: auto;
   padding-left: 48px;
   padding-right: 48px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .timeline-grid {
@@ -110,6 +113,10 @@ body {
   line-height: 1;
   z-index: 10;
   pointer-events: none;
+  left: 0;
+    transform: translateX(50%) translateY(10%) !important;
+    top: 45%;
+
 }
 
 .timeline-card {

@@ -80,21 +80,21 @@ async function initAnimations() {
 
 
   // Header opacity on scroll (guard header existence)
-  const headerEl = document.querySelector('header');
-  if (headerEl && typeof ScrollTrigger !== 'undefined') {
-    ScrollTrigger.create({
-      start: 0,
-      end: "max",
-      onUpdate: (self) => {
-        const scrollDirection = self.direction;
-        if (scrollDirection === 1) { // Scrolling down
-          gsap.to(headerEl, { opacity: 0, duration: 0.3 });
-        } else if (scrollDirection === -1) { // Scrolling up
-          gsap.to(headerEl, { opacity: 1, duration: 0.3 });
-        }
-      }
-    });
-  }
+  //const headerEl = document.querySelector('header');
+  //if (headerEl && typeof ScrollTrigger !== 'undefined') {
+    //ScrollTrigger.create({
+      //start: 0,
+     // end: "max",
+     // onUpdate: (self) => {
+     //  const scrollDirection = self.direction;
+     //   if (scrollDirection === 1) { // Scrolling down
+///    gsap.to(headerEl, { opacity: 0, duration: 0.3 });
+     //   } else if (scrollDirection === -1) { // Scrolling up
+      //    gsap.to(headerEl, { opacity: 1, duration: 0.3 });
+      //  }
+     // }
+   // });
+ // }
 
   // Wait for fonts to be ready before using SplitText to avoid "SplitText called before fonts loaded"
   if (document.fonts) {
