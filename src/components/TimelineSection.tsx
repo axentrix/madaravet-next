@@ -70,7 +70,7 @@ export default function TimelineSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="timeline-section py-12 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="timeline-section py-12 md:py-12 relative overflow-hidden">
       <div className="timeline-container px-4">
         {/* Title - visible on mobile, animated on desktop */}
         <h2 
@@ -134,7 +134,7 @@ export default function TimelineSection() {
             className="timeline-card card-photo relative md:absolute w-full md:w-auto"
           >
             <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/8c79fa4446a479806f0d11a64004d98ef9308f84?width=572" 
+              src="/images/aboutlogo.svg" 
               alt="Dr. Yuliana Sokolova" 
               className="card-image"
             />

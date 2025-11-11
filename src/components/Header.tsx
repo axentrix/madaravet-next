@@ -293,7 +293,7 @@ export default function Header() {
             <div className="header-info flex items-center gap-4 text-lg md:text-lg font-semibold">
               <a suppressHydrationWarning className="header-worktime hidden md:inline text-[#177DDF] cursor-pointer" onClick={handleWorktimeClick} data-i18n="header_worktime" >header_worktime</a>
               <span suppressHydrationWarning className="header-phone hidden md:inline text-[#177DDF]" data-i18n="header_phone1">header_phone1</span>
-              <span suppressHydrationWarning className="header-alt-phone hidden md:inline text-[#177DDF]" data-i18n="header_phone2">header_phone2</span>
+             
               <a id="language-toggle" suppressHydrationWarning href="#" onClick={toggleLocale} className="header-language text-[#FF8F8F]" data-i18n="header_language">header_language</a>
 
               <div

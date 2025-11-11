@@ -22,8 +22,9 @@ main{
   margin:80px auto;
   display:flex;
   justify-content:center;
+  overflow:hidden;
 }
-main>div{
+main>div{  overflow:hidden;
   max-width:1200px;
 }
 main>div#home-page{

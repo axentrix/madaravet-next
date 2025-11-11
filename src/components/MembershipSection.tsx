@@ -83,7 +83,7 @@ export default function MembershipSection() {
           <div className="membership-logo-wrapper">
             <img 
               ref={logoRef}
-              src="https://api.builder.io/api/v1/image/assets/TEMP/11e3b4f043a4a62984ec65e650790e850e7d08a3?width=554" 
+              src="/images/btk.png" 
               alt="Deutscher Tierschutzbund logo" 
               className="membership-logo"
             />

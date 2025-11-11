@@ -1,7 +1,7 @@
 {
   "en": {
     "header_worktime": "WORK TIME",
-    "header_phone1": "+888 198 585",
+    "header_phone1": "0882988585",
     "header_phone2": "024428585",
     "header_language": "BG",
     "nav_about": "ABOUT US",
@@ -14,7 +14,7 @@
     "social_instagram": "Instagram",
     "social_whatsapp": "WhatsApp",
     "hero_address": "22 TUNDJA STREET, 1606 SOFIA",
-    "hero_phone": "+888 198 585",
+    "hero_phone": "0882988585",
     "hero_title": "VETERINARY CLINIC IN THE VERY CENTER OF SOFIA",
     "scroll_ribbon_text": "🐶 😺 MODERN VETERINARY CLINIC 🐾",
     "section3_diag_tests": "DIAGNOSTIC TESTS",
@@ -88,7 +88,7 @@
   },
   "bg": {
     "header_worktime": "РАБОТНО ВРЕМЕ",
-    "header_phone1": "+888 198 585",
+    "header_phone1": "0882988585",
     "header_phone2": "024428585",
     "header_language": "EN",
     "nav_about": "ЗА НАС",

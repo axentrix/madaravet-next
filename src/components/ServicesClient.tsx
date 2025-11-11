@@ -115,9 +115,11 @@ export default function ServicesClient() {
           el.style.transform = `rotate(${gsap.utils.random(-1,1)}rad)`;
         });
 
+        const titleSection = document.querySelector('.services-title');
+        
         ScrollTrigger.create({
-          trigger: section,
-          start: 'top 80%',
+          trigger: titleSection || section,
+          start: 'top center',
           onEnter: () => {
             const floorYDoc = sectionTop + sectionRect.height - 10; // land at bottom of last section
             const targetTop = floorYDoc - radius - window.scrollY;
@@ -252,9 +254,11 @@ export default function ServicesClient() {
         // Do not clear transform props so elements remain where physics placed them
       }
 
+      const titleSection = document.querySelector('.services-title');
+      
       ScrollTrigger.create({
-        trigger: section,
-        start: "top 80%",
+        trigger: titleSection || section,
+        start: "top center",
         onEnter: () => {
           clearPhysicsWorld();
           createPhysicsWorld();
