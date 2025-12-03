@@ -65,7 +65,7 @@ export default function OwnerSection() {
             <img 
               ref={imageRef}
               src="https://api.builder.io/api/v1/image/assets/TEMP/e67f13055d6863b8df402e0552a23874b2b3deae?width=829" 
-              alt="Dr. Yuliana Sokolova"
+              alt="Dr. Juliana Sokolova"
               className="owner-image"
             />
           </div>

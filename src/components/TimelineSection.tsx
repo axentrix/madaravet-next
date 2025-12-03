@@ -135,7 +135,7 @@ export default function TimelineSection() {
           >
             <img 
               src="/images/aboutlogo.svg" 
-              alt="Dr. Yuliana Sokolova" 
+              alt="Dr. Juliana Sokolova" 
               className="card-image"
             />
           </div>

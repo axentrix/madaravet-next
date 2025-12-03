@@ -75,7 +75,7 @@ export default function MembershipSection() {
             <img 
               ref={imageRef}
               src="https://api.builder.io/api/v1/image/assets/TEMP/15898fbe6f12a68965017813f45627e5743e89f1?width=963" 
-              alt="Dr. Yuliana Sokolova with dog"
+              alt="Dr. Juliana Sokolova with dog"
               className="membership-image"
             />
           </div>
