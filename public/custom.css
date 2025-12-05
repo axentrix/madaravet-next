@@ -583,6 +583,21 @@ color:#ffffff;
 }
 
 @media (orientation:portrait) and (max-width: 767px) {
+  .services-cards{
+    order:1;
+  }
+  .services-description{
+    order:2;
+  }
+  .cards-wrapper{
+    width:100%;
+  }
+  .timeline-right{
+    order:1;
+  }
+   .timeline-left{
+    order:2;
+  }
 .map-wrapper{
   margin-bottom:24px;
 }
