@@ -4,6 +4,13 @@ a* {
 #language-toggle{
   cursor:pointer;
 }
+
+.header-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 body{
 
   background:#F6FEFF;
@@ -14,22 +21,40 @@ section {
   align-items: center;
  flex-direction:column;
 }
-
+.menu-item{
+  text-transform:uppercase !important;
+}
+.swiper-wrapper{
+  gap:24px;
+}
 #headerworktime{
   display:none !important;
 }
 main{
-  margin:80px auto;
+  margin:140px 0 auto;
   display:flex;
   justify-content:center;
+  flex-direction:column;
+  align-items:center;
   overflow:hidden;
+
 }
 main>div{  overflow:hidden;
-  max-width:1200px;
+  max-width:1280px;
+    padding:0;
 }
 main>div#home-page{
-   max-width:100%;
+   max-width:1280px;
+   width:100%;
+   display: flex;
+    flex-direction: column;
+    align-items:center;
 }
+.swiper-slide{
+  height:380px !important;
+}
+.swiper-slide img{
+  object-fit: cover;}
 #scrollRibbon{
   height:20vh;
   display:flex;
@@ -77,14 +102,11 @@ html, body {
 
 /* Use Advent Pro as primary font */
 body {
-  font-family: 'Advent Pro', sans-serif;
+  font-family: var(--font-raleway), sans-serif;
 }
 
 /* Section 2 sizing and ribbon child layout */
-#section2 {
-  height: max(20vmin, 6vmax);
-  min-height: unset;
-}
+
 section#scrollRibbon > div {
   display: flex;
   align-items: center;
@@ -180,7 +202,7 @@ color:#ffffff;
       overflow:hidden;
     }
 /* Mobile styles for header and menuCircle */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
     .swiper-slide{
 
       height:48vw;
@@ -190,36 +212,55 @@ color:#ffffff;
 
   header .bg-white {
     justify-content: space-between;
-   
+
   }
    #maskedImage,
   #maskedImage2 {
     max-height: 90vh;
     max-width: 90vh;
- 
+
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 
     overflow: hidden;
-  
+
   }
   .additional-info {
     position: relative;
     justify-content: flex-end;
     margin-left: auto;
   }
-  
+
   .additional-info span {
     display: none;
   }
-  
-  #menuCircle {
-    position: relative;
+
+  .mobile-menu-wrapper {
     display: flex !important;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.375rem;
+    position: relative;
     z-index: 9000;
     margin-left: auto;
+  }
+
+  .menu-toggle-button {
+    display: flex !important;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    background-color: #4868EC;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9001;
+  }
+
+  .mobile-menu-dropdown {
+    display: block !important;
   }
 }
 
@@ -436,7 +477,7 @@ color:#ffffff;
   width: 100%;
   height: auto;
   max-width: 100%;
-  object-fit: contain; /* or cover depending on your need */
+  object-fit: cover; /* or cover depending on your need */
   display: block;
   user-select: none;
   pointer-events: none;
@@ -505,7 +546,10 @@ color:#ffffff;
 }
 
 /* Small screens: keep per-item max consistent with viewport sizing */
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
+  .desktop-menu {
+    display: none !important;
+  }
   .circle-clone .menu-list,
   #menuCircle .menu-list {
     max-height: 78%;
@@ -516,8 +560,71 @@ color:#ffffff;
   }
 }
 
-@media (orientation:portrait) and (max-width: 767px) {
+@media (min-width: 1024px) {
+  .mobile-menu-wrapper {
+    display: none !important;
+  }
+  .menu-toggle-button {
+    display: none !important;
+  }
+  .mobile-menu-dropdown {
+    display: none !important;
+  }
+}
 
+/* Ensure mobile menu is visible on screens below 1024px */
+@media (max-width: 1023px) {
+  .mobile-menu-wrapper {
+    display: flex !important;
+  }
+  .menu-toggle-button {
+    display: flex !important;
+  }
+}
+
+@media (orientation:portrait) and (max-width: 767px) {
+.map-wrapper{
+  margin-bottom:24px;
+}
+section{
+  margin:0 !important;
+  padding:0 !important;
+}
+
+header, main{
+  padding:0 1rem;
+}
+
+.services-section{
+  padding-top:0;
+  gap:24px !important
+}
+
+.services-cards{
+  gap:8px !important;
+}
+main{
+  margin-top:100px;
+}
+#home-page .hero-main-image{
+  max-width:unset;
+  transform:translateX(50%) translateY(15%);
+}
+.hero-wrapper{
+  display:flex;
+justify-content: space-between;
+  align-items:space-between;
+  flex-direction:column;
+
+}
+    .hero-container {
+        padding: 24px 16px;
+        display: flex;
+        flex: 1;
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+    }
   #headerworktime{
     display:flex !important;
   }
@@ -546,6 +653,10 @@ margin-top:0px;
     height: 80vw;
 }
 #contact-page{
-  margin:120px 16px;
+
 }
+}
+.services-hero .hero-image-wrapper{
+  position:relative;
+  margin-bottom:44px;
 }
