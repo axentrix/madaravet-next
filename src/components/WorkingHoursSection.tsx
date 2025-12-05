@@ -3,7 +3,8 @@ import React from 'react';
 
 export default function WorkingHoursSection() {
   return (
-    <section className="working-hours-section">
+ 
+    <section className="working-hours-section" id="working-hours-section">
       <div className="working-hours-container">
         <div className="hours-content">
           <h2 className="hours-title" suppressHydrationWarning data-i18n="section5_worktime">Работно време</h2>

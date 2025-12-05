@@ -583,6 +583,9 @@ color:#ffffff;
 }
 
 @media (orientation:portrait) and (max-width: 767px) {
+  .title-text img{
+    max-width:70px;
+  }
   .services-cards{
     order:1;
   }
@@ -674,4 +677,8 @@ margin-top:0px;
 .services-hero .hero-image-wrapper{
   position:relative;
   margin-bottom:44px;
+}
+
+h2{
+  margin-top:calc(var(--spacing) * 8);
 }

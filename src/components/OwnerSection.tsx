@@ -27,7 +27,7 @@ export default function OwnerSection() {
             />
             
             <div className="owner-description max-w-[335px] text-[#303030] font-raleway text-[16px] md:text-[18px] font-normal leading-[1.8]">
-              <span suppressHydrationWarning data-i18n="owner_text">
+              <span className="entry-year" suppressHydrationWarning data-i18n="owner_text">
                 От 2014 е собственик и управител на Мадара Вет.
               </span>
             </div>
