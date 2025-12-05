@@ -16,13 +16,17 @@ export function useTranslation() {
 
 export default function TranslationProvider({ children }: { children: React.ReactNode }) {
   const [translations, setTranslations] = useState<Translations | null>(null);
-  const [locale, setLocale] = useState<string>(() => {
+  const [locale, setLocale] = useState<string>('bg');
+
+  // Load locale from localStorage after hydration
+  useEffect(() => {
     try {
-      return (typeof window !== 'undefined' && window.localStorage.getItem('site_locale')) || 'bg';
-    } catch (e) {
-      return 'bg';
-    }
-  });
+      const saved = window.localStorage.getItem('site_locale');
+      if (saved && saved !== locale) {
+        setLocale(saved);
+      }
+    } catch (e) {}
+  }, []);
 
   useEffect(() => {
     let mounted = true;

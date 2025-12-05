@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Advent_Pro } from "next/font/google";
+import { Geist, Geist_Mono, Advent_Pro, Raleway, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Script from "next/script";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TranslationProvider from "../components/TranslationProvider";
-import Loader from "../components/Loader";
+import WorkingHoursSection from "../components/WorkingHoursSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +26,22 @@ const adventPro = Advent_Pro({
   preload: true,
 });
 
+const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+});
+
 export const metadata: Metadata = {
   title: "MadaraVet",
   description: "Д-р Юлиана Соколова",
@@ -40,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${adventPro.variable} antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${adventPro.variable} ${raleway.variable} ${plusJakarta.variable} antialiased`} suppressHydrationWarning>
       <head>
         {/* Custom stylesheet */}
         <link rel="stylesheet" href="/custom.css" />
@@ -61,29 +77,13 @@ export default function RootLayout({
           `}
         </Script>
         <TranslationProvider>
-          <Loader />
-          <div id="loader" className="visible" suppressHydrationWarning style={{ 
-            position: 'fixed', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            backgroundColor: '#177DDF', 
-            color: 'white', 
-            zIndex: 99999,
-            top: '50%', 
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-          }}>
-            <div style={{ 
-              borderRadius: '999px', 
-              backgroundColor: 'rgba(255, 255, 255, 0.2)', 
-              padding: '2rem' 
-            }}>
-              Loading...
-            </div>
-          </div>
           <Header />
-          <main className="main-content">{children}</main>
+          <main className="main-content">
+            {children}
+            <div id="working-hours-section">
+              <WorkingHoursSection />
+            </div>
+          </main>
           <Footer />
         </TranslationProvider>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>

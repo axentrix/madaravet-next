@@ -6,26 +6,26 @@ type Props = {
   params: any; // params may be a Promise in newer Next.js — await below
 };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const postsDir = path.join(process.cwd(), 'madaravet_export', 'posts');
-  
+
   if (!fs.existsSync(postsDir)) {
     return [];
   }
 
   const files = fs.readdirSync(postsDir);
-  const slugs = files
+  return files
     .filter(file => file.endsWith('.html'))
     .map(file => ({
       slug: file.replace('.html', '')
     }));
-
-  return slugs;
 }
 
 function inlineImagesInHtml(html: string, slug: string): string {
   // replace relative ../images/... with data URLs by reading files
-  return html.replace(/src\s*=\s*"(\.\.\/images\/([^\"']+?)\/([^\"']+?))"/gi, (m, p1, p2, p3) => {
+  let result = html.replace(/src\s*=\s*"(\.\.\/images\/([^\"']+?)\/([^\"']+?))"/gi, (m, p1, p2, p3) => {
     try {
       const imgPath = path.join(process.cwd(), 'madaravet_export', 'images', p2, p3);
       if (!fs.existsSync(imgPath)) return `src="/madaravet_export/images/${p2}/${p3}"`;
@@ -39,55 +39,70 @@ function inlineImagesInHtml(html: string, slug: string): string {
       return `src="/madaravet_export/images/${p2}/${p3}"`;
     }
   });
+
+  // Fix broken links: replace index.html references with /blog/ root
+  result = result.replace(/href\s*=\s*["']index\.html["']/gi, 'href="/blog/"');
+  // Also handle relative links that might point to parent directory
+  result = result.replace(/href\s*=\s*["'](\.\.\/index\.html)["']/gi, 'href="/blog/"');
+
+  return result;
 }
 
 export default async function ArticlePage({ params }: Props) {
-  const resolvedParams = await params;
-  let { slug } = resolvedParams;
+  try {
+    const resolvedParams = await params;
+    let { slug } = resolvedParams;
 
-  // try several slug variants to match filenames (encoded/decoded)
-  function findPostPath(candidate: string) {
-    const p1 = path.join(process.cwd(), 'madaravet_export', 'posts', `${candidate}.html`);
-    if (fs.existsSync(p1)) return p1;
-    // try decoded
-    try {
-      const dec = decodeURIComponent(candidate);
-      const p2 = path.join(process.cwd(), 'madaravet_export', 'posts', `${dec}.html`);
-      if (fs.existsSync(p2)) return p2;
-    } catch (e) {}
-    // try encodeURI
-    try {
-      const enc = encodeURI(candidate);
-      const p3 = path.join(process.cwd(), 'madaravet_export', 'posts', `${enc}.html`);
-      if (fs.existsSync(p3)) return p3;
-    } catch (e) {}
-    // try replacing dashes/plus
-    const alt = candidate.replace(/\+/g, '-');
-    const p4 = path.join(process.cwd(), 'madaravet_export', 'posts', `${alt}.html`);
-    if (fs.existsSync(p4)) return p4;
-    return null;
-  }
+    // Next.js may pass URL-encoded or decoded params depending on how the route was accessed
+    // Try to decode if it looks like it's encoded
+    if (slug && slug.includes('%')) {
+      try {
+        slug = decodeURIComponent(slug);
+      } catch (e) {
+        // If decoding fails, use as-is
+      }
+    }
 
-  const foundPath = findPostPath(slug);
-  if (!foundPath) {
+    // Find post file for slug
+    function findPostPath(candidate: string) {
+      const postPath = path.join(process.cwd(), 'madaravet_export', 'posts', `${candidate}.html`);
+      if (fs.existsSync(postPath)) return postPath;
+      return null;
+    }
+
+    const foundPath = findPostPath(slug);
+    if (!foundPath) {
+      console.error('Post not found for slug:', slug, 'slug bytes:', Buffer.from(slug, 'utf8').toString('hex'));
+      // List available posts for debugging
+      const postsDir = path.join(process.cwd(), 'madaravet_export', 'posts');
+      const availablePosts = fs.readdirSync(postsDir).filter(f => f.endsWith('.html')).map(f => f.replace('.html', ''));
+      console.error('Available posts:', availablePosts);
+      return (
+        <section className="max-w-screen-md mx-auto px-4 py-20">
+          <h1>Статия не е намерена</h1>
+          <p>Статията с този адрес не съществува. Попитайте търсеният slug: {slug}</p>
+        </section>
+      );
+    }
+
+    let raw = fs.readFileSync(foundPath, 'utf8');
+    // attempt to extract content inside <body>
+    const bodyMatch = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    const content = bodyMatch ? bodyMatch[1] : raw;
+    const inlined = inlineImagesInHtml(content, slug);
+
+    return (
+      <article className="article-page max-w-screen-md mx-auto px-4 py-10">
+        <div dangerouslySetInnerHTML={{ __html: inlined }} />
+      </article>
+    );
+  } catch (error) {
+    console.error('Error rendering blog article:', error);
     return (
       <section className="max-w-screen-md mx-auto px-4 py-20">
-        <h1>Статия не е намерена</h1>
-        <p>Статията с този адрес не съществува.</p>
+        <h1>Грешка при зареждане на статията</h1>
+        <p>Възникна грешка при зареждане на статията. Моля, опитайте отново по-късно.</p>
       </section>
     );
   }
-
-  let raw = fs.readFileSync(foundPath, 'utf8');
-  // attempt to extract content inside <body>
-  const bodyMatch = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-  const content = bodyMatch ? bodyMatch[1] : raw;
-  const inlined = inlineImagesInHtml(content, slug);
-
-  return (
-    <article className="article-page max-w-screen-md mx-auto px-4 py-10">
-      <div dangerouslySetInnerHTML={{ __html: inlined }} />
-
-    </article>
-  );
 }
