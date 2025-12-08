@@ -80,9 +80,10 @@ export default function RootLayout({
           <Header />
           <main className="main-content">
             {children}
-            <div id="working-hours-section">
+           
               <WorkingHoursSection />
-            </div>
+            <div className="circles-background-container"><div className="circle circle-large"></div><div className="circle circle-medium" ></div><div className="circle circle-small"></div></div>
+   
           </main>
           <Footer />
         </TranslationProvider>

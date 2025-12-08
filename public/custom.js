@@ -65,12 +65,16 @@ async function initAnimations() {
     },
     breakpoints: {
       0: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
+        slidesPerView: 5,
+        slidesPerGroup: 1,
+        centeredSlides: true,
+        spaceBetween: 8,
       },
       640: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+          centeredSlides: true,
+  spaceBetween: 20,
       },
       1024: {
         slidesPerView: 4,

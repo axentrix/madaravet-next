@@ -186,7 +186,7 @@ body {
 }
 
 #home-page {
-  background-color: #F6FEFF;
+ 
   color: #1e3a8a;
   overflow-x: hidden;
 }
@@ -207,7 +207,9 @@ body {
   width: 100%;
   max-width: 1300px;
   height: 688px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.20) 100%), #E6ECEE;
+  background-color: rgba(230, 236, 238, 0.4);
+  backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   border-radius: 44px;
   overflow: hidden;
 }
@@ -442,7 +444,7 @@ body {
 .za-nas-page .hero-section {
   align-self: stretch;
   min-height: 60vh;
-  max-width: 1200px;
+  max-width: 1280px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -1119,7 +1121,7 @@ article main{
 .hero-banner-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -1159,7 +1161,7 @@ article main{
   align-items: flex-start;
   gap: 24px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -1431,6 +1433,136 @@ section{
   color: #303030;
 }
 
+/* Quality Services Section */
+.quality-services-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  margin: 24px 0;
+}
+
+.quality-services-container {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  max-width: 1280px;
+  background-color: #F0F4F6;
+  border-radius: 24px;
+  padding: 48px;
+}
+
+.quality-services-image-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quality-services-image {
+  width: 100%;
+  height: auto;
+  max-height: 479px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.quality-services-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.quality-services-logo {
+  width: 108px;
+  height: 99px;
+}
+
+.quality-services-title {
+  font-family: var(--font-raleway), -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: normal;
+  color: #2A2F35;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .quality-services-container {
+    gap: 48px;
+    padding: 40px;
+  }
+
+  .quality-services-title {
+    font-size: 32px;
+  }
+
+  .quality-services-logo {
+    width: 90px;
+    height: 82px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quality-services-section {
+    padding: 24px 16px;
+  }
+
+  .quality-services-container {
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 24px;
+  }
+
+  .quality-services-image-wrapper {
+    width: 100%;
+  }
+
+  .quality-services-image {
+    max-height: 350px;
+  }
+
+  .quality-services-content {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .quality-services-title {
+    font-size: 28px;
+  }
+
+  .quality-services-logo {
+    width: 80px;
+    height: 73px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quality-services-container {
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  .quality-services-title {
+    font-size: 24px;
+  }
+
+  .quality-services-image {
+    max-height: 280px;
+  }
+
+  .quality-services-logo {
+    width: 70px;
+    height: 64px;
+  }
+}
+
 /* Working Hours Section */
 .working-hours-section {
   position: relative;
@@ -1439,8 +1571,8 @@ section{
   align-items: center;
   justify-content: center;
 
-  margin: 0 auto;
-  max-width: 1400px;
+  margin: 24px auto;
+  max-width: 1280px;
 }
 
 .working-hours-container {
@@ -1450,7 +1582,7 @@ section{
   width: 100%;
   padding: 44px 64px;
   border-radius: 24px;
-  background: #4868EC;
+  background: rgba(72,104,236, 0.8);
 }
 
 .hours-content {
@@ -1526,7 +1658,7 @@ section{
   object-fit: cover;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .working-hours-container {
     padding: 40px 48px;
     gap: 20px;
@@ -1649,7 +1781,7 @@ section{
   visibility: hidden;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
   .hours-circle {
     max-width: 900px;
     padding: 120px;
@@ -2012,7 +2144,7 @@ section{
 .services-cards {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 44px;
   align-self: stretch;
 }
@@ -2092,19 +2224,52 @@ section{
 
 /* ensure swiper-slide sizing makes cards look like phantom */
 .swiper-slide { width: 320px !important; }
+
 @media (max-width: 420px) { 
+  .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
   .swiper-slide { 
-    width: 92% !important;
+    width: 85% !important;
     display: flex !important;
     justify-content: center !important;
-  } 
+    align-items: center !important;
+    flex-shrink: 0;
+  }
+  /* Add padding to swiper to center slides properly */
+  .swiper {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  /* Add invisible slide padding for visual centering effect */
+  .swiper-wrapper {
+    padding-left: calc(7.5% + 20px) !important;
+  }
 }
+
 @media (min-width: 421px) and (max-width: 767px) { 
+  .swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
   .swiper-slide { 
     width: 80% !important;
     display: flex !important;
     justify-content: center !important;
-  } 
+    align-items: center !important;
+    flex-shrink: 0;
+  }
+  .swiper {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .swiper-wrapper {
+    padding-left: calc(10% + 20px) !important;
+  }
 }
+
 @media (min-width: 768px) and (max-width: 991px) { .swiper-slide { width: calc((100% - 16px) / 2) !important; } }
 @media (min-width: 992px) { .swiper-slide { width: calc((100% - 32px) / 3) !important; } }
