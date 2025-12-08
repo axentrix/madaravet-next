@@ -587,7 +587,7 @@ body {
     .owner-info-wrapper {
         width: 100%;
         border-radius: 12px;
-        background: #d0f3ff;
+     background: rgb(208 243 255 / 60%);
         margin-bottom:24px;
     }
 .owner-info-container {
@@ -1764,12 +1764,14 @@ section{
     width: 90px;
     font-size: 12px;
   }
-
+ .time-special{
+  width:130px;
+ }
   .time-morning,
-  .time-afternoon,
-  .time-special {
-    width: 85px;
-    font-size: 12px;
+  .time-afternoon
+  {
+    width: 95px;
+    font-size: 14px;
   }
 }
 
