@@ -725,6 +725,12 @@ color:#ffffff;
 }
 
 @media (orientation:portrait) and (max-width: 767px) {
+  .hero-description-container{
+    flex:1;
+  }
+  hero-title{
+            max-width: 90%;
+  }
 header{
   padding:0 !important;
 }
