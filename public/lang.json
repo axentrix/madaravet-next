@@ -1,5 +1,6 @@
 {
   "en": {
+    "header_subtitle": "Dr. Juliana Sokolova",
     "header_worktime": "Work time",
     "header_phone1": "0882988585",
     "header_phone2": "024428585",
@@ -88,6 +89,7 @@
     "internship_text": "Completed internships in:<br />• Duisburg (Kaiserberg Veterinary Clinic)<br />• Bochum (Dr. Hesse Clinic)<br />• Marburg (Dr. Birke Clinic)"
   },
   "bg": {
+    "header_subtitle": "Д-р Юлиана Соколова",
     "header_worktime": "Работно време",
     "header_phone1": "0882988585",
     "header_phone2": "024428585",

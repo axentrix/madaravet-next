@@ -14,8 +14,8 @@ export default function Footer() {
           <div className="footer-left flex flex-col items-start gap-6 w-full md:w-auto">
             <Link href="/" aria-label="Home" className="footer-logo-link">
               <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/4f01c17a3e7c7e39392bda7cb892bf8d0eb1683d?width=512" 
-                alt="MadaraVet Logo" 
+                src="/images/4f01c17a3e7c7e39392bda7cb892bf8d0eb1683d.png"
+                alt="MadaraVet Logo"
                 className="footer-logo max-w-[256px] w-full h-auto"
               />
             </Link>

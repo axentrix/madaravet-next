@@ -62,8 +62,8 @@ export default function WorkingHoursSection() {
         
         <div className="hours-image-wrapper">
           <img 
-            src="https://api.builder.io/api/v1/image/assets/TEMP/308ca62ad79a6ae658ebc5dc5106f40826f8f4aa?width=1240" 
-            alt="Veterinary clinic staff" 
+            src="/images/308ca62ad79a6ae658ebc5dc5106f40826f8f4aa.png"
+            alt="Veterinary clinic staff"
             className="hours-image"
           />
         </div>

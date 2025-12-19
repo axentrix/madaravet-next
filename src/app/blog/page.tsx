@@ -78,21 +78,32 @@ async function getPosts(): Promise<Post[]> {
   return posts;
 }
 
-function getFirstImageDataURL(slug: string): string | null {
+function getImageDataURL(slug: string, filename?: string): string | null {
   try {
     const imgDir = path.join(process.cwd(), 'madaravet_export', 'images', slug);
     if (!fs.existsSync(imgDir)) return null;
-    const files = fs.readdirSync(imgDir).filter(f => /\.(jpe?g|png|webp|gif)$/i.test(f));
-    if (!files || files.length === 0) return null;
-    const first = files[0];
-    const imgPath = path.join(imgDir, first);
+    
+    let targetFile: string;
+    if (filename) {
+      // Use specific filename if provided
+      targetFile = filename;
+    } else {
+      // Otherwise get first file alphabetically
+      const files = fs.readdirSync(imgDir).filter(f => /\.(jpe?g|png|webp|gif)$/i.test(f));
+      if (!files || files.length === 0) return null;
+      targetFile = files[0];
+    }
+    
+    const imgPath = path.join(imgDir, targetFile);
+    if (!fs.existsSync(imgPath)) return null;
+    
     const buf = fs.readFileSync(imgPath);
-    const ext = path.extname(first).toLowerCase().replace('.', '');
+    const ext = path.extname(targetFile).toLowerCase().replace('.', '');
     const mime = ext === 'jpg' ? 'jpeg' : ext;
     const b64 = buf.toString('base64');
     return `data:image/${mime};base64,${b64}`;
   } catch (e) {
-    console.error('getFirstImageDataURL error', e);
+    console.error('getImageDataURL error', e);
     return null;
   }
 }
@@ -103,7 +114,8 @@ export default async function BlogPage() {
   // attach image data URLs synchronously on the server so client swiper receives them
   const postsWithImages = posts.map(p => ({
     ...p,
-    image: getFirstImageDataURL(p.slug) || null
+    // Prioritize custom image from posts.json, then try directory scan with optional filename
+    image: (p as any).image || getImageDataURL(p.slug, (p as any).image_filename) || null
   }));
 
   return (

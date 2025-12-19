@@ -48,6 +48,36 @@ function inlineImagesInHtml(html: string, slug: string): string {
   return result;
 }
 
+function getImageDataURL(slug: string, filename?: string): string | null {
+  try {
+    const imgDir = path.join(process.cwd(), 'madaravet_export', 'images', slug);
+    if (!fs.existsSync(imgDir)) return null;
+    
+    let targetFile: string;
+    if (filename) {
+      // Use specific filename if provided
+      targetFile = filename;
+    } else {
+      // Otherwise get first file alphabetically
+      const files = fs.readdirSync(imgDir).filter(f => /\.(jpe?g|png|webp|gif)$/i.test(f));
+      if (!files || files.length === 0) return null;
+      targetFile = files[0];
+    }
+    
+    const imgPath = path.join(imgDir, targetFile);
+    if (!fs.existsSync(imgPath)) return null;
+    
+    const buf = fs.readFileSync(imgPath);
+    const ext = path.extname(targetFile).toLowerCase().replace('.', '');
+    const mime = ext === 'jpg' ? 'jpeg' : ext;
+    const b64 = buf.toString('base64');
+    return `data:image/${mime};base64,${b64}`;
+  } catch (e) {
+    console.error('getImageDataURL error', e);
+    return null;
+  }
+}
+
 export default async function ArticlePage({ params }: Props) {
   try {
     const resolvedParams = await params;
@@ -61,6 +91,31 @@ export default async function ArticlePage({ params }: Props) {
       } catch (e) {
         // If decoding fails, use as-is
       }
+    }
+
+    // Load posts.json to get post metadata including image
+    const postsJsonPath = path.join(process.cwd(), 'madaravet_export', 'posts.json');
+    let posts: any[] = [];
+    let currentPost: any = null;
+    let postIndex = -1;
+    
+    if (fs.existsSync(postsJsonPath)) {
+      try {
+        const postsJson = fs.readFileSync(postsJsonPath, 'utf8');
+        posts = JSON.parse(postsJson);
+        postIndex = posts.findIndex(p => p.slug === slug);
+        if (postIndex >= 0) {
+          currentPost = posts[postIndex];
+        }
+      } catch (e) {
+        console.error('Error loading posts.json:', e);
+      }
+    }
+
+    // Determine the featured image
+    let featuredImage = null;
+    if (currentPost?.image) {
+      featuredImage = currentPost.image;
     }
 
     // Find post file for slug
@@ -91,9 +146,56 @@ export default async function ArticlePage({ params }: Props) {
     const content = bodyMatch ? bodyMatch[1] : raw;
     const inlined = inlineImagesInHtml(content, slug);
 
+    // Extract header and main content sections to insert featured image in the right place
+    let headerContent = '';
+    let mainContent = inlined;
+    let extractedImage = '';
+    
+    // Try to extract the header section (title, date, link back)
+    const headerMatch = inlined.match(/(<header>[\s\S]*?<\/header>)/i);
+    if (headerMatch) {
+      headerContent = headerMatch[1];
+      // Remove header from main content
+      mainContent = inlined.replace(headerMatch[1], '');
+    }
+
+    // Extract the first image from content if it exists
+    const imgMatch = mainContent.match(/(<a[^>]*>)?(<img[^>]+>)((?:<\/a>)?)/i);
+    if (imgMatch) {
+      // Extract only the <img> tag (group 2), without <a> tags
+      extractedImage = imgMatch[2];
+      // Remove the entire match (including <a> tags) from main content
+      mainContent = mainContent.replace(imgMatch[0], '');
+    }
+
+    // Determine which image to show: prioritize featured image from posts.json
+    let imageToDisplay = '';
+    if (featuredImage) {
+      // Use featured image from posts.json (same as blog listing)
+      imageToDisplay = `<img src="${featuredImage}" alt="${currentPost?.title || 'Blog post image'}" class="w-full h-auto rounded-lg" />`;
+    } else if (extractedImage) {
+      // Use the extracted image from content
+      imageToDisplay = extractedImage;
+    } else {
+      // Try scanning directory with optional filename as last resort
+      const imageSrc = getImageDataURL(slug, currentPost?.image_filename);
+      if (imageSrc) {
+        imageToDisplay = `<img src="${imageSrc}" alt="${currentPost?.title || 'Blog post image'}" class="w-full h-auto rounded-lg" />`;
+      }
+    }
+
     return (
       <article className="article-page max-w-screen-md mx-auto px-4 py-10">
-        <div dangerouslySetInnerHTML={{ __html: inlined }} />
+        {/* Title, Date, Link Back */}
+        {headerContent && <div dangerouslySetInnerHTML={{ __html: headerContent }} />}
+        
+        {/* Featured Image */}
+        {imageToDisplay && (
+          <div className="featured-image mb-8" dangerouslySetInnerHTML={{ __html: imageToDisplay }} />
+        )}
+        
+        {/* Main Content */}
+        <div dangerouslySetInnerHTML={{ __html: mainContent }} />
       </article>
     );
   } catch (error) {

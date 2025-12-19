@@ -32,12 +32,12 @@ export default function ServicesClient() {
       <section className="services-hero">
         <div className="hero-image-wrapper">
           <img 
-            src="https://api.builder.io/api/v1/image/assets/TEMP/a056edc7a36d1c06ac38264667fdd6f4f759149f?width=2400" 
-            alt="MadaraVet Services" 
+            src="/images/a056edc7a36d1c06ac38264667fdd6f4f759149f.png"
+            alt="MadaraVet Services"
             className="hero-banner"
           />
           <img 
-            src="https://api.builder.io/api/v1/image/assets/TEMP/a34c1bcf3a52820f290388bdab8f338f6902a4cb?width=475" 
+            src="/images/a34c1bcf3a52820f290388bdab8f338f6902a4cb.png" 
             alt="Logo" 
             className="hero-logo"
           />
@@ -58,9 +58,9 @@ export default function ServicesClient() {
 
       <section className="services-title">
         <h1 className="title-text">
-          <span className="title-blue" data-i18n="company_name">Мадара вет</span>
+          <span className="hero-title title-blue" data-i18n="company_name">Мадара вет</span>
           {' '}
-          <span className="title-red" data-i18n="services_heading">УСЛУГИ</span>
+          <span className="hero-title title-red" data-i18n="services_heading">УСЛУГИ</span>
         </h1>
       </section>
 
@@ -76,7 +76,7 @@ export default function ServicesClient() {
         <div className="cards-wrapper">
           <div className="service-image-container">
             <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/faec516e4685c7a35f85075370206aaf70ddc0f9?width=870" 
+              src="/images/faec516e4685c7a35f85075370206aaf70ddc0f9.png" 
               alt="Kitten" 
               className="service-main-image"
             />
@@ -86,7 +86,7 @@ export default function ServicesClient() {
             <div className="service-circle service-circle-green">
               <div className="circle-icon-wrapper">
                 <img 
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/2502f593de911d2af0e17fa025aec209fd0f196c?width=120" 
+                  src="/images/service1.png" 
                   alt="Test icon" 
                   className="circle-icon"
                 />
@@ -97,7 +97,7 @@ export default function ServicesClient() {
             <div className="service-circle service-circle-cyan">
               <div className="circle-icon-wrapper">
                 <img 
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/db17e0bd97d0efaee3f0ff160bb4dcd9a9824b1c?width=120" 
+                  src="/images/service3.png" 
                   alt="Hospital icon" 
                   className="circle-icon"
                 />
@@ -108,7 +108,7 @@ export default function ServicesClient() {
             <div className="service-circle service-circle-pink">
               <div className="circle-icon-wrapper circle-icon-right">
                 <img 
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/0148673fb5abbf3e3d21120016a4739cb9d13357?width=120" 
+                  src="/images/service2.png" 
                   alt="Dog icon" 
                   className="circle-icon"
                 />

@@ -70,7 +70,7 @@ export default function TimelineSection() {
         {/* Right Column - Image */}
         <div className="timeline-right flex-shrink-0 w-full lg:w-auto">
           <img 
-            src="https://api.builder.io/api/v1/image/assets/TEMP/1a24856c5cc134e75f8bd5c039afb786fae0f425?width=1147" 
+            src="/images/1a24856c5cc134e75f8bd5c039afb786fae0f425.png"
             alt="Д-р Юлиана Соколова"
             className="timeline-doctor-image w-full lg:w-[573px] h-auto aspect-square rounded-[24px] object-cover"
           />

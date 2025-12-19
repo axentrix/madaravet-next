@@ -8,19 +8,19 @@ export default function ServicesSection() {
       </h2>
 
       <div className=" flex justify-center items-start gap-11 w-full flex-wrap">
-        <div className="flex flex-col justify-center items-center gap-3 flex-1 min-w-[280px] h-[300px] rounded-[24px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/bf380c429ad7a98bf3e47059bc582cf3766eb963?width=869')" }}>
+        <div className="flex flex-col justify-center items-center gap-3 flex-1 min-w-[280px] h-[300px] rounded-[24px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/bf380c429ad7a98bf3e47059bc582cf3766eb963.png')" }}>
           <div className="service-label flex h-16 px-4 py-3 justify-center items-center gap-2.5 rounded-[48px] bg-white mt-auto mb-4">
             <span className="text-[#182559] text-lg font-bold leading-6" suppressHydrationWarning data-i18n="service1_label">Диагностични тестове</span>
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center gap-3 flex-1 min-w-[280px] h-[300px] rounded-[24px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/4f274a883bc24a9c47b65489bb8b87fe6c161054?width=869')" }}>
+        <div className="flex flex-col justify-center items-center gap-3 flex-1 min-w-[280px] h-[300px] rounded-[24px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/4f274a883bc24a9c47b65489bb8b87fe6c161054.png')" }}>
           <div className="service-label flex h-16 px-4 py-3 justify-center items-center gap-2.5 rounded-[48px] bg-white mt-auto mb-4">
             <span className="text-[#182559] text-lg font-bold leading-6" suppressHydrationWarning data-i18n="service2_label">Хирургично лечение</span>
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center gap-3 flex-1 min-w-[280px] h-[300px] rounded-[24px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/a0ab34c309401396fc970780fec9d5ed5f970158?width=869')" }}>
+        <div className="flex flex-col justify-center items-center gap-3 flex-1 min-w-[280px] h-[300px] rounded-[24px] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/a0ab34c309401396fc970780fec9d5ed5f970158.png')" }}>
           <div className="service-label flex h-16 px-4 py-3 justify-center items-center gap-2.5 rounded-[48px] bg-white mt-auto mb-4">
             <span className="text-[#182559] text-lg font-bold leading-6" suppressHydrationWarning data-i18n="service3_label">Индивидуална профилактика  ❤️</span>
           </div>

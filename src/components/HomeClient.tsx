@@ -1,9 +1,45 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import ServicesSection from './ServicesSection';
 
 export default function HomeClient() {
   const [mounted, setMounted] = useState(false);
+
+  // All available gallery2 images
+  const allGalleryImages = [
+    '/images/gallery2/51145961_1992992414120340_6911723799519952896_n.jpg',
+    '/images/gallery2/56679372_2095380120548235_778669831233732608_n.jpg',
+    '/images/gallery2/60860598_2160440467375533_5767726970666221568_n.jpg',
+    '/images/gallery2/74913045_2435858713167039_8473569509746147328_n.jpg',
+    '/images/gallery2/487181771_1199538652177460_331661087352677290_n.jpg',
+    '/images/gallery2/487976955_1204896294975029_3511982287838473220_n.jpg',
+    '/images/gallery2/488596322_1207014321429893_2770928999488406711_n.jpg',
+    '/images/gallery2/489041780_1207933254671333_5665168348364972598_n.jpg',
+    '/images/gallery2/508598614_9926999414052894_6747416861524171816_n.jpg',
+    '/images/gallery2/508781699_9956936011059234_6731476482924800124_n.jpg',
+    '/images/gallery2/509487721_9965298856889616_3466369807257640176_n.jpg',
+    '/images/gallery2/513077122_10003785303040971_1516844213520570874_n.jpg',
+    '/images/gallery2/513854990_10010074005745434_4044966397457742737_n.jpg',
+    '/images/gallery2/513909700_10014585241960977_4443050142378929608_n.jpg',
+    '/images/gallery2/513958407_10012046038881564_7947925525594468327_n.jpg',
+    '/images/gallery2/513960736_10020239938062174_4948400598322470305_n.jpg',
+    '/images/gallery2/514072803_10027887373964097_2690441150198507288_n.jpg',
+    '/images/gallery2/514404938_10028270730592428_7782635743457890256_n.jpg',
+    '/images/gallery2/518958992_1291667636297894_1052137916919051452_n.jpg',
+    '/images/gallery2/527203419_1311394700991854_8485151711273202946_n.jpg',
+    '/images/gallery2/545701092_1345235987607725_7006015997764271487_n.jpg',
+    '/images/gallery2/546458318_1345236140941043_4257522582762253424_n.jpg',
+    '/images/gallery2/568565413_1386131103518213_1454399386112199833_n.jpg',
+    '/images/gallery2/582178697_1406676038130386_2911256085704917233_n.jpg',
+    '/images/gallery2/582305179_1406675951463728_8615291784911888591_n.jpg',
+    '/images/gallery2/588763161_1416296230501700_5073085578544864621_n.jpg',
+  ];
+
+  // Randomly select 16 images (memoized so it doesn't change on re-renders)
+  const randomGalleryImages = useMemo(() => {
+    const shuffled = [...allGalleryImages].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 16);
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -77,7 +113,11 @@ export default function HomeClient() {
           <div className="hero-container">
             <div className="hero-info-chips">
               <div className="info-chip">
-                <img src="https://api.builder.io/api/v1/image/assets/TEMP/449be3664ee1a46544b6055a8002f47e7cd8a8a4?width=49" alt="location" className="chip-icon" />
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.293 3.04834C14.4729 3.04834 16.5639 3.91423 18.1055 5.45557C19.6145 6.96446 20.478 9.00152 20.5127 11.1353C20.5473 13.2691 19.7504 15.333 18.291 16.8901L18.1055 17.0815L13.7588 21.4272C13.3868 21.7989 12.8879 22.0153 12.3623 22.0327C11.8408 22.0499 11.3319 21.87 10.9375 21.5288L10.8057 21.4048L6.48047 17.0806C4.93914 15.539 4.07324 13.448 4.07324 11.2681C4.07334 9.0881 4.93899 6.99705 6.48047 5.45557C8.02195 3.91409 10.113 3.04844 12.293 3.04834ZM12.293 7.19482C11.7582 7.19487 11.2285 7.30071 10.7344 7.50537C10.2403 7.71007 9.79128 8.00999 9.41309 8.38818C9.0349 8.76637 8.73498 9.21536 8.53027 9.70947C8.32562 10.2036 8.21978 10.7333 8.21973 11.2681C8.21973 11.803 8.32557 12.3334 8.53027 12.8276C8.73497 13.3217 9.03495 13.7708 9.41309 14.1489C9.79127 14.5271 10.2403 14.8271 10.7344 15.0317C11.2285 15.2364 11.7582 15.3413 12.293 15.3413C13.3733 15.3413 14.4099 14.9128 15.1738 14.1489C15.9377 13.385 16.3662 12.3484 16.3662 11.2681C16.3661 10.1879 15.9376 9.15199 15.1738 8.38818C14.4099 7.62428 13.3733 7.19482 12.293 7.19482Z" stroke="#4868EC" strokeWidth="2"/>
+</svg>
+
+                
                 <span data-i18n="section1_address">ул. Тунджа 22 1606 СофиЯ</span>
               </div>
               <div className="info-chip">
@@ -105,7 +145,7 @@ export default function HomeClient() {
            
           </div>
            <div className="hero-image-wrapper">
-              <img src="https://api.builder.io/api/v1/image/assets/TEMP/ac4e0fc5c38342d112f11dbdc90966eadd496a34?width=2126" alt="Hero image container" className="hero-main-image" />
+              <img src="/images/ac4e0fc5c38342d112f11dbdc90966eadd496a34.png" alt="Hero image container" className="hero-main-image" />
             </div>
         </div>
       </section>
@@ -116,7 +156,7 @@ export default function HomeClient() {
         <div className="quality-services-container">
           <div className="quality-services-image-wrapper">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/868cd1376e0694256f9aeaad40258acb0bef6a25?width=1224"
+              src="/images/868cd1376e0694256f9aeaad40258acb0bef6a25.png"
               alt="High quality veterinary services"
               className="quality-services-image"
             />
@@ -150,22 +190,11 @@ export default function HomeClient() {
 
           <div className="swiper mySwiper w-full">
             <div className="swiper-wrapper">
-              <div className="swiper-slide"><img src="/images/gallery/1.jpg" alt="1" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/2.jpg" alt="2" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/3.jpg" alt="3" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/4.jpg" alt="4" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/5.jpg" alt="5" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/6.jpg" alt="6" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/7.jpg" alt="7" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/8.jpg" alt="8" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/9.jpg" alt="9" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/10.jpg" alt="10" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/11.jpg" alt="11" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/12.jpg" alt="12" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/13.jpg" alt="13" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/14.jpg" alt="14" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/15.jpg" alt="15" /></div>
-              <div className="swiper-slide"><img src="/images/gallery/16.jpg" alt="16" /></div>
+              {randomGalleryImages.map((imgSrc, index) => (
+                <div key={index} className="swiper-slide">
+                  <img src={imgSrc} alt={`Gallery image ${index + 1}`} />
+                </div>
+              ))}
             </div>
             <div className="swiper-pagination"></div>
           </div>
