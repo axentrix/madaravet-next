@@ -113,7 +113,6 @@ export default function TranslationProvider({ children }: { children: React.Reac
     let mounted = true;
     fetch('/lang.json').then(res => res.json()).then((data) => {
       if (!mounted) return;
-      console.log('Translations loaded:', Object.keys(data));
       setTranslations(data);
     }).catch((e) => {
       console.warn('Failed to load translations', e);
@@ -196,10 +195,8 @@ export default function TranslationProvider({ children }: { children: React.Reac
       if (isApplying) return; // Prevent concurrent applications
       isApplying = true;
       
-      console.log('Applying translations for locale:', locale);
       const dict = translations[locale] || {};
       const elements = document.querySelectorAll('[data-i18n]');
-      console.log('Found elements with data-i18n:', elements.length);
       
       elements.forEach((el) => {
         const key = el.getAttribute('data-i18n') || '';
@@ -210,7 +207,6 @@ export default function TranslationProvider({ children }: { children: React.Reac
           
           // Only update if the value has actually changed
           if (lastApplied !== val) {
-            console.log('Translating', key, 'to:', val);
             htmlEl.innerHTML = val;
             appliedValues.set(el, val);
           }
@@ -250,7 +246,6 @@ export default function TranslationProvider({ children }: { children: React.Reac
       clearTimeout(observerTimeout);
       observerTimeout = setTimeout(() => {
         if (!isApplying) {
-          console.log('New content detected, reapplying translations');
           debouncedApply();
         }
       }, 200);
