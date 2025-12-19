@@ -618,6 +618,7 @@ color:#ffffff;
 .swiper-slide img {
   width: 100%;
   height: auto;
+  min-height:100%;
   max-width: 100%;
   object-fit: cover; /* or cover depending on your need */
   display: block;
@@ -725,6 +726,12 @@ color:#ffffff;
 }
 
 @media (orientation:portrait) and (max-width: 767px) {
+  .hero-description-container{
+    justify-content:space-between;
+  }
+  .title-text img{
+    display:none;
+  }
   .hero-description-container{
     flex:1;
   }

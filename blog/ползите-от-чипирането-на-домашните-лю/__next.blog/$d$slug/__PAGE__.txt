@@ -1,12 +1,8 @@
 1:"$Sreact.fragment"
 3:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-2:Tf8f,
-  <header>
-    <h1>Ползите от чипирането на домашните любимци</h1>
-    <div class='date'>април 5, 2017</div>
-    <p><a href="/blog/">← Всички статии</a></p>
-  </header>
+2:Tead,
+  
   <main class="content">
     <html><body><div class="post-entry">
 <p>От няколко години се водят дискусии относно ползите от поставянето на микрочипове на домашните кучета и котки. Ще ви представим няколко важни и полезни аспекта засягащи тази ветеринарномедицинска процедура.</p>
@@ -24,5 +20,5 @@
 При изгубване на животното могат да ви го върнат чрез данните записани в микрочипа и прочетени от ветеринарен лекар с четец.<br/>
 При кражба на животното можете да удостоверите чрез номера на чипа, че Вие сте собственика му.<br/>
 Можете да пътувате спокойно с вашия любимец извън България.</p>
-</div>0:{"buildId":"eZLbOA-9xIUkWT9Bx5TTA","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-10","children":["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+</div>0:{"buildId":"2jjA_keGx1s1LjamJfPmO","rsc":["$","$1","c",{"children":[["$","article",null,{"className":"article-page max-w-screen-md mx-auto px-4 py-10","children":[["$","div",null,{"dangerouslySetInnerHTML":{"__html":"<header>\r\n    <h1>Ползите от чипирането на домашните любимци</h1>\r\n    <div class='date'>април 5, 2017</div>\r\n    <p><a href=\"/blog/\">← Всички статии</a></p>\r\n  </header>"}}],["$","div",null,{"className":"featured-image mb-8","dangerouslySetInnerHTML":{"__html":"<img src=\"/images/gallery2/513909700_10014585241960977_4443050142378929608_n.jpg\" alt=\"Ползите от чипирането на домашните любимци\" class=\"w-full h-auto rounded-lg\" />"}}],["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null
