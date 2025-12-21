@@ -1,6 +1,19 @@
 # Heatmap Feature
 
-A click heatmap has been implemented on the homepage to visualize user interactions and behavior patterns.
+A **custom click heatmap** has been implemented on the homepage to visualize user interactions and behavior patterns.
+
+## Important Note
+
+This is a **custom-built heatmap**, not Mixpanel's built-in heatmap feature. It works independently and requires no additional configuration in Mixpanel. The heatmap is already active and ready to use!
+
+## No URL Configuration Needed
+
+Unlike Mixpanel's paid heatmap feature, this custom heatmap:
+- ✅ Works immediately on your website
+- ✅ Is completely free
+- ✅ Requires no dashboard configuration
+- ✅ Tracks clicks automatically on the homepage
+- ✅ Sends data to Mixpanel for analytics
 
 ## Features
 
@@ -24,10 +37,17 @@ When the heatmap is visible, you'll see:
 
 ## How to Use
 
-1. **Navigate to the homepage** and start clicking around
-2. **Press `Ctrl+Shift+H`** to toggle the heatmap visualization
-3. **View the heatmap** to see where users are clicking most
-4. **Clear data** by clicking the "Clear Data" button in the info panel
+### Quick Start
+1. **Visit your homepage**: `https://madaravet.com/`
+2. **Click around** on various elements (buttons, images, links, etc.)
+3. **Press `Ctrl+Shift+H`** to toggle the heatmap visualization
+4. **View red/yellow spots** showing where clicks occurred
+5. **Clear data** by clicking the "Clear Data" button in the info panel
+
+### Where It Works
+- Currently enabled only on the **homepage** (`/` route)
+- Automatically tracks all clicks
+- Data persists between page visits
 
 ## Data Storage
 
@@ -44,6 +64,14 @@ Every click is automatically tracked in Mixpanel with:
   - `x`: X coordinate
   - `y`: Y coordinate
   - `page`: Current page path
+
+### Viewing Data in Mixpanel
+1. Log in to your Mixpanel dashboard: https://mixpanel.com
+2. Go to **Events** and search for "Heatmap Click"
+3. View click coordinates and patterns
+4. Create custom reports based on click data
+
+**Note**: This is separate from Mixpanel's native heatmap feature (which requires a paid plan). Our custom heatmap sends raw click data to Mixpanel for you to analyze.
 
 ## Configuration
 
