@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TranslationProvider from "../components/TranslationProvider";
 import WorkingHoursSection from "../components/WorkingHoursSection";
+import MixpanelProvider from "../components/MixpanelProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,17 +88,19 @@ export default function RootLayout({
             gtag('config', 'G-WT554JVCVS');
           `}
         </Script>
-        <TranslationProvider>
-          <Header />
-          <main className="main-content">
-            {children}
-           
-              <WorkingHoursSection />
-            <div className="circles-background-container"><div className="circle circle-large"></div><div className="circle circle-medium" ></div><div className="circle circle-small"></div></div>
-   
-          </main>
-          <Footer />
-        </TranslationProvider>
+        <MixpanelProvider>
+          <TranslationProvider>
+            <Header />
+            <main className="main-content">
+              {children}
+             
+                <WorkingHoursSection />
+              <div className="circles-background-container"><div className="circle circle-large"></div><div className="circle circle-medium" ></div><div className="circle circle-small"></div></div>
+     
+            </main>
+            <Footer />
+          </TranslationProvider>
+        </MixpanelProvider>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>

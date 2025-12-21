@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://madaravet.com/",
-
-
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -14,7 +12,10 @@
     "deploy": "gh-pages -d out -t"
   },
   "dependencies": {
+    "@types/heatmap.js": "^2.0.41",
     "gsap": "^3.13.0",
+    "heatmap.js": "^2.0.5",
+    "mixpanel-browser": "^2.72.0",
     "next": "16.0.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",
