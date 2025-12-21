@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="footer-container max-w-screen-xl mx-auto">
         <div className="footer-content bg-[#182559] rounded-[24px] px-6 md:px-11 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="footer-left flex flex-col items-start gap-6 w-full md:w-auto">
-            <Link href="/" aria-label="Home" className="footer-logo-link">
+            <Link href="/" prefetch={false} aria-label="Home" className="footer-logo-link">
               <img 
                 src="/images/4f01c17a3e7c7e39392bda7cb892bf8d0eb1683d.png"
                 alt="MadaraVet Logo"

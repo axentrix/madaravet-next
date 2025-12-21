@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    optimizePackageImports: ['mixpanel-browser'],
+  },
+  // Disable server-side prefetching for static export
+  reactStrictMode: true,
 };
 
 export default nextConfig;
