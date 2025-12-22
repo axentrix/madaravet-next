@@ -1,3 +1,5 @@
+'use client';
+
 import mixpanel from './mixpanel';
 
 // Helper functions for tracking common events
