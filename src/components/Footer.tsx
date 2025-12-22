@@ -73,7 +73,7 @@ export default function Footer() {
                 className="hover:opacity-80 transition-opacity"
                 suppressHydrationWarning
               >
-                +888 198 585
+                 0882988585
               </a>
             </div>
           </div>

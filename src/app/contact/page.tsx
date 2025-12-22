@@ -22,7 +22,7 @@ export default function ContactPage() {
             <div className="address-card">
               <h5 className="address-title" data-i18n="contact_address_label" suppressHydrationWarning>MadaraVet</h5>
               <p className="address-text" data-i18n="contact_address_text" suppressHydrationWarning>
-                Тел: +888 198 585 ул. Тунджа 22 1606 София
+                Тел:  0882988585 ул. Тунджа 22 1606 София
               </p>
             </div>
 
