@@ -1,10 +1,11 @@
 # Mixpanel Tracking Fix
 
 ## Problem
-Mixpanel dashboard was showing "We couldn't find any data for your query" because events were not being tracked.
+Mixpanel dashboard was showing "We couldn't find any data for your query" with no users appearing in the dashboard, even though session replays were working.
 
-## Root Cause
-The Mixpanel library (`mixpanel-browser`) was being initialized on the server-side in Next.js, but it only works in the browser environment. This caused the initialization to fail silently, resulting in no events being tracked.
+## Root Causes
+1. The Mixpanel library (`mixpanel-browser`) was being initialized on the server-side in Next.js, but it only works in the browser environment. This caused the initialization to fail silently, resulting in no events being tracked.
+2. Users were not being properly identified with `mixpanel.identify()`, so Mixpanel couldn't distinguish between different users and track them in the Users section.
 
 ## Solution Applied
 
@@ -16,9 +17,13 @@ The Mixpanel library (`mixpanel-browser`) was being initialized on the server-si
 - Changed `track_pageview: false` to manually control page view tracking
 
 ### 2. Updated `src/components/MixpanelProvider.tsx`
-- Ensured Mixpanel initialization on component mount
-- Improved page view tracking with additional metadata (page, url, referrer)
-- Added console logs for debugging
+- **Added user identification system**: Generate unique user IDs stored in localStorage
+- **Call `mixpanel.identify(userId)`**: Critical for tracking individual users in Mixpanel
+- **Register user properties**: User Agent, Language, Platform sent with every event
+- **Track "Session Start" event**: Helps identify when users first visit the site
+- **Set user profile properties**: Updates Mixpanel People profiles (if available)
+- Improved page view tracking with additional metadata including distinct_id
+- Added comprehensive console logs for debugging
 
 ### 3. Updated `src/lib/analytics.ts`
 - Added `'use client'` directive for client-side execution
@@ -29,16 +34,23 @@ The Mixpanel library (`mixpanel-browser`) was being initialized on the server-si
 When you run the app, you should see in the browser console:
 ```
 ✅ Mixpanel initialized successfully
-Tracked page view: /
+🆔 Created new user ID: user_1766401034632_rz2mkfg2c
+✅ User identified in Mixpanel: user_1766401034632_rz2mkfg2c
+📊 Tracked Session Start
+👤 User profile updated
+📊 Tracked Page View: /
 ```
 
 ### Check Mixpanel Dashboard
 1. Go to your Mixpanel dashboard
-2. Navigate to **Events** section
-3. You should now see:
-   - **Page View** events with properties (page, url, referrer)
-   - Real-time user activity
+2. Navigate to **Users** section - You should now see active users with their IDs
+3. Navigate to **Events** section
+4. You should now see:
+   - **Session Start** events (tracked when users first visit)
+   - **Page View** events with properties (page, url, referrer, distinct_id)
+   - Real-time user activity with distinct user IDs
    - Session replay data for heatmaps
+5. In the **Active Users** widgets, you should see user counts populate
 
 ### Debug Mode
 Debug mode is currently enabled (`debug: true`) which shows all Mixpanel requests in the console. This helps verify events are being sent.
