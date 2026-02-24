@@ -86,7 +86,8 @@
     "timeline_2005": "Obtained a PhD in Veterinary Medicine from Justus Liebig University, Giessen, Germany",
     "owner_text": "Since 2014 is the owner and manager of Madara Vet",
     "membership_text": "Member of the Bulgarian Veterinary Union and the German Association of Veterinarians (Deutsche Tierärztekammer)",
-    "internship_text": "Completed internships in:<br />• Duisburg (Kaiserberg Veterinary Clinic)<br />• Bochum (Dr. Hesse Clinic)<br />• Marburg (Dr. Birke Clinic)"
+    "internship_text": "Completed internships in:<br />• Duisburg (Kaiserberg Veterinary Clinic)<br />• Bochum (Dr. Hesse Clinic)<br />• Marburg (Dr. Birke Clinic)",
+    "pricelist_description": "Please contact us for detailed information about our services and prices."
   },
   "bg": {
     "header_subtitle": "Д-р Юлиана Соколова",
@@ -172,6 +173,7 @@
     "timeline_2005": "Придобива докторска степен по Ветеринарна медицина в Юстус Либиг университет, Гийсен, Германия",
     "owner_text": "От 2014 е собственик и управител на Мадара Вет",
     "membership_text": "Член е на Българския ветеринарен съюз и на Немската асоциация на ветеринарните лекари (Deutche Tierärztekammer)",
-    "internship_text": "Провела е стажове в:<br />• Дуисбург (Ветеринарна клиника Кайзерберг)<br />• Бохум (Клиника \"Д-р Хесе\")<br />• Марбург (Клиника \"Д-р Бирке\")"
+    "internship_text": "Провела е стажове в:<br />• Дуисбург (Ветеринарна клиника Кайзерберг)<br />• Бохум (Клиника \"Д-р Хесе\")<br />• Марбург (Клиника \"Д-р Бирке\")",
+    "pricelist_description": "Свържете се с нас за детайлна информация относно нашите услуги и цени."
   }
 }

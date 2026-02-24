@@ -162,6 +162,9 @@ export default function Header() {
             <Link href={locale === 'en' ? '/en/services' : '/services'} prefetch={false} className="menu-item text-[#182559] text-[14px] font-bold leading-6 hover:text-[#1872D9] transition-colors font-raleway">
               <span suppressHydrationWarning data-i18n="nav_services">Услуги</span>
             </Link>
+            <Link href={locale === 'en' ? '/en/pricelist' : '/pricelist'} prefetch={false} className="menu-item text-[#182559] text-[14px] font-bold leading-6 hover:text-[#1872D9] transition-colors font-raleway">
+              <span suppressHydrationWarning data-i18n="nav_pricing">Цени</span>
+            </Link>
             {locale === 'bg' && (
               <Link href="/blog" prefetch={false} className="menu-item text-[#182559] text-[14px] font-bold leading-6 hover:text-[#1872D9] transition-colors font-raleway">
                 <span suppressHydrationWarning data-i18n="nav_blog">Блог</span>
@@ -220,6 +223,14 @@ export default function Header() {
                   className="menu-dropdown-item text-[#182559] text-[14px] font-bold leading-6 hover:text-[#4868EC] transition-colors font-raleway"
                 >
                   <span suppressHydrationWarning data-i18n="nav_services">Услуги</span>
+                </Link>
+                <Link
+                  href={locale === 'en' ? '/en/pricelist' : '/pricelist'}
+                  prefetch={false}
+                  onClick={handleLinkClick}
+                  className="menu-dropdown-item text-[#182559] text-[14px] font-bold leading-6 hover:text-[#4868EC] transition-colors font-raleway"
+                >
+                  <span suppressHydrationWarning data-i18n="nav_pricing">Цени</span>
                 </Link>
                 {locale === 'bg' && (
                   <Link
